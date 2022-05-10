@@ -1,0 +1,464 @@
+/*Estilo Fernando Carrito*/
+.encabezado {
+    display:flex;
+    position: relative;
+    margin: 4px 6px;
+    padding: 4px;
+  }
+
+  h1.titulares {
+    color: var(--rosa);
+    padding-left:400px;
+}
+ 
+ table, th, td {
+    border-bottom: 1px solid black;
+    border-collapse: collapse;
+    padding-inline: 60px;
+  }
+
+
+.thead{
+    font-weight: bold;
+    font-size: 18px;
+   }
+
+.tint img{
+    width: 80px;
+    padding: auto;
+    vertical-align: middle;
+    font-size: 10px;
+}
+
+.ttotal {
+    width: 80px;
+    padding: auto;
+    vertical-align: middle;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+}
+
+.butons {
+    display: flex;
+    justify-content:right;
+}
+
+.butons button {
+        padding: 8px 12px;
+        margin: 8px;
+        background-color: var(--verde);
+        border: 1px solid var(--verde);
+        font-family: 'Roboto', serif;
+        color: var(--blanco);
+        border-radius: 20px;
+    }
+button:hover {
+    background-color: var(--celeste);
+    border: 1px solid var(--celeste);
+    color: var(--amarillo);
+    }
+
+/*acá termina estilo Fernando*/
+
+/* Estilos universales*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', serif;
+}
+
+:root {
+    --celeste: #54A4CB;
+    --verde: #674E3E;
+    --rosa: #C9914B;
+    --amarillo: #FFF159;
+    --blanco: #fff;
+    --gris: #3c3c3c;
+    --negro: #000;
+}
+
+/* Estilos para elementos del header */
+
+.navbarSuperior {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    background-color: var(--celeste);
+    font-size: 12px;
+    color: var(--blanco);
+    width: 100%;
+    flex-wrap: nowrap;
+    padding: 1px;
+}
+
+.navbarSuperior a {
+    text-decoration: none;
+    color: var(--blanco);
+    text-align: right;
+    padding: 5px;
+    margin: 3px;
+}
+
+.navbarSuperior a:hover {
+    color: var(--amarillo);
+}
+
+.navbarInferior {
+    background-color: var(--blanco);
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo img {
+    max-width: 130px;
+    display: flex;
+}
+
+.secciones {
+    display: none;
+}
+
+.secciones ul {
+    display: flex;
+    list-style: none;
+
+}
+
+.secciones li {
+    margin: 4px 6px;
+    padding: 4px;
+}
+
+.navbarInferior a {
+    text-decoration: none;
+    color: var(--negro);
+    padding: 4px 6px;
+    margin: 4px;
+    font-size: 18px;
+}
+
+.navbarInferior a:hover {
+    color: var(--celeste);
+}
+
+.navbarInferior input {
+    display: inline-block;
+    background-color: var(--blanco);
+    padding: 12px 10px 12px 12px;
+    border: solid 1px var(--verde);
+    border-radius: 20px;
+    font: inherit;
+}
+
+.burguer-menu {
+    display: block;
+    background-color: var(--celeste);
+    color: var(--blanco);
+    width: 0 auto;
+    padding: 6px 8px;
+    margin: 15px;
+    border-radius: 8px;
+    border: solid var(--celeste) 1px;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+/* Estilos para elementos del main */
+
+.banner img {
+    display: flex;
+    max-width: 100%;
+    justify-content: center;
+    margin: 0 auto;
+    padding-top: 3px;
+}
+
+.beneficios {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+    padding: 6px;
+    margin: 0px auto;
+    font-weight: 550;
+    color: var(--gris);
+    max-width: 98%;
+    gap: 1em;
+}
+
+.slide {
+    position: relative;
+    margin-top: 0;
+}
+
+.slide-inner {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+}
+
+.slide-open:checked+.slide-item {
+    position: static;
+    opacity: 100;
+}
+
+.slide-item {
+    position: absolute;
+    opacity: 0;
+}
+
+.slide-item img {
+    display: block;
+    max-height: 290px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.slide-control {
+    background: var(--celeste);
+    border-radius: 50%;
+    color: var(--blanco);
+    cursor: pointer;
+    display: none;
+    font-size: 30px;
+    height: 25px;
+    line-height: 20px;
+    position: absolute;
+    top: 25%;
+    text-align: center;
+    width: 25px;
+    z-index: 10;
+}
+
+.slide-control.prev {
+    left: 1%;
+}
+
+.slide-control.next {
+    right: 1%;
+}
+
+.slide-control:hover {
+    background: var(--celeste);
+    color: var(--amarillo);
+}
+
+#slide-1:checked~.control-1,
+#slide-2:checked~.control-2,
+#slide-3:checked~.control-3 {
+    display: block;
+}
+
+section {
+    padding: 5px;
+    margin: 5px;
+    text-align: center;
+}
+
+.titulares {
+    color: var(--rosa);
+    padding-bottom: 15px;
+}
+
+article {
+    margin: 4px 4px;
+    display: inline-block;
+    position: relative;
+}
+
+.card {
+    background-color: var(--blanco);
+    display: inline-block;
+    max-width: 290px;
+    border: 1px solid var(--verde);
+    margin: 4px 2px;
+}
+
+.card:hover {
+    border: 1px solid var(--celeste);
+}
+
+.card img {
+    width: 100%;
+}
+
+.card-body {
+    padding: 10px;
+    background-color: var(--blanco);
+    display: inline-block;
+}
+
+.fa-truck {
+    color: var(--celeste);
+    border: 1px solid var(--celeste);
+    border-radius: 50%;
+    background-color: var(--blanco);
+    position: absolute;
+    left: 11px;
+    top: 11px;
+    display: inline-block;
+    font-size: 16px;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    box-sizing: border-box;
+}
+
+.fa-truck:hover {
+    transition: 0.5s;
+    transform: rotate(360deg);
+}
+
+.descripciones {
+    font-size: 16px;
+    color: var(--verde);
+    display: block;
+    font-weight: 600;
+}
+
+.descripciones:hover {
+    color: var(--celeste);
+}
+
+.precios {
+    font-size: 16px;
+    font-weight: 600;
+    display: block;
+    width: 100%;
+    text-decoration: line-through;
+    padding: 3px;
+}
+
+.descuentos {
+    font-size: 16px;
+    display: block;
+    width: 100%;
+    padding: 5px;
+}
+
+.descuentos:hover {
+    color: var(--rosa);
+    font-weight: 600;
+}
+
+.card-body button {
+    padding: 8px 12px;
+    margin: 8px;
+    background-color: var(--verde);
+    border: 1px solid var(--verde);
+    font-family: 'Roboto', serif;
+    color: var(--blanco);
+    border-radius: 20px;
+}
+
+.card-body button:hover {
+    background-color: var(--celeste);
+    border: 1px solid var(--celeste);
+    color: var(--amarillo);
+}
+
+.card-body a {
+    text-decoration: none;
+}
+
+
+
+
+/* Estilos para el footer */
+
+footer {
+    background-color: var(--celeste);
+    color: var(--blanco);
+    font-size: 16px;
+}
+
+.newsletter {
+    display: flex;
+    justify-content: space-around;
+    font-size: 16px;
+    padding: 3px;
+    align-items: center;
+    padding: 3px;
+}
+
+.newsletter input {
+    padding: 6px 8px 7px;
+    font-size: 14px;
+    border: 1px solid var(--blanco);
+    background-color: var(--blanco);
+    color: var(--gris);
+}
+
+.newsletter button {
+    padding: 8px 10px;
+    margin: 8px;
+    background-color: var(--gris);
+    border: 1px solid var(--gris);
+    font-family: 'Roboto', serif;
+    color: var(--blanco);
+}
+
+.newsletter button:hover {
+    color: var(--amarillo)
+}
+
+.enlaces {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.enlaces a, .legales a {
+    text-decoration: none;
+    color: var(--blanco);
+    margin: 11px;
+    padding: 1px;
+}
+
+.enlaces a:hover, .legales a:hover {
+    color: var(--amarillo);
+}
+
+.enlaces li {
+    padding: 5px;
+    list-style: none;
+    text-align: center;
+}
+
+.legales {
+    text-align: left;
+    padding: 5px;
+}
+
+/* Estilos para diseño adaptativo */
+
+/* mobile */
+
+@media (min-width: 320px) {
+
+}
+
+/* tablet */
+@media (min-width: 768px) {
+}
+
+/* desktop */
+@media (min-width: 1024px) {
+
+    .burguer-menu {
+        display: none;
+    }
+
+    .secciones {
+        display: flex;
+    }
+}
+
