@@ -2,81 +2,72 @@
 <html lang="es">
 
 <head>
-    <!-- Metadatos: idiomas, adaptabilidad, estilos, tipografías, iconos y título -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/css/styles-reg.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="icon" href="/images/icon.png">
-    <title>Registro - Animalia</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <%- include ('../partials/head') %>
+
+        <link href="/css/styles-reg.css" rel="stylesheet">
+        <title>Registro - Animalia</title>
 </head>
 
 <body>
     <!-- Aquí comienza el header: logo, navbars y campo de búsqueda -->
     <%- include('../partials/header.ejs') %>
 
-    <!-- Aquí comienza el main FORMULARIO REGISTRO-->
-    <main>
-        <div class="barraSeparacion"></div>
-        <div class="formulario">
+        <!-- Aquí comienza el main FORMULARIO REGISTRO-->
+        <main>
+            <div class="barraSeparacion"></div>
+            <div class="formulario">
+                <h3>Completá los siguientes datos para crear tu cuenta:</h3>
+                <br>
+                <form method="POST" action="#">
+                    <label>Nombre y apellido</label>
+                    <p><input type="text" name="nombre" placeholder="Ej: Perros Gatos" minlength="4" maxlength="30"
+                            required>
+                        </input></p>
+                    <br>
+                    <label>Nombre de usuari@</label>
+                    <p><input type="text" name="usuario" placeholder="Ej: cachorro" minlength="4" maxlength="12"
+                            required>
+                        </input></p>
+                    <br>
+                    <label>E-mail</label>
+                    <p><input type="email" name="email" placeholder="Ej: perro@gato.com.ar" required>
+                        </input></p>
+                    <br>
+                    <label>Fecha de nacimiento</label>
+                    <p><input type="date" name="fecha" value="2020-03-19" required>
+                        </input></p>
+                    <br>
+                    <label>Contraseña: </label>
+                    <p><input type="password" name="password" placeholder="Al menos 6 caracteres" minlength="6"
+                            maxlength="10" required>
+                        </input></p>
+                    <br>
+                    <label>Confirmar: &nbsp&nbsp</label>
+                    <p><input type="password" name="repassword" placeholder="Confirmá tu contraseña" minlength="6"
+                            maxlength="10" required>
+                        </input></p>
+                    <p>(i) La contraseña debe tener mínimo 6 caracteres.</p>
+                    <br>
+                    <br>
+                    <button type="submit" class="sendButton"><a href="/">
+                            Enviar
+                        </a></button>
+                    <button type="reset" class="resetButton"><a href="/">
+                            Cancelar
+                        </a>
+                    </button>
+                </form>
+                <br>
+                <br>
+                <p>¿Ya tenés cuenta cuenta con nosotros? <a href="/users/login" class="irALogin">Iniciar sesión</a>
+                </p>
+                <br>
+            </div>
+            <!--Aqui termina el formulario de registro MARIANO-->
+        </main>
 
-            <h3>Completá los siguientes datos para crear tu cuenta:</h3>
-            <br>
-            <form method="POST" action="#">
-
-                <label>Nombre y apellido</label>
-                <p><input type="text" name="nombre" placeholder="Ej: Perros Gatos" minlength="4" maxlength="30" required>
-                    </input></p>
-                <br>
-                <label>Nombre de usuari@</label>
-                <p><input type="text" name="usuario" placeholder="Ej: cachorro" minlength="4" maxlength="12" required>
-                    </input></p>
-                <br>
-                <label>E-mail</label>
-                <p><input type="email" name="email" placeholder="Ej: perro@gato.com.ar" required>
-                    </input></p>
-                <br>
-                <label>Fecha de nacimiento</label>
-                <p><input type="date" name="fecha" value="2020-03-19" required>
-                    </input></p>
-                <br>
-                <label>Contraseña: </label>
-                <p><input type="password" name="password" placeholder="Al menos 6 caracteres" minlength="6"
-                        maxlength="10" required>
-                    </input></p>
-                <br>
-                <label>Confirmar: &nbsp&nbsp</label>
-                <p><input type="password" name="repassword" placeholder="Confirmá tu contraseña" minlength="6"
-                        maxlength="10" required>
-                    </input></p>
-                <p>(i) La contraseña debe tener mínimo 6 caracteres.</p>
-                <br>
-                <br>
-
-                <button type="reset" class="resetButton">
-                    Borrar
-                </button>
-
-                <button type="submit" class="sendButton"><a href="/">
-                        Enviar
-                    </a></button>
-            </form>
-            <br>
-            <br>
-            <p>¿Ya tenés cuenta cuenta con nosotros? <a href="/users/login" class="irALogin">Iniciar sesión</a>
-            </p>
-            <br>
-        </div>
-        <!--Aqui termina el formulario de registro MARIANO-->
-    </main>
-
-    <!-- Aquí comienza el footer: lista de correo, links de información y redes sociales -->
-    <%- include('../partials/footer.ejs') %>
+        <!-- Aquí comienza el footer: lista de correo, links de información y redes sociales -->
+        <%- include('../partials/footer.ejs') %>
 
 </body>
-
 </html>

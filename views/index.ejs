@@ -2,119 +2,86 @@
 <html lang="es">
 
 <head>
-    <!-- Metadatos: idiomas, adaptabilidad, estilos, tipografías, iconos y título -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/css/styles.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="icon" href="/images/icon.png">
-    <title>Animalia - Lo mejor para tus mascotas</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <%- include ('./partials/head') %>
+
+        <link href="/css/styles.css" rel="stylesheet">
+        <title>Animalia - Lo mejor para tus mascotas</title>
 </head>
 
 <body>
     <!-- Aquí comienza el header: logo, navbars y campo de búsqueda -->
     <%- include('partials/header.ejs') %>
 
-    <!-- Aquí comienza el main: banner, slider con ofertas, cards de productos y enlaces varios -->
-    <main>
-        <div class="slide">
-            <div class="slide-inner">
-                <input class="slide-open" type="radio" id="slide-1" name="slide" aria-hidden="true" hidden=""
-                    checked="checked">
-                <div class="slide-item">
-                    <img src="/images/slider1.png">
-                </div>
-                <input class="slide-open" type="radio" id="slide-2" name="slide" aria-hidden="true" hidden="">
-                <div class="slide-item">
-                    <img src="/images/slider2.png">
-                </div>
-                <input class="slide-open" type="radio" id="slide-3" name="slide" aria-hidden="true" hidden="">
-                <div class="slide-item">
-                    <img src="/images/slider3.jpg">
-                </div>
-                <label for="slide-3" class="slide-control prev control-1">‹</label>
-                <label for="slide-2" class="slide-control next control-1">›</label>
-                <label for="slide-1" class="slide-control prev control-2">‹</label>
-                <label for="slide-3" class="slide-control next control-2">›</label>
-                <label for="slide-2" class="slide-control prev control-3">‹</label>
-                <label for="slide-1" class="slide-control next control-3">›</label>
-            </div>
-
-            <br>
-            <br>
-
-            <div class="banner"><img src="/images/banner2.png"></div>
-
-        </div>
-
-        <div class="beneficios">
-            <div> <img src="/images/tarjetas.svg">
-                <p>Múltiples medios de pago y promociones</p>
-            </div>
-            <div> <img src="/images/sucursal.svg">
-                <p>Retiro con descuentos en cualquiera de nuestras sucursales</p>
-            </div>
-            <div> <img src="/images/camion.svg">
-                <p>Envíos en el día para toda CABA y GBA</p>
-            </div>
-        </div>
-
-        <br>
-
-        <section>
-            <h3 class="titulares">¡No te pierdas nuestras ofertas!</h3>
-
-            <% products.forEach(product => { %>
-            <article>
-                <div class="card">
-                    <a href="/products/productDetail/<%=product.id %>">
-                   <img src="<%=product.image%>" title="<%=product.name%>"></a>
-                    <div class="card-body">
-                        <a href="/products/productDetail/<%=product.id %>">
-                            <p class="nombres"><%=product.name%></p></a>
-                        <p class="precios">ANTES: $<%=product.price%></p>
-                        <p class="descuentos">¡AHORA: $<%=product.discount%>!</p>
-                        <button>Agregar al carrito</button>
+        <!-- Aquí comienza el main: banner, slider con ofertas, cards de productos y enlaces varios -->
+        <main>
+            <div class="slide">
+                <div class="slide-inner">
+                    <input class="slide-open" type="radio" id="slide-1" name="slide" aria-hidden="true" hidden=""
+                        checked="checked">
+                    <div class="slide-item">
+                        <img src="/images/slider1.png">
                     </div>
+                    <input class="slide-open" type="radio" id="slide-2" name="slide" aria-hidden="true" hidden="">
+                    <div class="slide-item">
+                        <img src="/images/slider2.png">
+                    </div>
+                    <input class="slide-open" type="radio" id="slide-3" name="slide" aria-hidden="true" hidden="">
+                    <div class="slide-item">
+                        <img src="/images/slider3.jpg">
+                    </div>
+                    <label for="slide-3" class="slide-control prev control-1">‹</label>
+                    <label for="slide-2" class="slide-control next control-1">›</label>
+                    <label for="slide-1" class="slide-control prev control-2">‹</label>
+                    <label for="slide-3" class="slide-control next control-2">›</label>
+                    <label for="slide-2" class="slide-control prev control-3">‹</label>
+                    <label for="slide-1" class="slide-control next control-3">›</label>
                 </div>
-            </article>
-            <% }) %> 
+                <br>
+                <br>
+                <div class="banner"><img src="/images/banner2.png"></div>
+            </div>
+            <div class="beneficios">
+                <div> <img src="/images/tarjetas.svg">
+                    <p>Múltiples medios de pago y promociones</p>
+                </div>
+                <div> <img src="/images/sucursal.svg">
+                    <p>Retiro con descuentos en cualquiera de nuestras sucursales</p>
+                </div>
+                <div> <img src="/images/camion.svg">
+                    <p>Envíos en el día para toda CABA y GBA</p>
+                </div>
+            </div>
+            <br>
+            <section>
+                <h3 class="titulares">¡No te pierdas nuestras ofertas!</h3>
+                <!--agregue PARTIAL CARD-->
+                <%- include('./partials/card') %>
+            </section>
+            <br>
+            <div class="newsletter">
+                <p><i class="fa-solid fa-envelope">&nbsp</i>Suscríbite para recibir ofertas y novedades:</p>
+                <form action="#" method="GET">
+                    <input type="text" placeholder="Nombre completo">
+                    &nbsp
+                    <input type="email" placeholder="Dirección de email">
+                    <button type="submit" value="Submit">Enviar</button>
+                </form>
+            </div>
+            <br>
+            <br>
+            <div class="consejo">
+                <h3>EL CONSEJO DEL DR. ROMERO</h3>
+                <img src="/images/drromero.jpg">
+                <p> ¨Respetar e incentivar su descanso de la misma manera que uno tiene su propia rutina, los animales
+                    también tienen sus tiempos de descanso. Es importante respetarlos en el espacio de convivencia, y
+                    que
+                    puedan relajarse y recargar energías para poder seguir jugando.¨</p>
+            </div>
+            <br>
+            <br>
+        </main>
 
-        </section>
-        <br>
-        <div class="newsletter">
-            <p><i class="fa-solid fa-envelope">&nbsp</i>Suscríbite para recibir ofertas y novedades:</p>
-
-            <form action="#" method="GET">
-                <input type="text" placeholder="Nombre completo">
-                &nbsp
-                <input type="email" placeholder="Dirección de email">
-                <button type="submit" value="Submit">Enviar</button>
-            </form>
-
-        </div>
-
-        <br>
-        <br>
-
-        <div class="consejo">
-            <h3>EL CONSEJO DEL DR. ROMERO</h3>
-            <img src="/images/drromero.jpg">
-            <p> ¨Respetar e incentivar su descanso de la misma manera que uno tiene su propia rutina, los animales
-                también tienen sus tiempos de descanso. Es importante respetarlos en el espacio de convivencia, y que
-                puedan relajarse y recargar energías para poder seguir jugando.¨</p>
-        </div>
-        <br>
-        <br>
-
-    </main>
-
-    <!-- Aquí comienza el footer: lista de correo, links de información y redes sociales -->
-    <%- include('partials/footer.ejs') %>
+        <!-- Aquí comienza el footer: lista de correo, links de información y redes sociales -->
+        <%- include('partials/footer.ejs') %>
 </body>
-
 </html>

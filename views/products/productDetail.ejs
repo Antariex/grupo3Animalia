@@ -2,67 +2,65 @@
 <html lang="es">
 
 <head>
-    <!-- Metadatos: idiomas, adaptabilidad, estilos, tipografías, iconos y título -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/css/styles-ProdDetails.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="icon" href="/images/icon.png">
-    <title>Detalle de producto - Animalia</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <%- include ('../partials/head') %>
+
+        <link href="/css/styles-ProdDetails.css" rel="stylesheet">
+        <title>Detalle de producto - Animalia</title>
 </head>
 
 <body>
     <!-- Aquí comienza el header: logo, navbars y campo de búsqueda -->
     <%- include('../partials/header.ejs') %>
 
-    <!-- Aquí comienza el main -->
-    <main>
-        <section>
-            <br>
-            <h2 class="titulares">Detalle del producto elegido</h3>
+        <!-- Aquí comienza el main -->
+        <main>
+            <section>
+                <br>
+                <h3 class="titulares">Detalle del producto elegido</h3>
                 <article>
                     <div class="detail__container">
                         <div class="card__detail">
-                            <img class="detail_prod__imag" src="<%= producto.image%>" title="<%=producto.name%>"></a>
-                            <p class="descripciones"><%= producto.name%> </p>
-                            </a>
-                            <p class="precios">ANTES: $<%=producto.price%></p>
+                            <img class="detail_prod__imag" src="<%= producto.image%>" title="<%=producto.name%>">
+                            <p class="nombre">
+                                <%= producto.name%>
+                            </p>
+                            <br>
+                            <p class="precios">ANTES: $<%=producto.price%>
+                            </p>
                             <br>
                             <p class="descuentos">¡AHORA: $<%=producto.discount%>!</p>
                             <br>
                             <label for="Cantidad" class="menu__cantidad">Cantidad:</label>
-                            <br>
                             <select name="Cantidad" id="Cantidad">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
+                                <option value="5">5</option>
                             </select>
-                            <br>
-                            <br>
-                            <button>Agregar al carrito</button>
+                            <div>
+                                <br>
+                                <button class="Agregar al carrito" type="submit">Agregar al carrito</button>
+                                <br>
+                            </div>
                             <br>
                             <div class="cuotas__container">
                                 <i class="fa-brands fa-cc-visa"></i>
                                 <i class="fa-brands fa-cc-amex"></i>
                                 <i class="fa-brands fa-cc-apple-pay"></i>
                                 <i class="fa-brands fa-cc-paypal"></i>
-                                <p class="descripciones"><%= producto.description%></p>
+                                <p class="descripciones">
+                                    <%= producto.description%>
+                                </p>
                             </div>
                         </div>
+                    </div>
                 </article>
-        </section>
-        </div>
+            </section>
+        </main>
 
-    </main>
-
-    <!-- Aquí comienza el footer: lista de correo, links de información y redes sociales -->
-    <%- include('../partials/footer.ejs') %>
+        <!-- Aquí comienza el footer: lista de correo, links de información y redes sociales -->
+        <%- include('../partials/footer.ejs') %>
 
 </body>
-
 </html>

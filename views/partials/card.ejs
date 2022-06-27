@@ -1,0 +1,18 @@
+<% products.forEach(product=> { %>
+    <article>
+        <div class="card">
+            <a href="/products/productDetail/<%=product.id %>">
+                <img src="<%=product.image%>" title="<%=product.name%>"></a>
+            <div class="card-body">
+                <a href="/products/productDetail/<%=product.id %>"></a>
+                <p class="nombres">
+                    <%=product.name%>
+                </p></a>
+                <p class="precios">ANTES: $<%=product.price%>
+                </p>
+                <p class="descuentos">¡AHORA: $<%=product.discount%>!</p>
+                <button>Agregar al carrito</button>
+            </div>
+        </div>
+    </article>
+    <% }) %>

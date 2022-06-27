@@ -283,7 +283,7 @@ article {
     border: 1px solid var(--verde);
     font-family: 'Roboto', serif;
     color: var(--blanco);
-    border-radius: 20px;
+    border-radius: 6px;
 }
 
 .card-body button:hover {

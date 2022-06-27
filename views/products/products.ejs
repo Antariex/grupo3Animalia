@@ -2,53 +2,43 @@
 <html lang="es">
 
 <head>
-    <!-- Metadatos: idiomas, adaptabilidad, estilos, tipografías, iconos y título -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/css/styles-ProdDetails.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="icon" href="/images/icon.png">
-    <title>Catálogo - Animalia</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <%- include ('../partials/head') %>
+
+        <link href="/css/styles-ProdDetails.css" rel="stylesheet">
+        <title>Catálogo - Animalia</title>
+
 </head>
 
 <body>
     <!-- Aquí comienza el header: logo, navbars y campo de búsqueda -->
     <%- include('../partials/header.ejs') %>
 
-    <!-- Aquí comienza el main -->
-    <main>
-
-
-        <section>
-            <h3 class="titulares">Nuestro catálogo</h3>
-
-            <% products.forEach(product => { %>
-            <article>
-                <div class="card">
-                        <a href="/products/productDetail/<%=product.id %>"><img src="<%=product.image%>" title="<%=product.name%>"></a>
-                    <div class="card-body">
-                        <a href="/products/productDetail/<%=product.id %>">
-                            <p class="nombres"><%=product.name%></p>
-                        </a>
-                        <p class="precios">ANTES: $<%=product.price%></p>
-                        <p class="descuentos">¡AHORA: $<%=product.discount%>!</p>
-                        <button>Agregar al carrito</button>
-                    </div>
-                </div>
-            </article>
-            <% }) %> 
-
-        </section>
-
-    </main>
-
-    <!-- Aquí comienza el footer: lista de correo, links de información y redes sociales -->
-    <%- include('../partials/footer.ejs') %>
+        <!-- Aquí comienza el main -->
+        <main>
+            <section>
+                <h3 class="titulares">Nuestro catálogo</h3>
+                <% products.forEach(product=> { %>
+                    <article>
+                        <div class="card">
+                            <a href="/products/productDetail/<%=product.id %>">
+                                <img src="<%=product.image%>">
+                            </a>
+                            <div class="card-body">
+                                <p class="nombres">
+                                    <%=product.name%>
+                                </p>
+                                <p class="precios"> ANTES: $ <%=product.price%>
+                                </p>
+                                <p class="descuentos">¡AHORA: $ <%=product.discount%>!</p>
+                                <button>Agregar al carrito</button>
+                            </div>
+                        </div>
+                    </article>
+                    <% }) %>
+            </section>
+        </main>
+        <!-- Aquí comienza el footer: lista de correo, links de información y redes sociales -->
+        <%- include('../partials/footer.ejs') %>
 
 </body>
-
 </html>

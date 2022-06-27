@@ -2,59 +2,47 @@
 <html lang="es">
 
 <head>
-    <!-- Metadatos: idiomas, adaptabilidad, estilos, tipografías, iconos y título -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/css/styles-login.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="icon" href="/images/icon.png">
-    <title>Ingreso - Animalia</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-</head>
+    <%- include ('../partials/head') %>
 
+        <link href="/css/styles-login.css" rel="stylesheet">
+        <title>Ingreso - Animalia</title>
+</head>
 <body>
     <!-- Aquí comienza el header: logo, navbars y campo de búsqueda -->
     <%- include('../partials/header.ejs') %>
 
-    <!-- Aquí comienza el main -->
-    <main>
+        <!-- Aquí comienza el main -->
+        <main>
+            <div class="formulario login">
+                <br>
+                <h2>¡Hola! Completá tus datos para ingresar:</h2>
+                <br>
+                <form method="POST" action="#">
+                    <br>
+                    <p><input type="text" name="usuario" placeholder="E-mail  o  usuari@" required></input></p>
+                    <p><input type="password" name="password" placeholder="Contraseña" required></input></p>
+                    <br>
+                    <input type="checkbox" name="datosUsuario" value="1" checked>
+                    <label>Recordar mis datos</label>
+                    <br>
+                    <button type="submit" class="sendButton"><a href="/">Enviar</a></button>
+                    <button type="reset" class="resetButton"><a href="/">Cancelar</a></button>
+                    <br>
+                    <br>
+                    <p>¿Olvidaste tu contraseña?</p>
+                    <a href="#" class="links"> Recuperar contraseña</a>
+                </form>
+                <br>
+                <br>
+                <h3>¿Primera vez en Animalia?</h3>
+                <a href="/users/register" class="crearPerfil">Creá tu cuenta</a>
+                <br>
+                <br>
+            </div>
+        </main>
 
-        <div class="formulario login">
-
-            <br>
-            <h2 class="titulo">¡Hola! Completá tus datos para ingresar.</h2>
-            <br>
-            <form method="POST" action="#">
-                <br>
-                <p><input type="text" name="usuario" placeholder="E-mail  o  usuari@" required></input></p>
-                <p><input type="password" name="password" placeholder="Contraseña" required></input></p>
-                <br>
-                <input type="checkbox" name="datosUsuario" value="1" checked>
-                <label>Recordar mis datos</label>
-                <br>
-                <button class="sendButton" type="submit"><a href="/">Enviar</a></button>
-                <br>
-                <br>
-                <p>¿Olvidaste tu contraseña?</p>
-                <a href="#" class="links"> Recuperar contraseña</a>
-            </form>
-            <br>
-            <br>
-            <h3>¿Primera vez en Animalia?</h3>
-            <br>
-            <a href="/users/register" class="crearPerfil">Creá tu cuenta</a>
-            <br>
-            <br>
-        </div>
-
-    </main>
-
-    <!-- Aquí comienza el footer: lista de correo, links de información y redes sociales -->
-    <%- include('../partials/footer.ejs') %>
+        <!-- Aquí comienza el footer: lista de correo, links de información y redes sociales -->
+        <%- include('../partials/footer.ejs') %>
 
 </body>
-
 </html>

@@ -9,7 +9,13 @@ const userController = {
     },
     carrito: (req, res, next) => {
         res.render('./users/cart');
-    }
+    },
+    aboutUs: (req, res, next) => {
+        res.render('./users/aboutUs');
+    },
+    contactUs: (req, res, next) => {
+        res.render('./users/contactUs');
+    },
 };
 
 module.exports = userController;
