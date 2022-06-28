@@ -2,8 +2,13 @@ const { json } = require('express');
 const path = require('path');
 const fs = require('fs');
 
+<<<<<<< HEAD
 const productFilePath = path.join(__dirname, '../data/products.json'); // requirimos los productos de products.json
 const products = JSON.parse(fs.readFileSync(productFilePath, 'utf-8'));
+=======
+const productsFilePath = path.join(__dirname, '../data/products.json');
+const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf8'));
+>>>>>>> 9040a26e70a88b34546c16386b799242f9e60cc5
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."); // agrega puntos a los números que sean más de 1000
 
@@ -52,36 +57,23 @@ const productController = {
     // Modificar - formulario de edición
     edicion: (req, res, next) => {
         let id = req.params.id
+<<<<<<< HEAD
         let product = products.find(product => product.id == id)
         res.render('./products/productEdit')
+=======
+        let productToedit = products.find(element => { return element.id === parseInt(req.params.id) })
+        res.render('./products/productEdit',{product: productToedit});
+>>>>>>> 9040a26e70a88b34546c16386b799242f9e60cc5
     },
 
     // Modificar - método para modificar
     actualizar: (req, res) => {
-        let id = req.params.id
-        let productToEdit = products.find(product => product.id == id)
-        console.log("🚀 ~ archivo: productsController.js ~ req.files", req.files)
-        let image
-        if (req.files[0] != undefined) {
-            image = req.files[0].filename
-        } else {
-            image = productToEdit.image
-        }
-        productToEdit = {
-            id: productToEdit.id,
-            ...req.body,
-            image: image,
-        }
-        let newProduct = products.map(product => {
-            if (product.id == productToEdit.id) {
-                return product = {
-                    ...productToEdit
-                };
-            }
-            return product
-        })
-        fs.writeFileSync(productsFilePath, JSON.stringify(newProduct));
-        res.redirect("/views/products/productDetail.ejs" + productToEdit.id)
+            let productoIndex = products.findIndex(product => product.id == req.params.id)
+            let productoModificado = {...req.body}
+           products[productoIndex] = productoModificado
+
+           fs.writeFileSync(productsFilePath, JSON.stringify(products, null, "\t"));
+           res.redirect("/products/productDetail/" + productoModificado.id);
     },
     
     // DELETE UN producto

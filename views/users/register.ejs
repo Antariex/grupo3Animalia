@@ -12,6 +12,7 @@
     <!-- Aquí comienza el header: logo, navbars y campo de búsqueda -->
     <%- include('../partials/header.ejs') %>
 
+<<<<<<< HEAD
         <!-- Aquí comienza el main FORMULARIO REGISTRO-->
         <main>
             <div class="barraSeparacion"></div>
@@ -68,6 +69,67 @@
 
         <!-- Aquí comienza el footer: lista de correo, links de información y redes sociales -->
         <%- include('../partials/footer.ejs') %>
+=======
+    <!-- Aquí comienza el main FORMULARIO REGISTRO-->
+    <main>
+        <div class="barraSeparacion"></div>
+        <div class="formulario">
+            <h3>¡Completá los siguientes datos para crear tu cuenta y disfruta de los beneficios de ser parte de Animalia!</h3>
+            <br>
+             <!-- ERRORS -->
+           <% if (locals.errors) { %>
+            <div class="errors__container">
+              <ul>
+                <% for (let error in errors) {%>
+                  <li class="error-msg__text"><%= errors[error].msg%></li>
+                <% } %>
+              </ul>
+            </div>
+            <% } %>
+            <!-- ERRORS END -->
+            <form action="/views/users/register" method="POST" enctype="multipart/form-data">
+
+                <label for="nombreyapellido">Nombre y apellido</label>
+                <p><input type="text" name="nombreyapellido" placeholder="Ingrese su nombre" required>
+                    </input></p>
+                <br>
+                <label for="user">Nombre de usuari@</label>
+                <p><input type="text" name="user" placeholder="Ingrese su usuario" minlength="4" maxlength="12" required>
+                    </input></p>
+                <br>
+                <label for="email">E-mail</label>
+                <p><input type="email" name="email" placeholder="Ingrese su correo electronico" required>
+                    </input></p>
+                <br>
+                <label for="birth">Fecha de nacimiento</label>
+                <p><input type="date" name="fecha" value="2020-03-19" required>
+                    </input></p>
+                <br>
+                <label for="images" class="form__label">Foto de Perfil *</label><br>
+                <p><input type="file" name="avatar" class="form__input" accept=".jpg" multiple></p><br>
+                <label for="password"> Elige una contraseña </label>
+                <p><input type="password" name="password" placeholder="Al menos 6 caracteres alfanuméricos"required></input></p>
+                    <!-- Pendiente boton para mostrar contraseña -->
+                <br>
+                <label for="confirmPassword">Reingresá la contraseña elegida</label>
+                <p><input type="password" name="confirmPassword" placeholder="Confirmá tu contraseña"required></input></p>
+                <p>(*) La contraseña debe tener mínimo 6 caracteres.</p>
+                <br>
+                <br>
+                <button type="submit" value="Crear cuenta"><a href="/">Crear cuenta</a></button>
+            </form>
+            <br>
+            <br>
+            <p>¿Ya tenés cuenta cuenta con nosotros? <a href="/users/login" class="irALogin">Iniciar sesión</a>
+            </p>
+            <br>
+        </div>
+        <!--Aqui termina el formulario de registro MARIANO-->
+    </main>
+
+    <!-- Aquí comienza el footer: lista de correo, links de información y redes sociales -->
+    <%- include('../partials/footer.ejs') %>
+>>>>>>> 9040a26e70a88b34546c16386b799242f9e60cc5
 
 </body>
 </html>

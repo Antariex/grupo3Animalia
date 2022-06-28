@@ -5,9 +5,99 @@
 <head>
   <%- include ('../partials/head') %>
 
+<<<<<<< HEAD
     <link href="/css/productEdit.css" rel="stylesheet">
     <title>Edición - Animalia</title>
 </head>
+=======
+    <body>
+        <%- include('../partials/header.ejs') %>
+        <main>
+          <section class="section__container crate__product-section">
+             <article class="article__container product__article">
+              <div>
+                <h3 class="titulares">Formulario para edición y modificación de productos en stock</h3>
+                <p>Las caracteristicas ingresadas pueden ser modificadas en cualquier momento</p>
+                </div>
+                <form action="/products/productEdit/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="create__product-form">
+                  <!-- Nombre del producto -->
+                  <br>
+                <div>
+                  <label for="productName" class="form__label">Nombre del producto:</label>
+                  <input type="text" name="productName" value="<%= product.name%>" placeholder="Complete este campo" class ="form__input"></input>
+                  <br>
+                </div>
+                <br>
+                <!-- Tarea ingreso o modificación del producto -->
+                <div>
+                    <label for="productTarea" class="form__label" placeholder="Seleccione el tipo de tarea">Tipo de tarea</label>
+                    <select name="productTarea" id="productTarea" class="form__input">
+                        <option value="">Baja</option>
+                        <option value="">Modificación</option>
+                        <option value="">Producto discontinuo</option>
+                    </select>
+                </div>
+                <br>
+
+                <!-- Categoria del producto -->
+                  <div>
+                  <label for="productCategory" class="form__label" placeholder="Seleccione una categoria">Categoria:</label>
+                  <select name="productCategory" id="productCategory" class="form__input">
+                    <option value=""></option>
+                    <option value="">Perros</option>
+                    <option value="">Gatos</option>
+                    <option value="">Roedores</option>
+                    <option value="">Peces</option>
+                    <option value="">Ofertas</option>
+                  </select>
+                </div>
+                <br>
+                  <!-- Medidas del producto -->
+                    <div>
+                  <label for="productSize" class="form__label">Medidas del producto</label>
+                  <br>
+                  <input type="text" name="productSize" value="<%= product.size %>" placeholder="120 x 90 x 50" class ="form__input" value="<%= locals.oldData? oldData.productSize : null%>"><br>
+                </div>
+                <br>
+                  <!-- Img del producto //comprobar  img del producto y ruta//--> 
+                  <div>
+                  <label for="productImg" class="form__label">Elige una imagen</label>
+                  <br>
+                  <input type="file" name="" id="productImg" class ="form__input" accept="image/*" value="<%= locals.oldData? oldData.productImg : null%>"><br>
+                </div>
+                <br>
+                  <!-- Precio del producto -->
+                <div>
+                  <label for="productPrice" class="form__label">Precio:</label>
+                  <input type="text" name="productPrice" value="<%= product.price %>" id="productPrice" class ="form__input" placeholder="$"></input> <br>
+                </div>
+                <br>
+                <!--Precio del producto con descuento-->
+                <div>
+                  <label for="Pricediscount" class="form__label">Precio con descuento:</label>
+                  <input type="text" name="Pricediscount" value="<%= product.discount %>" id="Priced" class ="form__input" placeholder="$"></input>
+                  <br>
+                </div>
+                  <!-- Descripción del producto -->
+                  <div>
+                  <label for="productDescription" class="form__label">Escriba una descripción del producto</label>
+                  <br>
+                  <br>
+                  <textarea  maxlength="600" type="text" name="productDescription" value="<%= product.description %>" placeholder="<%= product.productDescription %>"><%= locals.oldData? oldData.productDescription : null%></textarea>
+                </div>
+                <br>
+                  <div>
+                  <button type="submit" value="Modificar">Modificar producto </button>
+                  <button type="submit" value="Modificar">Baja de producto </button>
+                  <a href="/products"> Cancelar </a>
+                  </div>
+                </form>
+             </article>
+          </section>
+        </main>
+        <%- include('../partials/footer.ejs') %>
+      </body>
+>>>>>>> 9040a26e70a88b34546c16386b799242f9e60cc5
 
 <body>
   <%- include('../partials/header.ejs') %>

@@ -16,7 +16,7 @@
       "email": "user@gmail.com",
       "address": "Domicilio del usuario",
       "password": "cheat1234",
-      "profile": "comprador",
+      "category": "comprador",
       "image": "/public/images/logo.png"
     }
   ]
