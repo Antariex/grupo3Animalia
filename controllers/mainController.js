@@ -7,13 +7,13 @@ const products = JSON.parse(fs.readFileSync(productFilePath, 'utf8'));
 
 const mainController = {
 
-    home: (req, res, next) => {
+    home: (req, res) => {
         res.render('index', {products});
     },
-    aboutUs: (req, res, next) => {
+    aboutUs: (req, res) => {
         res.render('aboutUS');
     },
-    sucursales: (req, res, next) => {
+    sucursales: (req, res) => {
         res.render('sucursales');
     }
 };

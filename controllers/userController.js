@@ -10,13 +10,13 @@ let users = JSON.parse(fs.readFileSync(usersFilePath , 'utf-8'));
 
 const userController = {
 
-    login: (req, res, next) => {
+    login: (req, res) => {
         res.render('./users/login');
     },
-    registro: (req, res, next) => {
+    registro: (req, res) => {
         res.render('./users/register');
     },
-    carrito: (req, res, next) => {
+    carrito: (req, res) => {
         res.render('./users/cart');
       },
       //############# REGISTRO EXITOSO ##############

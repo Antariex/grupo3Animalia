@@ -4,13 +4,13 @@ const productsFilePath = path.join(__dirname, '../data/products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf8'));
 
 const productController = {
-    catalogo: (req, res, next) => {
+    catalogo: (req, res) => {
         res.render('./products/products', {
             products
         });
     },
 
-    detalle: (req, res, next) => {
+    detalle: (req, res) => {
         let productoBuscado = products.find(producto => {
             return producto.id == req.params.id
         })
@@ -19,7 +19,7 @@ const productController = {
         });
     },
 
-    creacion: (req, res, next) => {
+    creacion: (req, res) => {
         res.render('./products/productCreate');
     },
 
@@ -37,7 +37,7 @@ const productController = {
         res.redirect("/products/detail/" + newProduct.id)
     },
 
-    edicion: (req, res, next) => {
+    edicion: (req, res) => {
         let id = req.params.id
         let productToedit = products.find(element => { return element.id === parseInt(req.params.id) })
         res.render('./products/productEdit',{ product: productToedit });
@@ -66,7 +66,7 @@ const productController = {
         },
 
 
-    borrado: (req, res, next) => {
+    borrado: (req, res) => {
         let id = req.params.id
         let productoABorrar = products.filter(product => product.id != id)
         fs.writeFileSync(productsFilePath, JSON.stringify(productoABorrar));
