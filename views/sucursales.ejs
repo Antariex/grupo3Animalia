@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Metadatos: idiomas, adaptabilidad, estilos, tipografías, iconos y título -->
+    <%- include ('./partials/head') %>
+
+        <link href="/css/sucursales.css" rel="stylesheet">
+        <title>Sucursales - Animalia</title>
+</head>
+
+<body>
+    <!-- Aquí comienza el header: logo, navbars y campo de búsqueda -->
+    <%- include('./partials/header.ejs') %>
+
+        <!-- Aquí comienza el main -->
+        <main>
+            <br>
+            <div class=container>
+                <div class="titulares">
+                    <h1>Sucursales Animalia</h1>
+                </div>
+                <div class="textCentered">
+                    <h3>En Animalia queremos estar siempre cerca tuyo</h3>
+                </div>
+                <div class="itemSucursal">
+                    <div class="textCentered">
+                        <h3>VILLA CRESPO</h3>
+                    </div>
+                    <p>Av. Corrientes 5201</p>
+                    <p>4855-12222</p>
+                    <p>L a V de 10 a 14 y 15 a 19hs</p>
+                    <p>Sábados de 10 a 14 hs</p>
+                </div>
+                <div class="itemSucursal">
+                    <div class="textCentered">
+                        <h3>ALMAGRO</h3>
+                    </div>
+                    <p>Av. Corrientes 3414</p>
+                    <p>2127-23333</p>
+                    <p>L a V de 10 a 14 y 15 a 19hs</p>
+                    <p>Sábados de 10 a 14 hs</p>
+                </div>
+                <div class="itemSucursal">
+                    <div class="textCentered">
+                        <h3>PALERMO</h3>
+                    </div>
+                    <p>Humboldt 2245</p>
+                    <p>4824-67777</p>
+                    <p>L a V de 10 a 14 y 15 a 19hs</p> Sábados de 10 a 14 hs</p>
+                </div>
+                <div id="map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.993980941788!2d-58.41759741855191!3d-34.604313711852924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca8b0914f537%3A0xe0f216ac117f08a5!2sAv.%20Corrientes%203414%2C%20C1194AAN%20CABA!5e0!3m2!1ses-419!2sar!4v1656283455171!5m2!1ses-419!2sar"
+                        width="35%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            <div class="textCentered2">
+                <h3>...salir a pasear con tu mascota es regalarse un tiempo de libertad a ambos...</h3>
+                <br>
+            </div>
+            </div>
+        </main>
+
+        <!-- Aquí comienza el footer: lista de correo, links de información y redes sociales -->
+        <%- include('./partials/footer.ejs') %>
+
+</body>
+</html>

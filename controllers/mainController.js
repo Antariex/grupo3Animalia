@@ -11,6 +11,12 @@ const mainController = {
 
     index: (req, res, next) => {
         res.render('index', {products});
+    },
+    aboutUs: (req, res, next) => {
+        res.render('aboutUS');
+    },
+    sucursales: (req, res, next) => {
+        res.render('sucursales');
     }
 };
 
