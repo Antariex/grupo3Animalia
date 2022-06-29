@@ -5,37 +5,36 @@ const path = require('path');
 const { body } = require('express-validator');
 const productController = require('../controllers/productController')
 
-//hay que debugear el multer para la carga de archivos e imagenes//
+//Configuración de entorno
 const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, 'public/images/products')
-    },
-    filename: function (req, file, cb) {
-        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9) + path.extname(file.originalname)
-        cb(null, file.fieldname + '-' + uniqueSuffix)
-    }
+  destination: function(req, file, cb) {
+    cb(null, './public/images/products');
+  },
+  filename: function (req, file, cb) {
+    cb(null, `${Date.now()}-img${path.extname(file.originalname)}`);
+  }
 })
 
-const multerFileFilter = (req, file, cb) => { 
-    let ext = path.extname(file.originalname)
-    let acceptedExtensions = ['.jpg', '.png', '.jpeg']
-    if(!acceptedExtensions.includes(ext)) {
-      return cb(null,false)
-    }
-    return cb(null,true)
-  }
-  //carga de variables entorno multer MARIANO
+//Cargamos las variables de entorno
+const upload = multer({storage})
 
-const upload = multer({ storage,fileFilter: multerFileFilter });
-
-
+//Rutas
 router.get('/', productController.catalogo);
-router.get('/productCreate', productController.creacion);
+router.get('/productCreate',productController.creacion);
 router.get('/productDetail/:id', productController.detalle);
-router.post('/productCreate',upload.single('productImg'),productController.almacenar);
-router.get('/productEdit/:id', productController.edicion);
-router.put('/productEdit/:id',upload.single('productImg'), productController.actualizar);
+router.post('/create/confirm',upload.single('thumbnail'),productController.almacenar);
+router.get('/edit/:id',productController.edicion);
+router.put('/edit/:id/succed/',upload.single('thumbnail'),productController.actualizar);
 router.delete('/delete/:id', productController.borrado);
 
+
+
+
+//Exportamos la variable del router
 module.exports = router;
+
+
+
+
+
 

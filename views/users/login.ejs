@@ -3,9 +3,9 @@
 
 <head>
     <!-- Metadatos: idiomas, adaptabilidad, estilos, tipografías, iconos y título -->
-    <%- include ('../partials/head') %>
     <link href="/css/styles-login.css" rel="stylesheet">
     <title>Ingreso - Animalia</title>
+    <%- include ('../partials/head') %>
 </head>
 
 <body>
@@ -26,7 +26,7 @@
                 <p><input type="password" name="password" placeholder="Contraseña" required></input></p>
                 <!-- Pendiente boton para mostrar contraseña -->
                 <br>
-                <input type="checkbox" name="datosUsuario" value="1" checked>
+                <input type="checkbox" name="datosUsuario">
                 <label>Recordar mis datos</label>
                 <br>
                 <button class="sendButton" type="submit"><a href="/">Enviar</a></button>
@@ -39,7 +39,7 @@
             <br>
             <h3>¿Primera vez en Animalia?</h3>
             <br>
-            <a href="/users/register" class="crearPerfil">Creá tu cuenta</a>
+            <a href="./register" class="crearPerfil">Creá tu cuenta</a>
             <br>
             <br>
         </div>

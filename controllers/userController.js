@@ -73,16 +73,16 @@ create: (req, res) => {
     }
 
     User.create(userToCreate);
-    res.redirect('/users/register_success')
+    res.redirect('/')
   },
    //########## PERFIL DE USUARIO ################
-  profile: (req, res) => {
-    res.render('./users/login_success', { user: req.session.userLogged })
-  },
+  // profile: (req, res) => {
+  //   res.render('./users/login_success', { user: req.session.userLogged })
+  // },
 
-  profileAccess: (req, res) => {
-    res.render('./users/profile', { user: req.session.userLogged })
-  },
+  // profileAccess: (req, res) => {
+  //   res.render('./users/profile', { user: req.session.userLogged })
+  // },
 
 
   //############ ACTUALIZAR PERFIL USUARIO ##############

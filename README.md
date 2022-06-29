@@ -49,6 +49,9 @@ $ git clone https://github.com/Antariex/grupo3Animalia.git
 
 # Entrar en VS Code (o algún otro IDE de tu preferencia).
 
+# Dentro de la terminal, instalar las dependencias:
+$ npm i
+
 # Ejecutar o crear un servidor.
 
 ```

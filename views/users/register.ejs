@@ -3,9 +3,9 @@
 
 <head>
     <!-- Metadatos: idiomas, adaptabilidad, estilos, tipografías, iconos y título -->
-    <%- include ('../partials/head') %>
     <link href="/css/styles-reg.css" rel="stylesheet">
     <title>Registro - Animalia</title>
+    <%- include ('../partials/head') %>
 </head>
 
 <body>
@@ -29,7 +29,7 @@
             </div>
             <% } %>
             <!-- ERRORS END -->
-            <form action="/views/users/register" method="POST" enctype="multipart/form-data">
+            <form action="/user/register/confirm" method="POST" enctype="multipart/form-data">
 
                 <label for="nombreyapellido">Nombre y apellido</label>
                 <p><input type="text" name="nombreyapellido" placeholder="Ingrese su nombre" required>
@@ -62,7 +62,7 @@
             </form>
             <br>
             <br>
-            <p>¿Ya tenés cuenta cuenta con nosotros? <a href="/users/login" class="irALogin">Iniciar sesión</a>
+            <p>¿Ya tenés cuenta cuenta con nosotros? <a href="./login" class="irALogin">Iniciar sesión</a>
             </p>
             <br>
         </div>
