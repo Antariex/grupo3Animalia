@@ -21,3 +21,71 @@ section {
   text-align: center;
 }
 
+/*agregado por FC*/
+
+.formulario {
+  text-align: center;
+  background-color: white;
+  padding: 20px;
+  width: 98%;
+   display: inline-block;
+  background-color: var(--blanco);
+  padding: 15px 60px 15px 30px;
+  margin: 9px 9px;
+}
+
+/* el .formulario form lo hice con las div para poder alinear dentro  del mismo los campos desde "Nombre del producto" hasta "Precio con descuento" pero no encontré aún como (hay que ampliar el ancho de la "caja" contenedora del mismo para que por ej el texto "Mediddas del ..." que de alineado a la izquierda del campo a completar"*/
+/*.formulario form {
+  display: ;
+}*/
+
+/* input modifica la apariencia de los campos
+label modifica los extos de los nombres de los campos
+select modifica la apariencia de los desplegables
+*/
+.formulario input,
+.label,
+.formulario select  {
+  display: inline;
+  background-color: var(--blanco);
+  padding: 8px 60px 8px 60px;
+  margin: 9px 9px;
+  border: solid 1.5px var(--verde);
+  border-radius: 10px;
+  text-align: center;
+}
+/* formulario p y h1 modifican la apariencia del texto encabezado de "Formulario..." y "Las caracterísitcas..."
+*/
+.formulario p {
+font-size: 15px;
+}
+
+.formulario h1 {
+  text-align: center;
+  font-size: 24px ;
+  color: var(--rosa);
+  margin: 2px;
+}
+
+/*formulario button modifica la apariencia de Enviar y Cancelar*/
+.formulario button {
+  background-color: var(--verde);
+  color: white;
+  border: 1px solid var(--verde);
+  padding: 12px 14px;
+  margin: 0 5px;
+  border-radius: 6px;
+}
+
+/*con buttons alineamos los botones Enviar y Cancelar*/
+.buttons {
+  display: inline-flex
+}
+
+/*con los hover modificamos la apariencia de los botones Enviar y Cancelar al pasarles el puntero por arriba*/
+.botonCrear:hover,
+.botonCancelar:hover {
+  background-color: var(--celeste);
+  border: 1px solid var(--celeste);
+
+}

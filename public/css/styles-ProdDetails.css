@@ -19,21 +19,20 @@
 
 /*Estilos main pag Prod Details MARIANO*/
 
-
-}
 .titulares {
     color: var(--rosa);
-    padding-bottom: 15px;
+    /*padding-bottom: 15px; Mod Maru*/
     font-size: 24px;
     text-align: center;
 }
 
+/*modif Maru*/
 
-div .detail__container {
+/*div .detail__container {
     max-width: 100%;
-}
+}*/
 
-.card {
+/*.card {
     background-color: var(--blanco);
     width: 100%;
     border: 3px solid var(--verde);
@@ -41,9 +40,9 @@ div .detail__container {
     display: flex;
     align-items: center;
     text-align-last: center;
-}
+}*/
 
-.tituloInfoProd {
+/*.tituloInfoProd {
     color: var(--verde);
     padding: 18px;
     line-height: 1.5em;
@@ -51,36 +50,77 @@ div .detail__container {
     font-style: normal;
     text-align: center;
 
-}
+}*/
 
-.info__delprod {
+/*.info__delprod {
     color: #3c3c3c;
     padding: 18px;
     line-height: 1.5em;
     font-size: 12px;
     text-align: justify;
-}
+}*/
 
-.detail_prod__imag{
-    
+.detail_prod__imag{ /*contiene tamaño imagen*/
     max-width: 200px;
 }
+
+.menu__cantidad{
+    color: #C9914B;
+    font-family: 'Roboto', serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.Agregar { /*button*/
+    background-color: var(--verde);
+    color: white;
+    border: 1px solid var(--verde);
+    padding: 8px 10px;
+    margin: 0 5px;
+    border-radius: 6px;
+    font-size: 13px;
+}
+ 
+.Agregar:hover { /*button*/
+    background-color: var(--celeste);
+    border: 1px solid var(--celeste);
+    }
 
 .cuotas__container i {
     padding: 5px;
     color: #54A4CB;
     width: 1.5em;
-    font-size: 25px;
+    font-size: 22px;
     display: inline-block;
 }
 
-.menu__cantidad{
-    color: #C9914B;
-    font-family: 'Roboto', serif
-
-}
-
 .descripciones{
-    padding: 5px;
-    margin: 10px;
+    padding: 25px;
+    /*margin: 25px;*/
+    margin-left: 180px;
+    margin-right: 180px;
+    text-align: justify ;
 }
+
+/*formulario button modifica la apariencia de Enviar y Cancelar
+.formulario button {
+    background-color: var(--verde);
+    color: white;
+    border: 1px solid var(--verde);
+    padding: 12px 14px;
+    margin: 0 5px;
+    border-radius: 6px;
+  }
+  
+  con buttons alineamos los botones Enviar y Cancelar
+  .buttons {
+    display: inline-flex
+  }
+  
+  con los hover modificamos la apariencia de los botones Enviar y Cancelar al pasarles el puntero por arriba
+  .botonCrear:hover,
+  .botonCancelar:hover {
+    background-color: var(--celeste);
+    border: 1px solid var(--celeste);
+  
+  }*/
