@@ -2,75 +2,78 @@
 <html lang="es">
 
 <head>
+    <!-- Metadatos: idiomas, adaptabilidad, estilos, tipografías, iconos y título -->
+    <link href="/css/styles-prodCart.css" rel="stylesheet">
+    <title>Carrito - Animalia</title>
     <%- include ('../partials/head') %>
-
-        <link href="/css/styles-prodCart.css" rel="stylesheet">
-        <title>Carrito - Animalia</title>
 </head>
 
 <body>
     <!-- Aquí comienza el header: logo, navbars y campo de búsqueda -->
     <%- include('../partials/header.ejs') %>
 
-        <!-- Aquí comienza el main -->
-        <main>
-            <div class="titulares">
-                <h1>Tu carrito de compras</h1>
-            </div>
-            <br>
-            <br>
-            <section>
-                <article>
-                    <div class="table">
-                        <table width="100%" cellspacing="5" cellpadding="0">
-                            <tr class="thead">
-                                <td height="50">PRODUCTO</td>
-                                <td>ENVIO</td>
-                                <td>PRECIO</td>
-                                <td>CANTIDAD</td>
-                                <td>TOTAL</td>
-                            </tr>
-                            <tr>
-                                <td class="tint"><a href="./views/productDetail.html"><img
-                                            src="/images/purinaperro.webp"></a>PURINA DENTALIFE PERRO 119 GR</td>
-                                <td>bonificado</td>
-                                <td>$5.550</td>
-                                <td>2</td>
-                                <td>$11.100</td>
-                            </tr>
-                            <tr>
-                                <td class="tint"><a href="./views/productDetail.html"><img
-                                            src="/images/proplangato.webp"></a>PRO PLAN GATO ADULTO 7.5 KG</td>
-                                <td>bonificado</td>
-                                <td>$8.156</td>
-                                <td>1</td>
-                                <td>$8.156</th>
-                            </tr>
-                            <tr>
-                                <td class="ttotal"> </td>
-                                <td></td>
-                                <td></td>
-                                <td>TOTAL</td>
-                                <td>$17.256</th>
-                            </tr>
-                        </table>
-                    </div>
-                    <br>
-                    <br>
-                    <div class="imagenCarrito">
-                        <img src="/images/carritoGatito.jpg">
-                    </div>
-                    <div class="butons">
-                        <button>Elegir más productos</button>
-                        <button>Finalizar compra</button>
-                    </div>
-                </article>
-            </section>
-            <br>
-        </main>
+    <!-- Aquí comienza el main -->
+    <main>
 
-        <!-- Aquí comienza el footer: lista de correo, links de información y redes sociales -->
-        <%- include('../partials/footer.ejs') %>
+        <div class="titulares">
+            <h1>Tu carrito de compras</h1>
+        </div>
+        <br>
+        <br>
+        <section>
+            <article>
+                <div class="table">
+                    <table width="100%" cellspacing="5" cellpadding="0">
+                        <tr class="thead">
+                            <td height="50">PRODUCTO</td>
+                            <td>ENVIO</td>
+                            <td>PRECIO</td>
+                            <td>CANTIDAD</td>
+                            <td>TOTAL</td>
+                        </tr>
+                        <tr>
+                            <td class="tint"><a href="#"><img
+                                        src="/images/products/purinaperro.webp"></a>PURINA DENTALIFE PERRO 119 GR</td>
+                            <td>bonificado</td>
+                            <td>$5.550</td>
+                            <td>2</td>
+                            <td>$11.100</td>
+                        </tr>
+                        <tr>
+                            <td class="tint"><a href="#"><img
+                                        src="/images/products/proplangato.webp"></a>PRO PLAN GATO ADULTO 7.5 KG</td>
+                            <td>bonificado</td>
+                            <td>$8.156</td>
+                            <td>1</td>
+                            <td>$8.156</th>
+                        </tr>
+                        <tr>
+                            <td class="ttotal"> </td>
+                            <td></td>
+                            <td></td>
+                            <td>TOTAL</td>
+                            <td>$17.256</th>
+                        </tr>
+                    </table>
+                </div>
+                <br>
+                <br>
+                <div class="imagenCarrito">
+                    <img src="/images/carritoGatito.jpg">
+                </div>
+
+                <div class="butons">
+                    <button>Elegir más productos</button>
+                    <button>Finalizar compra</button>
+                </div>
+            </article>
+        </section>
+        <br>
+    </main>
+
+    <!-- Aquí comienza el footer: lista de correo, links de información y redes sociales -->
+    <%- include('../partials/footer.ejs') %>
 
 </body>
+
 </html>

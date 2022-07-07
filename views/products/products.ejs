@@ -2,43 +2,46 @@
 <html lang="es">
 
 <head>
+    <!-- Metadatos: idiomas, adaptabilidad, estilos, tipografías, iconos y título -->
+    <link href="/css/styles-ProdDetails.css" rel="stylesheet">
+    <title>Catálogo - Animalia</title>
     <%- include ('../partials/head') %>
-
-        <link href="/css/styles-ProdDetails.css" rel="stylesheet">
-        <title>Catálogo - Animalia</title>
-
 </head>
 
 <body>
     <!-- Aquí comienza el header: logo, navbars y campo de búsqueda -->
     <%- include('../partials/header.ejs') %>
 
-        <!-- Aquí comienza el main -->
-        <main>
-            <section>
-                <h3 class="titulares">Nuestro catálogo</h3>
-                <% products.forEach(product=> { %>
-                    <article>
-                        <div class="card">
-                            <a href="/products/productDetail/<%=product.id %>">
-                                <img src="<%=product.image%>">
-                            </a>
-                            <div class="card-body">
-                                <p class="nombres">
-                                    <%=product.name%>
-                                </p>
-                                <p class="precios"> ANTES: $ <%=product.price%>
-                                </p>
-                                <p class="descuentos">¡AHORA: $ <%=product.discount%>!</p>
-                                <button>Agregar al carrito</button>
-                            </div>
-                        </div>
-                    </article>
-                    <% }) %>
-            </section>
-        </main>
-        <!-- Aquí comienza el footer: lista de correo, links de información y redes sociales -->
-        <%- include('../partials/footer.ejs') %>
+    <!-- Aquí comienza el main -->
+    <main>
+
+
+        <section>
+            <h3 class="titulares">Nuestro catálogo</h3>
+
+            <% products.forEach(product => { %>
+            <article>
+                <div class="card">
+                        <a href="/products/productDetail/<%=product.id %>"><img src="<%=product.image%>" title="<%=product.name%>"></a>
+                    <div class="card-body">
+                        <a href="/products/productDetail/<%=product.id %>">
+                            <p class="nombres"><%=product.name%></p>
+                        </a>
+                        <p class="precios">ANTES: $<%=product.price%></p>
+                        <p class="descuentos">¡AHORA: $<%=product.discount%>!</p>
+                        <button>Agregar al carrito</button>
+                    </div>
+                </div>
+            </article>
+            <% }) %> 
+
+        </section>
+
+    </main>
+
+    <!-- Aquí comienza el footer: lista de correo, links de información y redes sociales -->
+    <%- include('../partials/footer.ejs') %>
 
 </body>
+
 </html>

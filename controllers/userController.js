@@ -10,24 +10,14 @@ let users = JSON.parse(fs.readFileSync(usersFilePath , 'utf-8'));
 
 const userController = {
 
-    login: (req, res, next) => {
+    login: (req, res) => {
         res.render('./users/login');
     },
-    registro: (req, res, next) => {
+    registro: (req, res) => {
         res.render('./users/register');
     },
-    carrito: (req, res, next) => {
+    carrito: (req, res) => {
         res.render('./users/cart');
-<<<<<<< HEAD
-    },
-    aboutUs: (req, res, next) => {
-        res.render('./users/aboutUs');
-    },
-    contactUs: (req, res, next) => {
-        res.render('./users/contactUs');
-    },
-};
-=======
       },
       //############# REGISTRO EXITOSO ##############
       registerSuccessful: (req, res) => {
@@ -83,16 +73,16 @@ create: (req, res) => {
     }
 
     User.create(userToCreate);
-    res.redirect('/users/register_success')
+    res.redirect('/')
   },
    //########## PERFIL DE USUARIO ################
-  profile: (req, res) => {
-    res.render('./users/login_success', { user: req.session.userLogged })
-  },
+  // profile: (req, res) => {
+  //   res.render('./users/login_success', { user: req.session.userLogged })
+  // },
 
-  profileAccess: (req, res) => {
-    res.render('./users/profile', { user: req.session.userLogged })
-  },
+  // profileAccess: (req, res) => {
+  //   res.render('./users/profile', { user: req.session.userLogged })
+  // },
 
 
   //############ ACTUALIZAR PERFIL USUARIO ##############
@@ -123,6 +113,5 @@ create: (req, res) => {
 
 
 
->>>>>>> 9040a26e70a88b34546c16386b799242f9e60cc5
 
 module.exports = userController;

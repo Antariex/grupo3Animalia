@@ -2,74 +2,16 @@
 <html lang="es">
 
 <head>
+    <!-- Metadatos: idiomas, adaptabilidad, estilos, tipografías, iconos y título -->
+    <link href="/css/styles-reg.css" rel="stylesheet">
+    <title>Registro - Animalia</title>
     <%- include ('../partials/head') %>
-
-        <link href="/css/styles-reg.css" rel="stylesheet">
-        <title>Registro - Animalia</title>
 </head>
 
 <body>
     <!-- Aquí comienza el header: logo, navbars y campo de búsqueda -->
     <%- include('../partials/header.ejs') %>
 
-<<<<<<< HEAD
-        <!-- Aquí comienza el main FORMULARIO REGISTRO-->
-        <main>
-            <div class="barraSeparacion"></div>
-            <div class="formulario">
-                <h3>Completá los siguientes datos para crear tu cuenta:</h3>
-                <br>
-                <form method="POST" action="#">
-                    <label>Nombre y apellido</label>
-                    <p><input type="text" name="nombre" placeholder="Ej: Perros Gatos" minlength="4" maxlength="30"
-                            required>
-                        </input></p>
-                    <br>
-                    <label>Nombre de usuari@</label>
-                    <p><input type="text" name="usuario" placeholder="Ej: cachorro" minlength="4" maxlength="12"
-                            required>
-                        </input></p>
-                    <br>
-                    <label>E-mail</label>
-                    <p><input type="email" name="email" placeholder="Ej: perro@gato.com.ar" required>
-                        </input></p>
-                    <br>
-                    <label>Fecha de nacimiento</label>
-                    <p><input type="date" name="fecha" value="2020-03-19" required>
-                        </input></p>
-                    <br>
-                    <label>Contraseña: </label>
-                    <p><input type="password" name="password" placeholder="Al menos 6 caracteres" minlength="6"
-                            maxlength="10" required>
-                        </input></p>
-                    <br>
-                    <label>Confirmar: &nbsp&nbsp</label>
-                    <p><input type="password" name="repassword" placeholder="Confirmá tu contraseña" minlength="6"
-                            maxlength="10" required>
-                        </input></p>
-                    <p>(i) La contraseña debe tener mínimo 6 caracteres.</p>
-                    <br>
-                    <br>
-                    <button type="submit" class="sendButton"><a href="/">
-                            Enviar
-                        </a></button>
-                    <button type="reset" class="resetButton"><a href="/">
-                            Cancelar
-                        </a>
-                    </button>
-                </form>
-                <br>
-                <br>
-                <p>¿Ya tenés cuenta cuenta con nosotros? <a href="/users/login" class="irALogin">Iniciar sesión</a>
-                </p>
-                <br>
-            </div>
-            <!--Aqui termina el formulario de registro MARIANO-->
-        </main>
-
-        <!-- Aquí comienza el footer: lista de correo, links de información y redes sociales -->
-        <%- include('../partials/footer.ejs') %>
-=======
     <!-- Aquí comienza el main FORMULARIO REGISTRO-->
     <main>
         <div class="barraSeparacion"></div>
@@ -87,7 +29,7 @@
             </div>
             <% } %>
             <!-- ERRORS END -->
-            <form action="/views/users/register" method="POST" enctype="multipart/form-data">
+            <form action="/user/register/confirm" method="POST" enctype="multipart/form-data">
 
                 <label for="nombreyapellido">Nombre y apellido</label>
                 <p><input type="text" name="nombreyapellido" placeholder="Ingrese su nombre" required>
@@ -120,7 +62,7 @@
             </form>
             <br>
             <br>
-            <p>¿Ya tenés cuenta cuenta con nosotros? <a href="/users/login" class="irALogin">Iniciar sesión</a>
+            <p>¿Ya tenés cuenta cuenta con nosotros? <a href="./login" class="irALogin">Iniciar sesión</a>
             </p>
             <br>
         </div>
@@ -129,7 +71,7 @@
 
     <!-- Aquí comienza el footer: lista de correo, links de información y redes sociales -->
     <%- include('../partials/footer.ejs') %>
->>>>>>> 9040a26e70a88b34546c16386b799242f9e60cc5
 
 </body>
+
 </html>

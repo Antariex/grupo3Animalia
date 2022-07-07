@@ -2,18 +2,19 @@
 <html lang="es">
 
 <head>
+    <!-- Metadatos: idiomas, adaptabilidad, estilos, tipografías, iconos y título -->
     <link href="/css/styles.css" rel="stylesheet">
-    <title>Animalia - Lo mejor para tus mascotas</title>
+    <%- include ('../partials/head') %>
 </head>
 
 <footer>
     <div class="enlaces">
         <section class="nosotros">
-            <h4>Nosotros</h4> 
+            <h4>Nosotros</h4>
             <br>
             <ul>
-                <li><a href="/users/aboutUs">Quiénes somos</a></li><!--lo agregó FC>-->
-                <li><li><a href="/users/contactUs">Sucursales</a></li><!--lo agregó FC-->
+                <li><a href="aboutUs">Quiénes somos</a></li>
+                <li><a href="sucursales">Sucursales</a></li>
                 <li><a href="./products">Catálogo</a></li>
             </ul>
         </section>
@@ -34,6 +35,7 @@
             <ul>
                 <li><a href="#">Mis pedidos</a></li>
                 <li><a href="#">Seguimiento</a></li>
+                <li><a href="./products/productCreate">Administración</a></li>
             </ul>
         </section>
 

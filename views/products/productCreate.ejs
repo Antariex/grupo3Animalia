@@ -2,109 +2,77 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
-  <%- include ('../partials/head') %>
+    <head>
+        <!-- Metadatos: idiomas, adaptabilidad, estilos, tipografías, iconos y título -->
+        <link href="/public/css/productCreate.css" rel="stylesheet">
+        <title>Creación de producto - Animalia</title>
+        <%- include ('../partials/head') %>
+    </head>
 
-    <link href="/css/productCreate.css" rel="stylesheet">
-    <title>Creación de producto - Animalia</title>
-
-</head>
-
-<body>
-  <%- include('../partials/header.ejs') %>
-    <main>
-      <div class="formulario">
-        <section class="section_container crate_product-section">
-          <article class="article_container product_article">
-            <div>
-              <h1 class="titulares">Formulario para creación de productos en stock</h1>
-              <p>Las caracteristicas ingresadas pueden ser modificadas en cualquier momento</p>
-            </div>
-            <br>
-            <div class="form">
-              <form action="/views/products/productCreate" method="POST" enctype="multipart/form-data"
-                class="create__product-form">
-              </form>
-
-              <!-- Nombre del producto -->
-              <br>
+    <body>
+        <%- include('../partials/header.ejs') %>
+        <main>
+          <section class="section__container crate__product-section">
+             <article class="article__container product__article">
               <div>
-                <label for="productName" class="form__label">Nombre del producto:</label>
-                <input type="text" name="productName" placeholder="Complete este campo" class="form__input"></input>
+                <h3 class="titulares">Formulario para creación de productos en stock</h3>
+                <p>Las caracteristicas ingresadas pueden ser modificadas en cualquier momento</p>
+                </div>
+                <form action="/products/create/confirm" method="POST" enctype="multipart/form-data" class="create__product-form">
+                  <!-- Nombre del producto -->
+                  <br>
+                <div>
+                  <label for="nombre" class="form__label">Nombre del producto:</label>
+                  <input type="text" name="name" placeholder="Complete este campo" class ="form__input"></input>
+                  <br>
+                </div>
                 <br>
-              </div>
-              <br>
-              <!-- Tarea ingreso o modificación del producto -->
-              <div>
-                <label for="productTarea" class="form__label" placeholder="Seleccione el tipo de tarea">Tipo de
-                  tarea</label>
-                <select name="productTarea" id="productTarea" class="form__input">
-                  <option value="">Alta</option>
-                </select>
-              </div>
-              <br>
 
-<<<<<<< HEAD
-              <!-- Categoria del producto -->
-              <div>
-                <label for="productCategory" class="form__label"
-                  placeholder="Seleccione una categoria">Categoria:</label>
-                <select name="productCategory" id="productCategory" class="form__input">
-                  <option value=""></option>
-                  <option value="">Perros</option>
-                  <option value="">Gatos</option>
-                  <option value="">Roedores</option>
-                  <option value="">Peces</option>
-                  <option value="">Ofertas</option>
-                </select>
-              </div>
-              <br>
-=======
                 <!-- Categoria del producto -->
                   <div>
-                  <label for="productCategory" class="form__label" placeholder="Seleccione una categoria">Categoria:</label>
-                  <select name="productCategory" id="productCategory" class="form__input">
-                    <option value=""></option>
-                    <option value="">Perros</option>
-                    <option value="">Gatos</option>
-                    <option value="">Roedores</option>
-                    <option value="">Peces</option>
-                    <option value="">Ofertas</option>
+                  <label for="category" class="form__label" placeholder="Seleccione una categoria">Categoria:</label>
+                  <select name="category" id="productCategory" class="form__input">
+                    <option value="" selected disabled>Seleccione una categoria</option>
+                    <option value="perros">Perros</option>
+                    <option value="gatos">Gatos</option>
+                    <option value="roedores">Roedores</option>
+                    <option value="peces">Peces</option>
+                    <option value="ofertas">Ofertas</option>
                   </select>
                 </div>
                 <br>
                   <!-- Medidas del producto -->
                     <div>
-                  <label for="productSize" class="form__label">Medidas del producto</label>
+                  <label for="weight" class="form__label">Kg's</label>
                   <br>
-                  <input type="text" name="productSize" placeholder="120 x 90 x 50" class ="form__input" value="<%= locals.oldData? oldData.productSize : null%>"><br>
+                  <input type="text" name="weight" placeholder="50" class ="form__input" value="<%= locals.oldData? oldData.productSize : null%>"><br>
                 </div>
                 <br>
                   <!-- Img del producto -->
                   <div>
-                  <label for="productImg" class="form__label">Elige una imagen</label>
+                  <label for="thumbnail" class="form__label">Elige una imagen</label>
                   <br>
-                  <input type="file" name="productImg" id="productImg" class ="form__input" accept="image/*" value="<%= locals.oldData? oldData.productImg : null%>"><br>
+                  <input type="file" name="thumbnail" id="productImg" class ="form__input" accept="image/*" value="<%= locals.oldData? oldData.productImg : null%>"><br>
                 </div>
                 <br>
                   <!-- Precio del producto -->
                 <div>
-                  <label for="productPrice" class="form__label">Precio:</label>
-                  <input type="text" name="productPrice" id="productPrice" class ="form__input" placeholder="$"></input> <br>
+                  <label for="price" class="form__label">Precio:</label>
+                  <input type="text" name="price" id="productPrice" class ="form__input" placeholder="$"></input> <br>
                 </div>
                 <br>
                 <!--Precio del producto con descuento-->
                 <div>
-                  <label for="Pricediscount" class="form__label">Precio con descuento:</label>
-                  <input type="text" name="Pricediscount" id="Priced" class ="form__input" placeholder="$"></input>
+                  <label for="discount" class="form__label">Precio con descuento:</label>
+                  <input type="text" name="discount" id="Priced" class ="form__input" placeholder="$"></input>
                   <br>
                 </div>
                   <!-- Descripción del producto -->
                   <div>
-                  <label for="productDescription" class="form__label">Escriba una descripción del producto</label>
+                  <label for="description" class="form__label">Escriba una descripción del producto</label>
                   <br>
                   <br>
-                  <textarea type="text" name="productDescription" placeholder="Escriba aqui los detalles del producto."><%= locals.oldData? oldData.productDescription : null%></textarea>
+                  <textarea type="text" name="description" placeholder="Escriba aqui los detalles del producto."><%= locals.oldData? oldData.productDescription : null%></textarea>
                 </div>
                 <br>
                   <div>
@@ -117,64 +85,5 @@
         </main>
         <%- include('../partials/footer.ejs') %>
       </body>
->>>>>>> 9040a26e70a88b34546c16386b799242f9e60cc5
 
-              <!-- Medidas del producto -->
-              <div>
-                <label for="productSize" class="form__label">Medidas del producto en cm.</label>
-                <br>
-                <input type="text" name="productSize" placeholder="120 x 90 x 50" class="form__input"
-                  value="<%= locals.oldData? oldData.productSize : null%>"><br>
-              </div>
-              <br>
-
-              <!-- Img del producto -->
-              <div>
-                <label for="productImg" class="form__label">Elige una imagen</label>
-                <br>
-                <input type="file" name="productImg" id="productImg" class="form__input" accept="image/*"
-                  value="<%= locals.oldData? oldData.productImg : null%>"><br>
-              </div>
-              <br>
-
-              <!-- Precio del producto -->
-              <div>
-                <label for="productPrice" class="form__label">Precio:</label>
-                <input type="text" name="productPrice" id="productPrice" class="form__input" placeholder="$">
-                <br>
-              </div>
-              <br>
-
-              <!--Precio del producto con descuento-->
-              <div>
-                <label for="Pricediscount" class="form__label">Precio con descuento:</label>
-                <input type="text" name="Pricediscount" id="Priced" class="form__input" placeholder="$">
-                <br>
-              </div>
-            </div>
-
-            <!-- Descripción del producto -->
-            <div>
-              <br>
-              <br>
-              <label for="productDescription" class="form__label">Escriba una descripción del producto</label>
-              <br>
-              <textarea cols="65" rows="5" type="text" name="productDescription"
-                placeholder="Escriba aqui los detalles del producto."><%= locals.oldData? oldData.productDescription : null%></textarea>
-            </div>
-            <br>
-
-            <!--<input type="submit" value="Crear">ESTE TENIAN LOS CHICOS-->
-            <div class="buttons">
-              <form action="/productCreate/%=product.id %>" method="GET" style="display: inline-flex">
-                <button class="botonCrear" type="Submit">Crear producto</button>
-              </form>
-              <br>
-              <form action="/products/" style="display: inline-flex">
-                <button class="botonCancelar" type="Submit">Cancelar</button>
-              </form>
-            </div>
-    </main>
-    <%- include('../partials/footer.ejs') %>
-</body>
 </html>

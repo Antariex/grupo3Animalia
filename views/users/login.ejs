@@ -2,49 +2,19 @@
 <html lang="es">
 
 <head>
+    <!-- Metadatos: idiomas, adaptabilidad, estilos, tipografías, iconos y título -->
+    <link href="/css/styles-login.css" rel="stylesheet">
+    <title>Ingreso - Animalia</title>
     <%- include ('../partials/head') %>
-
-        <link href="/css/styles-login.css" rel="stylesheet">
-        <title>Ingreso - Animalia</title>
 </head>
+
 <body>
     <!-- Aquí comienza el header: logo, navbars y campo de búsqueda -->
     <%- include('../partials/header.ejs') %>
 
-        <!-- Aquí comienza el main -->
-        <main>
-            <div class="formulario login">
-                <br>
-                <h2>¡Hola! Completá tus datos para ingresar:</h2>
-                <br>
-                <form method="POST" action="#">
-                    <br>
-                    <p><input type="text" name="usuario" placeholder="E-mail  o  usuari@" required></input></p>
-                    <p><input type="password" name="password" placeholder="Contraseña" required></input></p>
-                    <br>
-                    <input type="checkbox" name="datosUsuario" value="1" checked>
-                    <label>Recordar mis datos</label>
-                    <br>
-                    <button type="submit" class="sendButton"><a href="/">Enviar</a></button>
-                    <button type="reset" class="resetButton"><a href="/">Cancelar</a></button>
-                    <br>
-                    <br>
-                    <p>¿Olvidaste tu contraseña?</p>
-                    <a href="#" class="links"> Recuperar contraseña</a>
-                </form>
-                <br>
-                <br>
-                <h3>¿Primera vez en Animalia?</h3>
-                <a href="/users/register" class="crearPerfil">Creá tu cuenta</a>
-                <br>
-                <br>
-            </div>
-        </main>
+    <!-- Aquí comienza el main -->
+    <main>
 
-<<<<<<< HEAD
-        <!-- Aquí comienza el footer: lista de correo, links de información y redes sociales -->
-        <%- include('../partials/footer.ejs') %>
-=======
         <div class="formulario login">
 
             <br>
@@ -56,7 +26,7 @@
                 <p><input type="password" name="password" placeholder="Contraseña" required></input></p>
                 <!-- Pendiente boton para mostrar contraseña -->
                 <br>
-                <input type="checkbox" name="datosUsuario" value="1" checked>
+                <input type="checkbox" name="datosUsuario">
                 <label>Recordar mis datos</label>
                 <br>
                 <button class="sendButton" type="submit"><a href="/">Enviar</a></button>
@@ -69,7 +39,7 @@
             <br>
             <h3>¿Primera vez en Animalia?</h3>
             <br>
-            <a href="/users/register" class="crearPerfil">Creá tu cuenta</a>
+            <a href="./register" class="crearPerfil">Creá tu cuenta</a>
             <br>
             <br>
         </div>
@@ -78,7 +48,7 @@
 
     <!-- Aquí comienza el footer: lista de correo, links de información y redes sociales -->
     <%- include('../partials/footer.ejs') %>
->>>>>>> 9040a26e70a88b34546c16386b799242f9e60cc5
 
 </body>
+
 </html>

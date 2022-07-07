@@ -8,4 +8,3 @@ const loginValidation =[
   ]
 
   module.exports = loginValidation;
-  
