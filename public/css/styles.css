@@ -63,8 +63,8 @@
 }
 
 .secciones img:hover {
-        transition: 0.5s;
-        transform: rotate(360deg);
+    transition: 0.5s;
+    transform: rotate(360deg);
 }
 
 .secciones ul {
@@ -101,8 +101,17 @@
     color: var(--gris);
 }
 
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
+
 .fa-magnifying-glass {
     color: var(--verde);
+    height: 20px;
+    position: relative;
+    top: 0px;
+    left: -30px;
 }
 
 .burguer-menu {
@@ -313,8 +322,8 @@ article {
 }
 
 .consejo img {
-max-width: 28%;
-border-radius: 50%;
+    max-width: 28%;
+    border-radius: 50%;
 }
 
 .up {
@@ -397,14 +406,16 @@ footer {
     flex-wrap: wrap;
 }
 
-.enlaces a, .legales a {
+.enlaces a,
+.legales a {
     text-decoration: none;
     color: var(--blanco);
     margin: 11px;
     padding: 1px;
 }
 
-.enlaces a:hover, .legales a:hover {
+.enlaces a:hover,
+.legales a:hover {
     color: var(--amarillo);
 }
 
@@ -423,13 +434,10 @@ footer {
 
 /* mobile */
 
-@media (min-width: 320px) {
-
-}
+@media (min-width: 320px) {}
 
 /* tablet */
-@media (min-width: 768px) {
-}
+@media (min-width: 768px) {}
 
 /* desktop */
 @media (min-width: 1024px) {

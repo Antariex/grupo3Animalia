@@ -33,3 +33,8 @@ router.delete('/delete/:id', productController.borrado);
 //Exportamos la variable del router
 module.exports = router;
 
+
+
+
+
+
