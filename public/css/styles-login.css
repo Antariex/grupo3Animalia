@@ -1,41 +1,12 @@
-/*Login Maru*/
-
-/* Estilos generales*/
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto', serif;
+.formulario {
+    text-align: center;
 }
-
-:root {
-    --celeste: #54A4CB;
-    --verde: #674E3E;
-    --rosa: #C9914B;
-    --amarillo: #FFF159;
-    --blanco: #fff;
-    --gris: #3c3c3c;
-    --negro: #000;
-}
-
-
-/* Estilos Formularios - Register*/
-
-
 
 .formulario p {
-font-size: 15px;
-};
-
-.links { 
-    text-decoration: none !important;
-    color:red !important;
-};
+font-size: 16px;
+}
 
 .formulario h2 {
-    text-align: center;
-    margin: 2px;
     color: var(--rosa);
     font-size: 24px;
 }
@@ -49,7 +20,6 @@ font-size: 15px;
     border-radius: 20px;
     font: inherit;
     text-align: left;
-    
 }
 
 .formulario input:focus {
@@ -63,7 +33,6 @@ font-size: 15px;
     border: 1px solid var(--verde);
     border-radius: 6px;
     font-family: 'Roboto', serif;
-    
 }
 
 .formulario button a {
@@ -71,120 +40,30 @@ font-size: 15px;
     color: var(--blanco);
 }
 
-
 .formulario h3{
     text-align: center;
     color: var(--gris);
+    font-size: 16px;
+    font-weight: lighter;
 }
 
-.login {
-    text-align: center;
-}
-
+.resetButton:hover,
 .sendButton:hover {
     background-color: var(--celeste);
     border: 1px solid var(--celeste);
+
 }
 
-.crearPerfil,
-.irALogin {
-    text-decoration: none;
-    color: #1259c3;
+.links { 
+    text-decoration: none !important;
+    color: var(--rosa) !important;
     font-size: 14px;
     font-weight: bold;
 }
 
-/* Estilos footer */
-
-footer {
-    background-color: var(--celeste);
-    color: var(--blanco);
-    font-size: 16px;
-}
-
-.newsletter {
-    display: flex;
-    justify-content: space-around;
-    font-size: 16px;
-    padding: 3px;
-    align-items: center;
-    padding: 3px;
-}
-
-.newsletter input {
-    padding: 6px 8px 7px;
-    font-size: 14px;
-    border: 1px solid var(--blanco);
-    background-color: var(--blanco);
-    color: var(--gris);
-}
-
-.newsletter button {
-    padding: 8px 10px;
-    margin: 8px;
-    background-color: var(--gris);
-    border: 1px solid var(--gris);
-    font-family: 'Roboto', serif;
-    color: var(--blanco);
-}
-
-.newsletter button:hover {
-    color: var(--amarillo)
-}
-
-.enlaces {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.enlaces h4 {
-    
-    text-align: center;
-}
-
-.enlaces a, .legales a {
+.crearPerfil {
     text-decoration: none;
-    color: var(--blanco);
-    margin: 11px;
-    padding: 1px;
-}
-
-.enlaces a:hover, .legales a:hover {
-    color: var(--amarillo);
-}
-
-.enlaces li {
-    padding: 5px;
-    list-style: none;
-    text-align: center;
-}
-
-.legales {
-    text-align: left;
-    padding: 5px;
-}
-
-/* Estilos para diseño adaptativo */
-
-/* mobile */
-
-@media (min-width: 320px) {
-
-}
-
-/* tablet */
-@media (min-width: 768px) {
-}
-
-/* desktop */
-@media (min-width: 1024px) {
-
-    .burguer-menu {
-        display: none;
-    }
-
-    .secciones {
-        display: flex;
-    }
+    color: var(--rosa);
+    font-size: 14px;
+    font-weight: bold;
 }
