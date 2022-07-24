@@ -3,7 +3,9 @@ const path = require('path');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const methodOverride = require('method-override');
-const mainRouter = require('./routes/index')
+const mainRouter = require('./routes/index');
+//Agregado por FC para tomar el archivo "associations" de asociaciones entre tablas de BD
+require('./database/associations');
 
 // Express
 const app = express();
@@ -21,6 +23,12 @@ app.use(express.static(path.resolve(__dirname, 'public')))
 app.use(express.urlencoded( {extended: false} ));
 app.use(methodOverride('_method'));
 app.use(express.json());
+
+//Rutas de vinculación a BD, agregadas por FC basado en clases 31/32PG, líneas 26 y URL encode
+app.use('/products', productRouter)
+
+//URL encode - Para que nos pueda llegar la información desde el formulario al req.body
+app.use(express.urlencoded({extended: false}));
 
 //Gestion de session && almacenamiento cookies
 app.use(cookieParser());
