@@ -27,6 +27,21 @@ router.get('/edit/:id',productController.edicion);
 router.put('/edit/:id/succed/',upload.single('thumbnail'),productController.actualizar);
 router.delete('/delete/:id', productController.borrado);
 
+//agregado por FC basado microdesafío clase 31PG, direcciona a views/products/products.ejs 
+router.get('/products', DBPoductsController.list)
+
+//Rutas CRUD BD agregado por FC basado en la clase 32
+//Renderización de una vista de un producto creado:
+router.get('/products/add', DBProductController.add);
+router.post('/products/create/confirm', DBProductController.create); // Esta ruta fue tomada de productCreate.ejs línea 21 
+
+router.get('/products/edit/:id', DBProductController.edit);
+//¿en nuestro caso ttrataremos put y edit como una sola acción dentro del formulario de edición???
+//router.put('', DBProductController.update);
+
+router.get('/products/delete/:id', DBProductController.delete);
+router.delete('/products/delete/:id', DBProductController.destroy);
+
 
 
 
