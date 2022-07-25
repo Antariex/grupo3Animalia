@@ -9,7 +9,7 @@ module.exports = (sequelize, dataTypes) =>  {
             allowNull: false
         },
         cantidad: {
-            type: dataTypes.INTEGER,    
+            type: dataTypes.INTEGER,
             allowNull: false
         },
         subtotal: {
