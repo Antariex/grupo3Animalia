@@ -1,3 +1,4 @@
+
 const db = require('../database/models/Index'); //requerimos sequelize dentro de nuestro controlador
 const Product = require('../database/models/Product');
 
@@ -8,7 +9,7 @@ el primero es el nombre de la vista que mostraremos por ej "listaDeProductos ubi
 El segundo recibirá la información cargada en el argumento "products", es decir, recibirá la respuesta 
 que será el resultado de la búsqueda realizada en la promesa*/
 
-const DBProductsControler = {
+const DBProductsController = {
 
     list: (req, res) => {
         db.Product.findAll()
@@ -26,17 +27,14 @@ const DBProductsControler = {
             }))
     },
 
-    //adicionado según clase 32PG:
+    //ADD a Product//
     add: function (req, res) {
         res.render('productEdit')
     },
 
-    /*en create solo porque en el PG decía redirect puse redirect, pero no sé si va esa ruta. 
-    Dentro de redirect siempre irá una ruta, no una vista*/
+    //CREATE A PRODUCT//
     create: (req, res) => {
         db.Product.create({
-                /*con spread operator podría usar "...req.body," para levantar todo lo que tengamos en el body en vez de aclarar 
-                cada uno de los campos*/
                 product_id: req.body.product_id,
                 price: req.body.price,
                 discount: req.body.discount,
@@ -54,7 +52,7 @@ const DBProductsControler = {
 de update y destroy tiene que haber al menos un where) buscamos que el id que levantamos mediante req.params.id
 (dato que proviene de la búsqueda url) coincida con la PK id de la BD*. El then me redirige a la vista de los productos*/
 
-//¿en nuestro caso ttrataremos put y edit como una sola acción dentro del formulario de edición???
+//ACTUALIZAR UN PRODUCTO//
     update: (req,res) => {
         db.Product.update({
             ...req.body
@@ -64,6 +62,8 @@ de update y destroy tiene que haber al menos un where) buscamos que el id que le
         })
         .then(() => res.redirect('/products/productDetail/'+ req.params.product_id))
     },
+
+
 //en Delete no tenemos html con vista de listado de productos eliminados pero igual creé el scrypt
     delete: (req,res) => {
         db.Product.findbyPK(req.params.product_id)
@@ -76,3 +76,6 @@ de update y destroy tiene que haber al menos un where) buscamos que el id que le
      
     },
 }
+
+module.exports = DBProductsController;
+
