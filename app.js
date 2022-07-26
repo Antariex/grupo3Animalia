@@ -4,7 +4,7 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const methodOverride = require('method-override');
 const mainRouter = require('./routes/index');
-//const productRouter = require('/routes/productRouter');
+const productRouter = require('./routes/productRouter');
 //Agregado por FC para tomar el archivo "associations" de asociaciones entre tablas de BD
 //const squelize = require('./database/associations');
 
@@ -26,7 +26,7 @@ app.use(methodOverride('_method'));
 app.use(express.json());
 
 //Rutas de vinculación a BD, agregadas por FC 
-//app.use('/products', productRouter)
+app.use('/products', productRouter)
 
 //Gestion de session && almacenamiento cookies
 app.use(cookieParser());

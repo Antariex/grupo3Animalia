@@ -5,6 +5,7 @@ const path = require('path');
 const { body } = require('express-validator');
 const productController = require('../controllers/productController')
 
+
 //Configuración de entorno
 const storage = multer.diskStorage({
   destination: function(req, file, cb) {
