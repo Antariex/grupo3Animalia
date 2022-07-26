@@ -15,7 +15,7 @@ router.use('/products', productRouter)
 //Router de usuarios (http://localhost:3000/user)
 
 //Router para acceder a la base de datos agregado por FC
-router.get('/products', DBProductController.js)
+//router.get('/products', DBProductController.js)
 router.use('/user', userRouter)
 
 //Exportamos las variables del router
