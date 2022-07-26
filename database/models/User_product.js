@@ -1,21 +1,19 @@
 module.exports = (sequelize, dataTypes) =>  {
 
-    let alias = "Order_items";
+    let alias = "User_products";
     let cols = {
-        order_item_id: {
+        id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
             allowNull: false
         },
-        cantidad: {
-            type: dataTypes.INTEGER,    
+            cantidad: {
+            type: dataTypes.INTEGER,
             allowNull: false
         },
-        subtotal: {
+            subtotal: {
             type: dataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true,
             allowNull: false
         }
     }
@@ -26,5 +24,17 @@ module.exports = (sequelize, dataTypes) =>  {
     
     
         const Order_item = sequelize.define(alias, cols, config);
+
+        User_product.associate = function (models) {
+            User_product.belongsTo(models.Users, {
+                as: "users",
+                foreignKey: "user_id",
+            });
+            User_product.belongsTo(models.Products, {
+                as: "products",
+                foreignKey: "product_id",
+            });
+        }
+        
         return Order_item;
     }

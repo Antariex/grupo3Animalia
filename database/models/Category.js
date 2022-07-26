@@ -20,5 +20,14 @@ let config = {
 
 
     const Category = sequelize.define(alias, cols, config);
+    
+    Category.associate = function (models) {
+        Category.hasMany(models.Product, {
+            as: "products",
+            foreignKey: "category_id"
+        });
+    }
     return Category;
 }
+
+

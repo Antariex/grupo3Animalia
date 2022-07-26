@@ -34,8 +34,20 @@ module.exports = (sequelize, dataTypes) =>  {
         timestamps: false
         
     }
-    
-    
         const User = sequelize.define(alias, cols, config);
+
+        User.associate = function (models) {
+            User.belongsTo(models.Permission, {
+                as: "permission",
+                foreignKey: "permission_id"
+
+            });
+            User.belongsToMany(models.Product, {
+                as: "products",
+                through: "user_product",
+                foreignKey: "user_id",
+                otherKey: "product_id"
+            });
+        }
         return User;
     }

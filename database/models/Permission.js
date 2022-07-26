@@ -20,5 +20,12 @@ module.exports = (sequelize, dataTypes) =>  {
     
     
         const Permission = sequelize.define(alias, cols, config);
+
+        Permission.associate = function (models) {
+            Permission.belongsTo(models.User, {
+                as: "users",
+                foreignKey: "permission_id"
+            });
+        }
         return Permission;
     }
