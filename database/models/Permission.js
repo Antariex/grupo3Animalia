@@ -1,8 +1,8 @@
 module.exports = (sequelize, dataTypes) =>  {
 
-    let alias = "Permissions";
+    let alias = "Permission";
     let cols = {
-        permission_id: {
+        id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
@@ -23,7 +23,7 @@ module.exports = (sequelize, dataTypes) =>  {
 
         Permission.associate = function (models) {
             Permission.belongsTo(models.User, {
-                as: "users",
+                as: "user",
                 foreignKey: "permission_id"
             });
         }

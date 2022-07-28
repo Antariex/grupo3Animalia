@@ -1,6 +1,6 @@
 module.exports = (sequelize, dataTypes) =>  {
 
-    let alias = "User_products";
+    let alias = "User_product";
     let cols = {
         id: {
             type: dataTypes.INTEGER,
@@ -8,13 +8,21 @@ module.exports = (sequelize, dataTypes) =>  {
             autoIncrement: true,
             allowNull: false
         },
+        user_id: {
+            type: dataTypes.INTEGER,
+            allowNull: false
+        },
+        product_id: {
+            type: dataTypes.INTEGER,
+            allowNull: false
+        },
             cantidad: {
             type: dataTypes.INTEGER,
             allowNull: false
         },
-            subtotal: {
+            order_item_id: {
             type: dataTypes.INTEGER,
-            allowNull: false
+            allowNull: true
         }
     }
     let config = {
@@ -23,18 +31,18 @@ module.exports = (sequelize, dataTypes) =>  {
     }
     
     
-        const Order_item = sequelize.define(alias, cols, config);
+        const User_product = sequelize.define(alias, cols, config);
 
         User_product.associate = function (models) {
-            User_product.belongsTo(models.Users, {
-                as: "users",
+            User_product.belongsTo(models.User, {
+                as: "user",
                 foreignKey: "user_id",
             });
-            User_product.belongsTo(models.Products, {
-                as: "products",
+            User_product.belongsTo(models.Product, {
+                as: "product",
                 foreignKey: "product_id",
             });
         }
         
-        return Order_item;
+        return User_product;
     }

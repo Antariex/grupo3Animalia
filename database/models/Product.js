@@ -1,11 +1,23 @@
 module.exports = (sequelize, dataTypes) => {
 
-        let alias = "Products";
+        let alias = "Product";
         let cols = {
-            product_id: {
+            id: {
                 type: dataTypes.INTEGER,
                 primaryKey: true,
                 autoIncrement: true,
+                allowNull: false
+            },
+                category_id: {
+                type: dataTypes.INTEGER,
+                allowNull: false
+            },
+                subcategory_id: {
+                type: dataTypes.INTEGER,
+                allowNull: false
+            },
+            name: {
+                type: dataTypes.STRING,
                 allowNull: false
             },
             price: {
@@ -16,9 +28,9 @@ module.exports = (sequelize, dataTypes) => {
                 type: dataTypes.INTEGER,
                 allowNull: true
             },
-            image: {
-                type: dataTypes.STRING,
-                allowNull: false
+            thumbnail: {
+                type: dataTypes.BLOB,
+                allowNull: true
             },
             description: {
                 type: dataTypes.STRING,
@@ -39,19 +51,22 @@ module.exports = (sequelize, dataTypes) => {
 
                 Product.associate = function (models) {
                     Product.belongsToMany(models.User, {
-                        as: "users",
+                        as: "user",
                         through: "user_product",
                         foreignKey: "product_id",
                         otherKey:"user_id"
-                    }),
+                    })
+                
                     Product.belongsTo(models.Category, {
                         as: "category",
                        foreignKey: "category_id",
+
                     }),
                     Product.belongsTo(models.Subcategory, {
                         as: "subcategory",
                         foreignKey: "subcategory_id"
                     });
                 }
+
         return Product;
         }

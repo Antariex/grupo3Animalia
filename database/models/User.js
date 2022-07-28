@@ -1,11 +1,15 @@
 module.exports = (sequelize, dataTypes) =>  {
 
-    let alias = "Users";
+    let alias = "User";
     let cols = {
-        user_id: {
+        id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
+            allowNull: false
+        },
+        permission_id: {
+            type: dataTypes.INTEGER,
             allowNull: false
         },
         name: {
@@ -27,6 +31,10 @@ module.exports = (sequelize, dataTypes) =>  {
         password: {
             type: dataTypes.STRING,
             allowNull: false
+        },
+        thumbnail: {
+            type: dataTypes.BLOB,
+            allowNull: true
         }
     }
     let config = {
@@ -38,12 +46,12 @@ module.exports = (sequelize, dataTypes) =>  {
 
         User.associate = function (models) {
             User.belongsTo(models.Permission, {
-                as: "permission",
+                as: "permissions",
                 foreignKey: "permission_id"
 
             });
             User.belongsToMany(models.Product, {
-                as: "products",
+                as: "product",
                 through: "user_product",
                 foreignKey: "user_id",
                 otherKey: "product_id"

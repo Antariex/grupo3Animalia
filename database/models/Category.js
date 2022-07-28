@@ -1,8 +1,8 @@
 module.exports = (sequelize, dataTypes) =>  {
 
-let alias = "Categories";
+let alias = "Category";
 let cols = {
-    category_id: {
+    id: {
         type: dataTypes.INTEGER(10),
         primaryKey: true,
         autoIncrement: true,
@@ -14,8 +14,7 @@ let cols = {
     }
 }
 let config = {
-    tableName: "categories",
-    timestamps: false
+       timestamps: false
 }
 
 
@@ -23,7 +22,7 @@ let config = {
     
     Category.associate = function (models) {
         Category.hasMany(models.Product, {
-            as: "products",
+            as: "product",
             foreignKey: "category_id"
         });
     }
