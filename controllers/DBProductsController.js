@@ -73,6 +73,5 @@ de update y destroy tiene que haber al menos un where) buscamos que el id que le
     destroy: (req,res) => {
         db.Product.destroy({where: {id: req.params.product_id}})
         .then(() => res.redirect('/products'))
-     
     },
 }
