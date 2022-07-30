@@ -15,33 +15,58 @@
     <!-- Aquí comienza el main -->
     <main>
 
-        <div class="formulario login">
+        <div class="container">
+            <div class="izquierda">
+                <h2 class="titulo">¡Bienvenido a Animalia!</h2>
+                <picture>
+                    <img src="/images/GATO.jpg" alt="" data-testid="hero-image" class="foto">
+                </picture>
+                <br>
+                <br>
+                <br>
+                <p>¿Primera vez en Animalia?</p>
+                <p><a href="./register" class="crearPerfil">Creá tu cuenta</a></p>
+            </div>
 
-            <br>
-            <h2 class="titulo">¡Hola! Completá tus datos para ingresar.</h2>
-            <br>
-            <form action="./users/login" method="POST" >
+            <div class="formulario login">
+                <p class="leyenda">Ingresá tus datos para acceder a nuestra comunidad mascotera</p>
                 <br>
-                <p><input type="text" name="usuario" placeholder="E-mail  o  usuari@" required></input></p>
-                <p><input type="password" name="password" placeholder="Contraseña" required></input></p>
-                <!-- Pendiente boton para mostrar contraseña -->
+                <form action="./users/login" method="POST">
+                    <label for="usuario">Email</label>
+                    <p><input type="text" name="usuario" placeholder="Ej: usuario@animalia.com.ar" required></input></p>
+                    
+                            <br>
+                    
+                    <label for="password">Contraseña </label>
+                    <p><input type="password" id="password" placeholder="Tu clave personal" required></input></p>
+                    <p class="emergente">
+                        <span
+                            data-tooltip="Tu contraseña debe tener un mínimo de 8 caracteres. Evitá usar palabras o secuencias muy comunes."><svg
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" fill="currentColor" role="img"
+                                aria-hidden="false" class="icono">
+                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="10">
+                                    <path d="M5 70a65 65 0 10130 0A65 65 0 105 70zm65 0v35"></path>
+                                    <path d="M65 45a5 5 0 1010 0 5 5 0 10-10 0z"></path>
+                                </g>
+                            </svg></span>
+                            <br>
+                            <br>
+                    <button class="sendButton" type="submit"><a href="/">Iniciar sesión</a></button>
+                </form>
                 <br>
-                <input type="checkbox" name="datosUsuario">
-                <label>Recordar mis datos</label>
+                <span class="texto">
+                    <p>¿Olvidaste tu contraseña?</p>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#" class="links"> Recuperar contraseña</a>
+                </span>
                 <br>
-                <button class="sendButton" type="submit"><a href="/">Enviar</a></button>
+                <span>
+
+                </span>
                 <br>
-                <br>
-                <br>
-                <p>¿Olvidaste tu contraseña?</p>
-                <a href="#" class="links"> Recuperar contraseña</a>
-            </form>
-            <br>
-            <br>
-            <h3>¿Primera vez en Animalia?</h3>
-            <a href="./register" class="crearPerfil">Creá tu cuenta</a>
-            <br>
-            <br>
+
+            </div>
+
         </div>
 
     </main>
