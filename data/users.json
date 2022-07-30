@@ -6,7 +6,7 @@
     "email": "admin@animalia.com",
     "address": "Domicilio de admin",
     "password": "cheat123",
-    "category": "vendedor",
+    "category_  user": "Administrador",
     "image": "/public/images/logo.png"
   },
   {
@@ -16,7 +16,7 @@
     "email": "user@gmail.com",
     "address": "Domicilio del usuario",
     "password": "cheat1234",
-    "category": "comprador",
+    "category_user": "Usuario",
     "image": "/public/images/logo.png"
   }
 ]
