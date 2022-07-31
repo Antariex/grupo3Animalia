@@ -48,6 +48,7 @@
      display: flex;
      background-color: var(--blanco);
      border: solid 1px var(--verde);
+     border-radius: 20px;
      font: inherit;
      text-align: left;
      padding: 12px 0px 12px 8px;
