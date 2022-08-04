@@ -52,6 +52,7 @@
      text-align: left;
      padding: 12px 0px 12px 8px;
      box-sizing: border-box;
+     border-radius: 12px;
  }
  
  .formulario input:focus {

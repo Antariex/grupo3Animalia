@@ -1,6 +1,6 @@
 <<<<<<< HEAD
 const db = require('../database/models'); //requerimos sequelize dentro de nuestro controlador
-const Product = require('../database/models/Product');
+//const Product = require('../database/models/Product');
 
 const DBProductsController = {
 
@@ -15,17 +15,17 @@ const DBProductsController = {
 >>>>>>> e887e11b3f5044c1706ee3969b770d893554a69e
 
     create: function (req, res) {
-        db.Product.findAll()
-            .then(function (products) {
-                res.render("productDetail", {
-                    products: Product
-                });
-            })
+        //db.Product.findAll()
+           // .then(function (products) {
+                res.render("./products/productCreate")
+
     },
 
 <<<<<<< HEAD
     save: function (req, res) {
         db.Product.create({
+            category_id: req.body.category,
+            subcategory_id: req.body.subcategory,
             name: req.body.name,
             price: req.body.price,
             discount: req.body.discount,
@@ -33,7 +33,8 @@ const DBProductsController = {
             description: req.body.productDescription,
             stock: req.body.stock
         });
-        res.redirect('./products/productCreate');
+        console.log("resultado", req.body)
+        res.redirect('/');
     },
 
     list: function (req, res) {

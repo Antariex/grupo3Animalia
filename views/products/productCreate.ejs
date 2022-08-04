@@ -36,21 +36,27 @@
               <label for="category" class="form__label" placeholder="Seleccione una categoria">Categoria:</label>
               <select name="category" id="productCategory" class="form__input">
                 <option value="" selected disabled>Seleccione una categoria</option>
-                <option value="perros">Perros</option>
-                <option value="gatos">Gatos</option>
-                <option value="Aves">Aves</option>
-                <option value="roedores">Roedores</option>
-                <option value="peces">Peces</option>
-                <option value="ofertas">Ofertas</option>
+                <option value="1">Perros</option>
+                <option value="2">Gatos</option>
+                <option value="3">Aves</option>
+                <option value="4">Roedores</option>
+                <option value="5">Peces</option>
+                <option value="6">Ofertas</option>
               </select>
             </div>
             <br>
-            <!-- Medidas del producto -->
+  <!-- Subcategorías del producto -->
             <div>
-              <label for="weight" class="form__label">Peso del producto</label>
-              <br>
-              <input type="text" name="weight" placeholder="50" class="form__input"
-                value="<%= locals.oldData? oldData.productSize : null%>"><br>
+              <label for="subcategory" class="form__label" placeholder="Seleccione una subcategoria">Subcategoria:</label>
+              <select name="subcategory" id="productSubcategory" class="form__input">
+                <option value="" selected disabled>Seleccione una subcategoria</option>
+                <option value="1">Alimentos</option>
+                <option value="2">Farmacia</option>
+                <option value="3">Cuuidados y belleza</option>
+                <option value="4">Juguetes</option>
+                <option value="5">Otros artículos</option>
+
+              </select>
             </div>
             <br>
             <!-- Img del producto -->
@@ -73,6 +79,12 @@
               <input type="text" name="discount" id="Priced" class="form__input" placeholder="$"></input>
               <br>
             </div>
+                        <!-- Stock del producto -->
+                        <div>
+                          <label for="stock" class="form__label">Stock:</label>
+                          <input type="text" name="stock" id="stock" class="form__input" placeholder="cantidad"></input> <br>
+                        </div>
+                        <br>
             <!-- Descripción del producto -->
             <div>
               <br>
