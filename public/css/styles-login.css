@@ -1,73 +1,157 @@
 /*Login Maru*/
 
 /* Estilos Formularios - Register*/
-
-.formulario {
+.container{
+    display: grid;
+    width: 98%;
+    margin-left: 5px;
+    grid-template-columns: repeat(1, 1fr)
+ }
+ 
+ .foto{
+     max-width: 285px;} 
+ 
+ .izquierda{
+    background-color: #fff;
     text-align: center;
+    display: flex-block;
+ }
+ 
+ .formulario {
+     text-align: left;
+     background-color: white;
+     display: flex-block;
+ }
+ 
+ .formulario p {
+ font-size: 16px;
+ }
+ 
+ .titulo, .formulario h2 {
+     color: var(--rosa);
+     font-size: 28px;
+ }
+ 
+ .leyenda {
+     font-size: 19px !important;
+     COLOR: var(--gris);
+     padding: 0px 0px 16px !important;
+     font-weight: bold !important;
+     line-height: 39px !important;
+ }
+ 
+ .formulario input {
+     margin-top: 7px;
+     min-width: 70vw;
+     height: 50px;
+     line-height: 24px;
+     display: flex;
+     background-color: var(--blanco);
+     border: solid 1px var(--verde);
+     font: inherit;
+     text-align: left;
+     padding: 12px 0px 12px 8px;
+     box-sizing: border-box;
+     border-radius: 20px;
+ }
+ 
+ .formulario input:focus {
+     color: var(--celeste);
+ }
+ 
+ .formulario button {
+     padding: 8px 10px;
+     margin: 8px;
+     background-color: var(--verde);
+     border: 1px solid var(--verde);
+     border-radius: 6px;
+     width: 128px;
+     font-family: 'Roboto', serif;
+ }
+ 
+ .formulario button a {
+     text-decoration: none;
+     color: var(--blanco);
+ }
+ 
+ .formulario h3{
+     text-align: center;
+     color: var(--gris);
+     font-size: 16px;
+     font-weight: lighter;
+ }
+ 
+ .resetButton:hover,
+ .sendButton:hover {
+     background-color: var(--celeste);
+     border: 1px solid var(--celeste);
+ }
+ 
+ .links { 
+     text-decoration: none !important;
+     color: var(--rosa) !important;
+     font-size: 14px;
+     font-weight: bold;
+ }
+ 
+ .crearPerfil {
+     text-decoration: none;
+     color: var(--rosa);
+     font-size: 14px;
+     font-weight: bold;
+ }
+ 
+ [data-tooltip]{ 
+     position:relative;
+     cursor:pointer;
+     }
+     [data-tooltip]::before {
+     content : attr(data-tooltip);
+     background-color:rgba(0,0,0,.75);
+     color:white;
+     width:150px;
+     padding:10px;
+     height:auto;
+     border-radius:3px;
+     display:none;
+     position:absolute;
+     top:100%;
+     pointer-events: none;
+      }
+     [data-tooltip]::after{
+     content:"";
+     position:absolute;
+     display: none;
+     }
+     [data-tooltip]:hover::before,
+     [data-tooltip]:hover::after
+     { display:block;}
+ 
+     .icono {
+         position: relative;
+         top: 5px;
+         max-width: 18px;
+         display: inline;
+     }
+
+     /* Estilos para diseño adaptativo */
+
+/* mobile */
+
+@media (min-width: 320px) {
+    
 }
 
-.formulario p {
-font-size: 16px;
-}
+/* tablet y desktop */
+@media (min-width: 768px) {
+    .container{
+        display: grid;
+        width: 100%;
+        margin: 0 auto;
+        grid-template-columns: repeat(2, 1fr)
+    }
 
-.formulario h2 {
-    color: var(--rosa);
-    font-size: 24px;
-}
-
-.formulario input {
-    display: inline-block;
-    background-color: var(--blanco);
-    padding: 15px 60px 15px 30px;
-    margin: 9px 9px;
-    border: solid 1.5px var(--verde);
-    border-radius: 20px;
-    font: inherit;
-    text-align: left;
-}
-
-.formulario input:focus {
-    color: var(--gris);
-}
-
-.formulario button {
-    padding: 8px 10px;
-    margin: 8px;
-    background-color: var(--verde);
-    border: 1px solid var(--verde);
-    border-radius: 6px;
-    font-family: 'Roboto', serif;
-}
-
-.formulario button a {
-    text-decoration: none;
-    color: var(--blanco);
-}
-
-.formulario h3{
-    text-align: center;
-    color: var(--gris);
-    font-size: 16px;
-    font-weight: lighter;
-}
-
-.resetButton:hover,
-.sendButton:hover {
-    background-color: var(--celeste);
-    border: 1px solid var(--celeste);
-
-}
-
-.links { 
-    text-decoration: none !important;
-    color: var(--rosa) !important;
-    font-size: 14px;
-    font-weight: bold;
-}
-
-.crearPerfil {
-    text-decoration: none;
-    color: var(--rosa);
-    font-size: 14px;
-    font-weight: bold;
-}
+    .formulario input {
+        margin-top: 7px;
+        min-width: 350px;
+}}

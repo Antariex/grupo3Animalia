@@ -16,6 +16,7 @@ router.use('/user', userRouter)
 
 //Router para acceder a la base de datos agregado por FC
 //router.get('/products', DBProductController.js)
+router.use('/user', userRouter)
 
 //Exportamos las variables del router
 module.exports = router

@@ -38,7 +38,7 @@ module.exports = (sequelize, dataTypes) => {
             },
             stock: {
                 type: dataTypes.INTEGER,
-                allowNull: false
+                allowNull: true
             }
         }
         let config = {
