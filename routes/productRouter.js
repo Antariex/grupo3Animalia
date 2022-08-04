@@ -29,16 +29,6 @@ router.get('/edit/:id',productController.edicion);
 router.put('/edit/:id/succed/',upload.single('thumbnail'),productController.actualizar);
 router.delete('/delete/:id', productController.borrado);
 
-<<<<<<< HEAD
-//CRUD BD:
-router.get('/productCreate', DBProductsController.create);
-router.post('/create/confirm', DBProductsController.save);
-router.get('/productDetail/:id', DBProductsController.list); // PREGUNTAR SI VA "productDetail/:id"
-router.get('/:id', DBProductsController.detail);
-router.post('/delete/:id', DBProductsController.delete);
-router.get('/productEdit/:id', DBProductsController.edit);
-router.post('productEdit/:id', DBProductsController.update);
-=======
 //agregado por FC basado microdesafío clase 31PG, direcciona a views/products/products.ejs 
 //router.get('/products', DBPoductsController.list)
 
@@ -57,7 +47,6 @@ router.post('productEdit/:id', DBProductsController.update);
 
 
 
->>>>>>> e887e11b3f5044c1706ee3969b770d893554a69e
 //Exportamos la variable del router
 module.exports = router;
 
