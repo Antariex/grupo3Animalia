@@ -38,6 +38,7 @@ router.get('/:id', DBProductsController.detail);
 router.post('/delete/:id', DBProductsController.delete);
 router.get('/productEdit/:id', DBProductsController.edit);
 router.post('productEdit/:id', DBProductsController.update);
+
 //Exportamos la variable del router
 module.exports = router;
 
