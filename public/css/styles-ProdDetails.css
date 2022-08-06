@@ -1,6 +1,6 @@
- /* Estilos universales */
+/* Estilos universales */
 
- * {
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -49,7 +49,6 @@
     font-size: 16px;
     font-style: normal;
     text-align: center;
-
 }*/
 
 /*.info__delprod {
@@ -99,5 +98,28 @@
     /*margin: 25px;*/
     margin-left: 180px;
     margin-right: 180px;
-    text-align: justify ;
+    text-align: center ;
 }
+
+/*formulario button modifica la apariencia de Enviar y Cancelar*/
+.formulario button {
+    background-color: var(--verde);
+    color: white;
+    border: 1px solid var(--verde);
+    padding: 12px 14px;
+    margin: 0 5px;
+    border-radius: 6px;
+  }
+  
+  /*con buttons alineamos los botones Enviar y Cancelar*/
+  .buttons {
+    display: inline-flex
+  }
+  
+  /*con los hover modificamos la apariencia de los botones Enviar y Cancelar al pasarles el puntero por arriba*/
+  .botonCrear:hover,
+  .botonCancelar:hover {
+    background-color: var(--celeste);
+    border: 1px solid var(--celeste);
+  
+  }
