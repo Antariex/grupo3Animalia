@@ -292,7 +292,7 @@ article {
     border: 1px solid var(--verde);
     font-family: 'Roboto', serif;
     color: var(--blanco);
-    border-radius: 6px;
+    border-radius: 20px;
 }
 
 .card-body button:hover {

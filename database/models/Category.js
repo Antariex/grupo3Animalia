@@ -28,3 +28,4 @@ module.exports = (sequelize, dataTypes) =>  {
         }
         return Category;
     }
+    

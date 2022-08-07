@@ -23,7 +23,7 @@ const storage = multer.diskStorage({
 
   /*Ruta del Login*/ //
 router.get('/login', userController.login);
-//router.post('./users/login', u  serController.loginValidations);
+//router.post('./users/login', userController.loginValidations);
 
 /*Ruta del Logout */ //HAY QUE AGREGAR COMO 2DO PARAMETRO EL GUESTMIDDLEWARE
 router.get('/logout', userController.logout)
