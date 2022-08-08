@@ -18,6 +18,17 @@
 }
 
 /* CSS Form de Registro Mariano */
+.errores {
+    text-align: left;
+    background-color: white;
+    padding: 5px;
+    width: 50%;
+    display: inline-block;
+    background-color: var(--blanco);
+    padding: 15px 60px 15px 30px;
+   color: red;
+    
+}
 
 .formulario {
     text-align: center;
