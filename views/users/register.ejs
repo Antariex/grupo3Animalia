@@ -14,18 +14,24 @@
 
     <!-- Aquí comienza el main FORMULARIO REGISTRO-->
     <main>
-        <div class="barraSeparacion"></div>
-        <div class="formulario">
-            <h3>¡Completá los siguientes datos para crear tu cuenta y disfruta de los beneficios de ser parte de Animalia!</h3>
-            <br>
-            
-                <div class="errores">
-                  <ul></ul>
-                </div>
-            <br> 
-           
-            <form class= "register" action="/user/register/confirm" method="POST" enctype="multipart/form-data">
+        <div class="container">
+            <div class="izquierda">
+                <br>
+                <h2 class="titulo">Ingresá tus datos para crear tu cuenta</h2>
+                <br><br><br><br>
+                <picture>
+                    <img src="/images/GATO.jpg" alt="" data-testid="hero-image" class="foto">
+                </picture>
+                <br><br><br><br><br><br><br><br>
 
+            <p class>¿Ya tenés cuenta cuenta con nosotros?  </p>
+                <a href="./login" class="irALogin">Iniciar sesión</a>
+                <br>
+            <br>
+                </div>
+        <div class="formulario"> 
+               <form class= "register" action="/user/register/confirm" method="POST" enctype="multipart/form-data">
+<br>
                 <label for="nombreyapellido">Nombre y Apellido</label>
                 <p><input type="text" class="nombreyapellido" placeholder="Ingrese su nombre" >
                     </input></p>
@@ -53,14 +59,11 @@
                 <p><input type="password" class="confirmPassword" placeholder="Confirmá tu contraseña"></input></p>
                 <p>(*) La contraseña debe tener mínimo 6 caracteres.</p>
                 <br>
-                <br>
+                
                 <button type="submit" value="Crear cuenta"><a >Crear cuenta</a></button>
             </form>
             <br>
-            <br>
-            <p>¿Ya tenés cuenta cuenta con nosotros? <a href="./login" class="irALogin">Iniciar sesión</a>
-            </p>
-            <br>
+            </div>
         </div>
         <!--Aqui termina el formulario de registro MARIANO-->
     </main>
