@@ -16,6 +16,11 @@
     --gris: #3c3c3c;
     --negro: #000;
 }
+.errores {
+    font-size: 15px;
+    color: red;
+    
+}
 
 .container{
     display: grid;
