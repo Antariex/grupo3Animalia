@@ -30,7 +30,7 @@ const DBProductsController = {
         db.Product.findAll()
             .then(function (products) {
                 res.render("productDetail", {
-                    products: Product
+                    products: products
                 });
             })
     },
