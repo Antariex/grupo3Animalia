@@ -115,10 +115,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 
 .burguer-menu {
-    display: block;
-    background-color: var(--celeste);
-    color: var(--blanco);
-    width: 0 auto;
+    display: inline-block;
+    color: var(--celeste);
+    background-color: var(--blanco);
     padding: 6px 8px;
     margin: 15px;
     border-radius: 8px;
@@ -428,6 +427,44 @@ footer {
 .legales {
     text-align: left;
     padding: 5px;
+}
+
+.hide {
+    max-height: 0 !important;
+}
+
+.dropdown{
+	width: 170px;
+}
+
+.dropdown .menu{
+	transition: max-height .5s ease-out;
+	max-height: 20em;
+	overflow: hidden;
+}
+
+.dropdown .menu .option{
+	margin: .3em .3em .3em .3em;
+	margin-top: 0.3em;
+    width: max-content;
+}
+
+.dropdown .menu .option:hover{
+	background: rgba(0,0,0,0.2);
+}
+
+.pointerCursor:hover{
+	cursor: hand;
+}
+
+.rotate-90{
+	transform: rotate(90deg);
+}
+
+fa-bars{
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
 }
 
 /* Estilos para diseño adaptativo */
