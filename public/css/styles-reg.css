@@ -19,90 +19,54 @@
 .errores {
     font-size: 15px;
     color: red;
-    
+    text-align: left;
+    background-color: white;
+    padding: 5px;
+    width: 100%;
+    display: inline-block;
+    background-color: var(--blanco);
+    padding:15px 60px 15px 30px;
+    margin-left: 550px;
+      
 }
 
 .container{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    /*background: url(bg.jpg) center;*/
-    /*background-size: cover;*/
-    /*height: 1000vh;*/
     width: 98%;
-    margin-left: 5px;
+    margin-left: 20px;
  }
  
  .foto{
-     max-width: 285px;
+     max-width: 300px;
+     margin-left: 70px ;
 } 
  
 p {
-    font-size: 16px;
+    font-size: 17px;
 }
  .izquierda{
     background-color: #fff;
     text-align: center;
-    /*display: flex-block;*/
- }
- 
-
-/*.errores {
-    text-align: left;
-    background-color: white;
-    padding: 5px;
-    width: 50%;
-    display: inline-block;
-    background-color: var(--blanco);
-    padding: 15px 60px 15px 30px;
-   color: red;
-    
-}*/
+}
 
 .formulario {
     text-align: left;
     background-color: white;
     display: flex-block;
-
-
-   /* text-align: center;
-    background-color: white;
-    padding: 20px;
-    width: 98%;*/
 }
 
 .formulario p {
 font-size: 15px;
-
 }
-
-/*.formulario h3 {
-    text-align: center;
-    font-size: 24px ;
-    color: var(--rosa);
-    margin: 2px;
-}*/
 
 .titulo {
     color: var(--rosa);
      font-size: 28px;
-}
-
-.leyenda {
-    font-size: 19px !important;
-    COLOR: var(--gris);
-    padding: 0px 0px 16px !important;
-    font-weight: bold !important;
-    line-height: 39px !important;
+     text-align: center;
 }
 
 .formulario input {
-    /*display: inline-block;
-    background-color: var(--blanco);
-    padding: 15px 60px 15px 30px;
-    margin: 9px 9px;
-    border: solid 1.5px var(--verde);
-    border-radius: 20px;
-    text-align: center;*/
     margin-top: 4px;
     min-width: 25vw;
     height: 30px;
@@ -115,7 +79,6 @@ font-size: 15px;
     text-align: left;
     padding: 10px 0px 8px 8px;
     box-sizing: border-box;
-
 }
 
 .formulario input:focus {
@@ -129,7 +92,6 @@ font-size: 15px;
     padding: 12px 14px;
     margin: 0 5px;
     border-radius: 6px;
-
 }
 
 .formulario button a {
@@ -145,13 +107,12 @@ font-size: 15px;
 .sendButton:hover {
     background-color: var(--celeste);
     border: 1px solid var(--celeste);
-
 }
 
 .crearPerfil,
 .irALogin {
     text-decoration: none;
     color:var(--rosa);
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
 }
