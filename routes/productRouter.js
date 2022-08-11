@@ -33,7 +33,7 @@ router.delete('/delete/:id', productController.borrado);*/
 // Rutas CRUD BD:
 router.get('/productCreate', DBProductsController.create);
 router.post('/create/confirm', upload.single('thumbnail'), DBProductsController.save);
-router.get('/productDetail/:id', DBProductsController.list); // PREGUNTAR SI VA "productDetail/:id"
+router.get('/productDetail/:id', DBProductsController.list);
 router.get('/:id', DBProductsController.detail);
 router.post('/delete/:id', DBProductsController.delete);
 router.get('/productEdit/:id', DBProductsController.edit);
