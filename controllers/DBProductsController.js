@@ -46,7 +46,7 @@ const DBProductsController = {
             })
             .then(function (products) {
                 res.render("productDetail", {
-                    products: Product
+                    products: products
                 });
             })
     },
