@@ -67,8 +67,8 @@ const DBProductsController = {
         let pedidoSubcategoria = db.Subcategory.findAll();
 
         Promise.all([pedidoProducto, pedidoCategoria, pedidoSubcategoria])
-        .then(function ([producto, categoria, subcategoria]) { 
-        res.render("editProduct",{producto: producto, categoria: categoria, producto:producto });
+        .then(function ([producto, categoria, subcategoria]) {
+        res.render("editProduct",{producto: producto, categoria: categoria, subcategoria: subcategoria });
         })
     },
 
