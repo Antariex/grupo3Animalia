@@ -3,7 +3,7 @@ const db = require('../database/models'); //requerimos sequelize dentro de nuest
 
 const DBProductsController = {
 
-
+    
     create: function (req, res) {
         //db.Product.findAll()
            // .then(function (products) {
@@ -23,13 +23,13 @@ const DBProductsController = {
             stock: req.body.stock
         });
         console.log("resultado", req.body)
-        res.redirect('/');
+        res.redirect('/products/detail/' + newProduct.id);
     },
 
     list: function (req, res) {
         db.Product.findAll()
             .then(function (products) {
-                res.render("productDetail", {
+                res.render("./products/products", {
                     products: products
                 });
             })
@@ -85,7 +85,7 @@ const DBProductsController = {
             id: req.params.id
             }
             });
-            res.redirect("/product" + req.params.id);
+            res.redirect("/products/detail/" + req.params.id);
     }
 }
 

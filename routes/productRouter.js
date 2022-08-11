@@ -31,13 +31,13 @@ router.put('/edit/:id/succed/',upload.single('thumbnail'),productController.actu
 router.delete('/delete/:id', productController.borrado);*/
 
 // Rutas CRUD BD:
+router.get('/', DBProductsController.list);
 router.get('/productCreate', DBProductsController.create);
+router.get('/productDetail/:id', DBProductsController.detail);
 router.post('/create/confirm', upload.single('thumbnail'), DBProductsController.save);
-router.get('/productDetail/:id', DBProductsController.list);
-router.get('/:id', DBProductsController.detail);
+router.get('/edit/:id', DBProductsController.edit);
+router.put('/edit/:id/succed/',upload.single('thumbnail'), DBProductsController.update);
 router.post('/delete/:id', DBProductsController.delete);
-router.get('/productEdit/:id', DBProductsController.edit);
-router.post('productEdit/:id', DBProductsController.update);
 
 //Exportamos la variable del router
 module.exports = router;
