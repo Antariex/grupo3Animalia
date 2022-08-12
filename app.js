@@ -5,7 +5,7 @@ const cookieParser = require('cookie-parser');
 const methodOverride = require('method-override');
 const mainRouter = require('./routes/index');
 const productRouter = require('./routes/productRouter');
-
+const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 
 // Express
 const app = express();
@@ -24,8 +24,17 @@ app.use(express.urlencoded( {extended: false} ));
 app.use(methodOverride('_method'));
 app.use(express.json());
 
-//Rutas de vinculación a BD //CHEQUEAR SI ESTO ESTA OK
-app.use('/products', productRouter)
+//Session Middleware
+app.use(session({
+    secret: "shhh, it's a secret",
+    resave: true,
+    saveUninitialized: false
+  }));
+
+
+// User logged middleware
+app.use(userLoggedMiddleware);
+
 
 //Gestion de session && almacenamiento cookies
 app.use(cookieParser());
@@ -36,6 +45,9 @@ app.set("view engine", "ejs");
 
 //Enrutador principal (http://localhost:3000/)
 app.use(mainRouter);
+
+//Rutas de vinculación a BD //CHEQUEAR SI ESTO ESTA OK
+//app.use('/products', productRouter)
 
 // Exportar app
 module.exports = app;
