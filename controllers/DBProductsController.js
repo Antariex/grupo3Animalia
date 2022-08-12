@@ -1,5 +1,8 @@
-const db = require('../database/models'); //requerimos sequelize dentro de nuestro controlador
-//const Product = require('../database/models/Product');
+const { validationResult } = require('express-validator');
+const { Op } = require('sequelize');
+const db = require('../database/models');
+const { sequelize } = require('../database/models/index');
+
 
 const DBProductsController = {
 
@@ -35,7 +38,7 @@ const DBProductsController = {
             })
     },
 
-    //a ver cómo definimos la función List y Detail, es decir a cual le atribuimos la vista :id
+    
     detail: function (req, res) {
         db.Product.findByPk(req.params.id, {
                 include: [{
@@ -45,7 +48,7 @@ const DBProductsController = {
                 }]
             })
             .then(function (products) {
-                res.render("productDetail", {
+                res.render("./products/productDetail", {
                     products: products
                 });
             })
@@ -68,7 +71,7 @@ const DBProductsController = {
 
         Promise.all([pedidoProducto, pedidoCategoria, pedidoSubcategoria])
         .then(function ([producto, categoria, subcategoria]) {
-        res.render("editProduct",{producto: producto, categoria: categoria, subcategoria: subcategoria });
+        res.render("./products/productEdit",{producto: producto, categoria: categoria, subcategoria: subcategoria });
         })
     },
 
