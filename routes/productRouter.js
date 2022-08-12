@@ -3,7 +3,7 @@ const router = express.Router();
 const multer = require('multer');
 const path = require('path');
 const { body } = require('express-validator');
-//const productController = require('../controllers/productController');
+const productController = require('../controllers/productController');
 const DBProductsController = require('../controllers/DBProductsController');
 
 
@@ -22,22 +22,23 @@ const storage = multer.diskStorage({
 const upload = multer({storage})
 
 //Rutas MVC
-/*router.get('/', productController.catalogo);
+
+router.get('/', productController.catalogo);
 router.get('/productCreate',productController.creacion);
 router.get('/productDetail/:id', productController.detalle);
 router.post('/create/confirm',upload.single('thumbnail'),productController.almacenar);
 router.get('/edit/:id',productController.edicion);
 router.put('/edit/:id/succed/',upload.single('thumbnail'),productController.actualizar);
-router.delete('/delete/:id', productController.borrado);*/
+router.delete('/delete/:id', productController.borrado);
 
 // Rutas CRUD BD:
+router.get('/', DBProductsController.list);
 router.get('/productCreate', DBProductsController.create);
+router.get('/productDetail/:id', DBProductsController.detail);
 router.post('/create/confirm', upload.single('thumbnail'), DBProductsController.save);
-router.get('/productDetail/:id', DBProductsController.list);
-router.get('/:id', DBProductsController.detail);
+router.get('/edit/:id', DBProductsController.edit);
+router.put('/edit/:id/succed/',upload.single('thumbnail'), DBProductsController.update);
 router.post('/delete/:id', DBProductsController.delete);
-router.get('/productEdit/:id', DBProductsController.edit);
-router.post('productEdit/:id', DBProductsController.update);
 
 //Exportamos la variable del router
 module.exports = router;
