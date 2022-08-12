@@ -4,8 +4,8 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const methodOverride = require('method-override');
 const mainRouter = require('./routes/index');
-const productRouter = require('./routes/productRouter');
-const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
+//const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
+//const productRouter = require('./routes/productRouter');
 
 // Express
 const app = express();
@@ -33,7 +33,7 @@ app.use(session({
 
 
 // User logged middleware
-app.use(userLoggedMiddleware);
+//app.use(userLoggedMiddleware);
 
 
 //Gestion de session && almacenamiento cookies
