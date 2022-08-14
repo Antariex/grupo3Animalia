@@ -15,7 +15,10 @@
     <!-- Aquí comienza el main FORMULARIO REGISTRO-->
     <main>
         <h2 class="titulo">Ingresá tus datos para crear tu cuenta en Animalia</h2>
+       
+        <!-- Errores en carga formulario -->
         <div class="errores"> <ul></ul></></div>
+    
         <div class="container">
                <div class="izquierda">
                 <br><br><br><br>
@@ -30,9 +33,8 @@
             <br>
                 </div>
         <div class="formulario"> 
-            
-               <form class= "register" action="/user/register/confirm" method="POST" enctype="multipart/form-data">
-<br>
+            <form class= "register" action="/user/register/confirm" method="POST" enctype="multipart/form-data">
+            <br>
                 <label for="nombreyapellido">Nombre y Apellido</label>
                 <p><input type="text" class="nombreyapellido" placeholder="Ingrese su nombre" required>
                      </input></p>
@@ -50,29 +52,28 @@
                     </input></p>
                 <br>
                 <label for="images" class="form__label">Foto de Perfil *</label><br>
-                <p><input type="file" class="avatar" class="form__input" accept=".jpg" multiple></p>
+                <p><input type="file" class="avatar" class="form__input" accept=".jpg" accept=".JPEG" accept=".PNG" accept=".GIF" multiple></p>
                 <br>
-                <label for="password"> Elige una contraseña </label>
-                <p><input type="password" class="password" placeholder="Al menos 8 caracteres alfanuméricos">
+                <label for="password">Elige una contraseña </label>
+                <p><input type="password" class="password" placeholder="Al menos 8 caracteres alfanuméricos" required>
                 </input></p>
-                    <!-- Pendiente boton para mostrar contraseña -->
+                    <!-- Pendiente botón para mostrar contraseña -->
                 <br>
                 <label for="confirmPassword">Reingresá la contraseña elegida</label>
-                <p><input type="password" class="confirmPassword" placeholder="Confirmá tu contraseña"></input></p>
-                
+                <p><input type="password" class="confirmPassword" placeholder="Confirmá tu contraseña" required></input></p>
                 <br>
-                
                 <button type="submit" value="Crear cuenta"><a >Crear cuenta</a></button>
             </form>
             <br>
             </div>
         </div>
-        <!--Aqui termina el formulario de registro MARIANO-->
+        <!--Aquí termina el formulario de registro MARIANO-->
     </main>
 
     <!-- Aquí comienza el footer: lista de correo, links de información y redes sociales -->
     <%- include('../partials/footer.ejs') %>
 
+    <!-- Validaciones-->
     <script src="/js/js_register.js"> 
     </script>
 </body>

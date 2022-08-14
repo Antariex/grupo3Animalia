@@ -14,6 +14,8 @@
 
     <!-- Aquí comienza el main -->
     <main>
+<!-- Errores en carga formulario-->
+        <div class="errores"> <ul></ul></div></div>
 
         <div class="container">
             <div class="izquierda">
@@ -31,7 +33,9 @@
             <div class="formulario login">
                 <p class="leyenda">Ingresá tus datos para acceder a nuestra comunidad mascotera</p>
                 <br>
-                <form action="./users/login" method="POST">
+                
+                
+                <form class="login" action="./users/login" method="POST">
                     <label for="usuario">Email</label>
                     <p><input type="text" name="usuario" placeholder="Ej: usuario@animalia.com.ar" required></input></p>
                     
@@ -52,7 +56,7 @@
                             </svg></span>
                             <br>
                             <br>
-                    <button class="sendButton" type="submit"><a href="/">Iniciar sesión</a></button>
+                    <button type="submit" value="Ingresar" class="sendButton" ><a>Iniciar sesión</a></button>
                 </form>
                 <br>
                 <span class="texto">
@@ -74,6 +78,7 @@
     <!-- Aquí comienza el footer: lista de correo, links de información y redes sociales -->
     <%- include('../partials/footer.ejs') %>
 
+    <!-- Validaciones-->
     <script src="/js/js_login.js"> 
     </script>
 

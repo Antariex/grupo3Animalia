@@ -27,7 +27,6 @@
     background-color: var(--blanco);
     padding:15px 60px 15px 30px;
     margin-left: 550px;
-      
 }
 
 .container{
@@ -45,6 +44,7 @@
 p {
     font-size: 17px;
 }
+
  .izquierda{
     background-color: #fff;
     text-align: center;
