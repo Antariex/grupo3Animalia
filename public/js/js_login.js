@@ -5,12 +5,12 @@ window.addEventListener("load", function(){
         let errores = [];
 
 
-
+        
         let usuario = document.querySelector("input.usuario");
         if (usuario.value == "") {
-            errores.push("El Email ingresado no se encuentra registrado")
+            errores.push("Debe ingresar su usuario")
         }
-/* el email debe estar en la base de datos!!!! averiguar */ 
+/* el email debe estar en la base de datos!!!!  */ 
 
 
         let password = document.querySelector("input.password");
