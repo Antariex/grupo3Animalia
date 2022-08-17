@@ -1,6 +1,14 @@
 /*Login Maru*/
 
 /* Estilos Formularios - Register*/
+.errores{
+    text-align: left;
+    background-color: white;
+    color: red;
+    display: flex;
+    margin-left: 780px
+}
+
 .container{
     display: grid;
     width: 98%;

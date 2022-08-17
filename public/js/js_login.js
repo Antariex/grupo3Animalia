@@ -8,7 +8,7 @@ window.addEventListener("load", function(){
         
         let usuario = document.querySelector("input.usuario");
         if (usuario.value == "") {
-            errores.push("Debe ingresar su usuario")
+            errores.push("Debe ingresar su email")
         }
 /* el email debe estar en la base de datos!!!!  */ 
 

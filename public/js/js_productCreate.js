@@ -1,41 +1,41 @@
-window.onload = function(){
-    
-const form = document.querySelector(".form_creacion")
-const errores= []
-const form_element= document.querySelectorAll(".form_element")
+window.addEventListener("load", function(){
+    let formulario = document.querySelector ("form_creacion");
+
+    formulario.addEventListener("submit", function(e) {
+        let errores = [];
 
 
-form.addEventListener("submit", (e) => {
-    
-    let emptyElements = []
-
-    form_element.forEach(input=> {
-        if (input.value === "") {
-            emptyElements.push(input)
+        let nombre = document.querySelector("input.nombreProd");
+        if (nombre.value == "") {
+            errores.push("El Nombre del Producto debe estar completo");
         }
-    })
-        if (emptyElements.length > 0) {
-            console.log ("no send form")
-        e.preventDefault()
 
+        let imagen = document.querySelector("input.imagenProd");
+        if (imagen.value == "") {
+            errores.push("Debe ingresar una imagen del producto")
+        } 
+
+        let precio = document.querySelector("input.precioProd");
+        if (precio.value == "") {
+            errores.push("El campo Precio debe estar completo")
+        }  
+
+
+        let descripcion = document.querySelector("input.descripcionProd");
+        if (descripcion.value == "") {
+            errores.push("Debe ingresar la descripcion del producto")
+        } else if (descripcion.value.length < 20) {
+            errores.push("La Descripción debe tener al menos 20 carácteres")
+        }
+
+        
+        if (errores.length > 0) {
+            e.preventDefault ();
+        let ulErrores = document.querySelector ("div.errores ul");
+        for (let i = 0; i < errores.length; i++) {
+            ulErrores.innerHTML += "<li>" + errores[i] + "</li>"
+        }
     }
- 
-    let nombre = document.querySelector("form_element nombre");
-    if (nombre.value == "") {
-        errores.push("El campo Nombre del producto debe estar completo")
-    } else if (nombre.value.length < 6) {
-        errores.push("Nombre de del producto debe tener al menos 6 carácteres");
-    }
 
-
-    if (errores.length > 0) {
-        e.preventDefault ();
-    let ulErrores = document.querySelector ("ul");
-    for (let i = 0; i < errores.length; i++) {
-        ulErrores.innerHTML += "<li>" + errores[i] + "</li>"
-    }
-}
-
+    });
 })
-
-}

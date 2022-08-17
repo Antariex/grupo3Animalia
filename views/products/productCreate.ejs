@@ -29,7 +29,7 @@
             <br>
             <div>
               <label for="nombre">Nombre del producto:</label>
-              <input type="text" placeholder="Complete este campo" name = "nombre" class="form_element" ></input>
+              <input type="text" placeholder="Complete este campo" name = "nombreProd" class="nombre" required></input>
               <br>
             </div>
             <br>
@@ -65,14 +65,14 @@
             <div>
               <label for="thumbnail">Elige una imagen</label>
               <br>
-              <input type="file" name="thumbnail" id="productImg" class="form_element"  accept="image/*"
-                value="<%= locals.oldData? oldData.productImg : null%>"><br>
+              <input type="file" name="thumbnail" id="productImg" class="imagenProd"  accept="image/*"
+                value="<%= locals.oldData? oldData.productImg : null%>" required><br>
             </div>
             <br>
             <!-- Precio del producto -->
             <div>
               <label for="price">Precio:</label>
-              <input type="text" name="price" id="productPrice" class="form_element" placeholder="$" ></input> <br>
+              <input type="text" name="price" id="productPrice" class="precioProd" placeholder="$" required></input> <br>
             </div>
             <br>
             <!--Precio del producto con descuento-->
@@ -88,15 +88,16 @@
                         </div>
                         <br>
             <!-- Descripción del producto -->
-            <div>
               <br>
               <br>
               <label for="productDescription">Escriba una descripción del producto</label>
               <br>
               <br>
-              <textarea cols="65" rows="5" type="text" name="productDescription" class="form_element"
-                placeholder="Escriba aqui los detalles del producto." ><%= locals.oldData? oldData.productDescription : null%></textarea>
-            </div>
+              
+              <textarea cols="65" rows="5" type="text" name="productDescription" class="descripcionProd"
+                placeholder="Escriba aqui los detalles del producto." required><%= locals.oldData? oldData.productDescription : null%> </textarea>
+                      
+              </div>
             <br>
 
             <!--<input type="submit" value="Crear">ESTE TENIAN LOS CHICOS-->
