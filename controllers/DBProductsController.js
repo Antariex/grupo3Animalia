@@ -1,4 +1,7 @@
-const db = require('../database/models'); //requerimos sequelize dentro de nuestro controlador
+const { validationResult } = require('express-validator');
+const { Op } = require('sequelize');
+const db = require('../database/models');
+
 
 
 const DBProductsController = {
@@ -54,6 +57,7 @@ const DBProductsController = {
             })
             .then(function (producto) {
 
+
                 res.render("products/productDetail", {
 
                     producto: producto
@@ -80,7 +84,6 @@ const DBProductsController = {
 
         .then(function ([producto, categoria, subcategoria]) { 
         res.render("editProduct",{producto: producto, categoria: categoria, subcategoria: subcategoria });
-
         })
     },
 
@@ -97,7 +100,7 @@ const DBProductsController = {
             id: req.params.id
             }
             });
-            res.redirect("/products/detail/" + req.params.id);
+            res.redirect("/product/" + req.params.id);
     }
 }
 

@@ -3,7 +3,7 @@ const router = express.Router();
 const multer = require('multer');
 const path = require('path');
 const { body } = require('express-validator');
-// const productController = require('../controllers/productController');
+//const productController = require('../controllers/productController');
 const DBProductsController = require('../controllers/DBProductsController');
 
 
