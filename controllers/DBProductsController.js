@@ -1,5 +1,5 @@
 const db = require('../database/models'); //requerimos sequelize dentro de nuestro controlador
-//const Product = require('../database/models/Product');
+
 
 const DBProductsController = {
 
@@ -21,16 +21,21 @@ const DBProductsController = {
             thumbnail: req.file.filename,
             description: req.body.productDescription,
             stock: req.body.stock
-        });
-        console.log("resultado", req.body)
-        res.redirect('/');
+        })
+        .then ((resultado)=> {
+
+            console.log("resultado", resultado);
+            //console.log("req", req.body)
+            res.redirect('/')
+        }
+        );
     },
 
     list: function (req, res) {
         db.Product.findAll()
             .then(function (products) {
-                res.render("productDetail", {
-                    products: Product
+                res.render("/", {
+                    products: products
                 });
             })
     },
@@ -45,8 +50,8 @@ const DBProductsController = {
                 }]
             })
             .then(function (products) {
-                res.render("productDetail", {
-                    products: Product
+                res.render("/productDetail/:id", {
+                    products: products
                 });
             })
     },
@@ -57,7 +62,7 @@ const DBProductsController = {
                     id: req.params.id,
                 }
             }),
-            res.redirect('/products');
+            res.redirect('/delete/:id');
     },
 
 
@@ -68,7 +73,7 @@ const DBProductsController = {
 
         Promise.all([pedidoProducto, pedidoCategoria, pedidoSubcategoria])
         .then(function ([producto, categoria, subcategoria]) { 
-        res.render("editProduct",{producto: producto, categoria: categoria, producto:producto });
+        res.render("editProduct",{producto: producto, categoria: categoria, subcategoria: subcategoria });
         })
     },
 
