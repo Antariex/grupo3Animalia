@@ -3,7 +3,7 @@ const router = express.Router();
 const multer = require('multer');
 const path = require('path');
 const { body } = require('express-validator');
-//const productController = require('../controllers/productController');
+// const productController = require('../controllers/productController');
 const DBProductsController = require('../controllers/DBProductsController');
 
 
@@ -22,6 +22,7 @@ const storage = multer.diskStorage({
 const upload = multer({storage})
 
 //Rutas MVC
+
 /*router.get('/', productController.catalogo);
 router.get('/productCreate',productController.creacion);
 router.get('/productDetail/:id', productController.detalle);
@@ -39,11 +40,6 @@ router.get('/edit/:id', DBProductsController.edit);
 router.put('/edit/:id/succed/', DBProductsController.update);
 router.delete('/delete/:id', DBProductsController.delete);
 
+
 //Exportamos la variable del router
 module.exports = router;
-
-
-
-
-
-

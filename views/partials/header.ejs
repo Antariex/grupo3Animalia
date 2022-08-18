@@ -1,4 +1,3 @@
-
 <header>
     <div class="navbarSuperior">
         <a href="/user/login"><i class="fa-solid fa-user-check"></i> Ingresar</a>
@@ -10,7 +9,8 @@
     </div>
 
     <div class="navbarInferior">
-        <div class="logo"><a href="/"><img src="/images/logo.png" alt="Animalia" title="Animalia - Lo mejor para tus mascotas"></a></div>
+        <div class="logo"><a href="/"><img src="/images/logo.png" alt="Animalia"
+                    title="Animalia - Lo mejor para tus mascotas"></a></div>
 
         <nav class="secciones">
 
@@ -31,10 +31,88 @@
 
         </nav>
 
-        <div class="burguer-menu"><i class="fa-solid fa-bars"></i></div>
+        <div class='dropdown burguer-menu'>
+            <div class='title pointerCursor'><i class="fa-solid fa-bars"></i></div>
 
-        <form action="#" method="POST">
-            <input type="search" placeholder="Búsqueda" maxlength="30"></input> <i class="fa-solid fa-magnifying-glass"></i>
-        </form>
-    </div>
+            <div class='menu pointerCursor hide'>
+                <div class='option' id='option1'><a href="#"><img src="/images/Iconos-Menu-perro.png">
+                        Perros</a></div>
+                <div class='option' id='option2'><a href="#"><img src="/images/Iconos-Menu-gato.png">
+                        Gatos</a></div>
+                <div class='option' id='option3'><a href="#"><img src="/images/Iconos-Menu-pajaro.png">
+                        Aves</a></div>
+                <div class='option' id='option4'><a href="#"><img src="/images/Iconos-Menu-Roedor.png">
+                        Roedores</a></div>
+                <div class='option' id='option5'><a href="#"><img src="/images/Iconos-Menu-peces.png">
+                        Peces</a></div>
+                <div class='option' id='option6'><a href="#"><img src="/images/Iconos-Menu-oferta.png">
+                        Ofertas</a></div>
+            </div>
+</div>
+            <form action="#" method="POST">
+                <input type="search" placeholder="Búsqueda" maxlength="30"></input> <i
+                    class="fa-solid fa-magnifying-glass"></i>
+            </form>
+        
+
+        <script>
+            function toggleClass(elem, className) {
+                if (elem.className.indexOf(className) !== -1) {
+                    elem.className = elem.className.replace(className, '');
+                } else {
+                    elem.className = elem.className.replace(/\s+/g, ' ') + ' ' + className;
+                }
+
+                return elem;
+            }
+
+            function toggleDisplay(elem) {
+                const curDisplayStyle = elem.style.display;
+
+                if (curDisplayStyle === 'none' || curDisplayStyle === '') {
+                    elem.style.display = 'inline-block';
+                } else {
+                    elem.style.display = 'none';
+                }
+
+            }
+
+            function toggleMenuDisplay(e) {
+                const dropdown = e.currentTarget.parentNode;
+                const menu = dropdown.querySelector('.menu');
+                const icon = dropdown.querySelector('.fa-bars');
+
+                toggleClass(menu, 'hide');
+                toggleClass(icon, 'rotate-90');
+            }
+
+            function handleOptionSelected(e) {
+                toggleClass(e.target.parentNode, 'hide');
+
+                const id = e.target.id;
+                const newValue = e.target.textContent + ' ';
+                const titleElem = document.querySelector('.dropdown .title');
+                const icon = document.querySelector('.dropdown .title .fa-bars');
+
+
+                titleElem.textContent = newValue;
+                titleElem.appendChild(icon);
+
+                //trigger custom event
+                document.querySelector('.dropdown .title').dispatchEvent(new Event('change'));
+                //setTimeout is used so transition is properly shown
+                setTimeout(() => toggleClass(icon, 'rotate-90', 0));
+            }
+
+            //get elements
+            const dropdownTitle = document.querySelector('.dropdown .title');
+            const dropdownOptions = document.querySelectorAll('.dropdown .option');
+
+            //bind listeners to these elements
+            dropdownTitle.addEventListener('click', toggleMenuDisplay);
+
+            dropdownOptions.forEach(option => option.addEventListener('onclick', handleOptionSelected));
+
+            document.querySelector('.dropdown .title').addEventListener('onclick', handleTitleChange);
+        </script>
 </header>
