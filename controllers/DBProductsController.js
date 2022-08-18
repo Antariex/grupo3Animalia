@@ -24,16 +24,24 @@ const DBProductsController = {
             thumbnail: req.file.filename,
             description: req.body.productDescription,
             stock: req.body.stock
-        });
-        console.log("resultado", req.body)
-        res.redirect('/products/detail/' + newProduct.id);
+
+        })
+        .then ((resultado)=> {
+
+            console.log("resultado", resultado);
+            //console.log("req", req.body)
+            res.redirect('/')
+        }
+        );
     },
 
     list: function (req, res) {
         db.Product.findAll()
-            .then(function (products) {
-                res.render("./products/products", {
-                    products: products
+            .then(function (producto) {
+
+                res.render("/", {
+
+                    producto: producto
                 });
             })
     },
@@ -48,7 +56,10 @@ const DBProductsController = {
                 }]
             })
             .then(function (producto) {
-                res.render("./products/productDetail", {
+
+
+                res.render("products/productDetail", {
+
                     producto: producto
                 });
             })
@@ -60,7 +71,7 @@ const DBProductsController = {
                     id: req.params.id,
                 }
             }),
-            res.redirect('/products');
+            res.redirect('/delete/:id');
     },
 
 
@@ -70,7 +81,8 @@ const DBProductsController = {
         let pedidoSubcategoria = db.Subcategory.findAll();
 
         Promise.all([pedidoProducto, pedidoCategoria, pedidoSubcategoria])
-        .then(function ([producto, categoria, subcategoria]) {
+
+        .then(function ([producto, categoria, subcategoria]) { 
         res.render("editProduct",{producto: producto, categoria: categoria, subcategoria: subcategoria });
         })
     },

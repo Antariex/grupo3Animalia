@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Metadatos: idiomas, adaptabilidad, estilos, tipografías, iconos y título -->
+    <link href="/css/styles-ProdDetails.css" rel="stylesheet">
+    <title>Detalle de producto - Animalia</title>
+</head>
+
+<body>
+    <!-- Aquí comienza el header: logo, navbars y campo de búsqueda -->
+    <%- include('../partials/header.ejs') %>
+
+    <!-- Aquí comienza el main -->
+    <main>
+        <section>
+            <br>
+            <h2 class="titulares">El producto ha sido creado exitosamente</h3>
+                <article>
+                    <div class="detail__container">
+                        <div class="card__detail">
+                            <img class="detail_prod__imag" src="<%= producto.image%>" title="<%= producto.name%>"></a>
+                            <p class="descripciones"><%= producto.name%> </p>
+                            </a>
+                            <p class="precios">ANTES: $<%= producto.price%></p>
+                            <br>
+                            <p class="descuentos">¡AHORA: $<%= producto.discount%>!</p>
+                            <br>
+                            <label for="Cantidad" class="menu__cantidad">Cantidad:</label>
+                            <br>
+                            <select name="Cantidad" id="Cantidad">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                            <br>
+                            <br>
+                            <button class="button">Agregar al carrito</button>
+                            <button class="botonCancelar" type="Submit">Cancelar</button>
+                            <br>
+                            <div class="cuotas__container">
+                                <i class="fa-brands fa-cc-visa"></i>
+                                <i class="fa-brands fa-cc-amex"></i>
+                                <i class="fa-brands fa-cc-apple-pay"></i>
+                                <i class="fa-brands fa-cc-paypal"></i>
+                                <p class="descripciones"><%= producto.description%></p>
+                            </div>
+                        </div>
+                </article>
+        </section>
+        </div>
+
+    </main>
+
+    <!-- Aquí comienza el footer: lista de correo, links de información y redes sociales -->
+    <%- include('../partials/footer.ejs') %>
+
+</body>
+
+</html>

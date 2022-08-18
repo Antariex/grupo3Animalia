@@ -7,7 +7,6 @@ const mainRouter = require('./routes/index');
 const productRouter = require('./routes/productRouter');
 //const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 
-
 // Express
 const app = express();
 
