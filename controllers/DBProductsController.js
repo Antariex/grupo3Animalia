@@ -34,11 +34,11 @@ const DBProductsController = {
 
     list: function (req, res) {
         db.Product.findAll()
-            .then(function (products) {
+            .then(function (producto) {
 
                 res.render("/", {
 
-                    products: products
+                    producto: producto
                 });
             })
     },
@@ -52,11 +52,11 @@ const DBProductsController = {
                     association: "subcategory"
                 }]
             })
-            .then(function (products) {
+            .then(function (producto) {
 
-                res.render("/productDetail/:id", {
+                res.render("products/productDetail", {
 
-                    products: products
+                    producto: producto
                 });
             })
     },
