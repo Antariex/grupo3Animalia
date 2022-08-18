@@ -14,7 +14,8 @@ let cols = {
     }
 }
 let config = {
-       timestamps: false
+    tableName: "category",
+    timestamps: false
 }
 
 

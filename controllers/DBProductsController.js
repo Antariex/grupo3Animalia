@@ -1,7 +1,7 @@
 const { validationResult } = require('express-validator');
 const { Op } = require('sequelize');
 const db = require('../database/models');
-const { sequelize } = require('../database/models/index');
+
 
 
 const DBProductsController = {
@@ -47,9 +47,9 @@ const DBProductsController = {
                     association: "subcategory"
                 }]
             })
-            .then(function (products) {
+            .then(function (producto) {
                 res.render("./products/productDetail", {
-                    products: products
+                    producto: producto
                 });
             })
     },
@@ -71,7 +71,7 @@ const DBProductsController = {
 
         Promise.all([pedidoProducto, pedidoCategoria, pedidoSubcategoria])
         .then(function ([producto, categoria, subcategoria]) {
-        res.render("./products/productEdit",{producto: producto, categoria: categoria, subcategoria: subcategoria });
+        res.render("editProduct",{producto: producto, categoria: categoria, subcategoria: subcategoria });
         })
     },
 
@@ -88,7 +88,7 @@ const DBProductsController = {
             id: req.params.id
             }
             });
-            res.redirect("/products/detail/" + req.params.id);
+            res.redirect("/product/" + req.params.id);
     }
 }
 
