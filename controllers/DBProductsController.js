@@ -1,7 +1,4 @@
-const { validationResult } = require('express-validator');
-const { Op } = require('sequelize');
-const db = require('../database/models');
-const { sequelize } = require('../database/models/index');
+const db = require('../database/models'); //requerimos sequelize dentro de nuestro controlador
 
 
 const DBProductsController = {
@@ -24,15 +21,23 @@ const DBProductsController = {
             thumbnail: req.file.filename,
             description: req.body.productDescription,
             stock: req.body.stock
-        });
-        console.log("resultado", req.body)
-        res.redirect('/products/detail/' + newProduct.id);
+
+        })
+        .then ((resultado)=> {
+
+            console.log("resultado", resultado);
+            //console.log("req", req.body)
+            res.redirect('/')
+        }
+        );
     },
 
     list: function (req, res) {
         db.Product.findAll()
             .then(function (products) {
-                res.render("./products/products", {
+
+                res.render("/", {
+
                     products: products
                 });
             })
@@ -48,7 +53,9 @@ const DBProductsController = {
                 }]
             })
             .then(function (products) {
-                res.render("./products/productDetail", {
+
+                res.render("/productDetail/:id", {
+
                     products: products
                 });
             })
@@ -60,7 +67,7 @@ const DBProductsController = {
                     id: req.params.id,
                 }
             }),
-            res.redirect('/products');
+            res.redirect('/delete/:id');
     },
 
 
@@ -70,8 +77,10 @@ const DBProductsController = {
         let pedidoSubcategoria = db.Subcategory.findAll();
 
         Promise.all([pedidoProducto, pedidoCategoria, pedidoSubcategoria])
-        .then(function ([producto, categoria, subcategoria]) {
-        res.render("./products/productEdit",{producto: producto, categoria: categoria, subcategoria: subcategoria });
+
+        .then(function ([producto, categoria, subcategoria]) { 
+        res.render("editProduct",{producto: producto, categoria: categoria, subcategoria: subcategoria });
+
         })
     },
 
