@@ -49,18 +49,14 @@ const DBProductsController = {
     
     detail: function (req, res) {
         db.Product.findByPk(req.params.id, {
-                include: [{
-                    association: "category"
-                }, {
-                    association: "subcategory"
-                }]
+                
             })
-            .then(function (producto) {
+            .then(function (products) {
+console.log (products);
 
+                res.render("./products/productDetail", {
 
-                res.render("products/productDetail", {
-
-                    producto: producto
+                    products: products
                 });
             })
     },
@@ -100,7 +96,8 @@ const DBProductsController = {
             id: req.params.id
             }
             });
-            res.redirect("/product/" + req.params.id);
+            res.redirect('/products/detail/' + req.params.id)
+        
     }
 }
 
