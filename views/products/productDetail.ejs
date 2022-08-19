@@ -4,7 +4,7 @@
 <head>
     <!-- Metadatos: idiomas, adaptabilidad, estilos, tipografías, iconos y título -->
     <link href="/css/styles-ProdDetails.css" rel="stylesheet">
-    <title><%= producto.name%></title>
+    <title><%= products.name%></title>
 </head>
 
 <body>
@@ -17,13 +17,13 @@
 
             <div class="container">
                 <div class="izquierda">
-                    <picture>
-                        <img class="detail_prod__imag" src="<%= producto.image%>" </picture> </div>
+                    <picture><img class="detail_prod__imag" src="<%= products.thumbnail%>"> </picture>
+                    </div>
                         <div>
-                        <h2 class="titulo"><%= producto.name%></h2>
+                        <h2 class="titulo"><%= products.name%></h2>
                         <br>
                         <form action="./users/login" method="POST">
-                            <p class="precio">ANTES: $<%= producto.price%></p>
+                            <p class="precio">ANTES: $<%= products.price%></p>
                             <br>
                             <div> <img src="/images/tarjetas.svg">
                                 <p>Múltiples medios de pago y promociones</p>
@@ -32,7 +32,7 @@
                             <hr>
                             <br>
                             <div class="cuadro">
-                                <p class="descuento">¡AHORA: $<%= producto.discount%>!</p>
+                                <p class="descuento">¡AHORA: $<%= products.discount%>!</p>
                                 <p>Precio especial solo en Animalia</p>
                             </div>
                             <br>
@@ -67,7 +67,7 @@
 
             <div class="detail__container">
 <h2 class="titulodescripcion">Descripción</h2>
-                    <p class="descripciones"><%= producto.description%></p>
+                    <p class="descripciones"><%= products.description%></p>
                 </div>
             </div>
             </article>
