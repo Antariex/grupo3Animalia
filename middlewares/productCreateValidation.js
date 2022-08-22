@@ -1,7 +1,7 @@
 const path = require('path')
 const {body} = require('express-validator');
 
-const productCreatevalidations = [
+const productCreateValidation = [
     body("nombre", "El campo nombre debe estar completo").notEmpty().isLength({min:5, max:15}),
     body("category","Seleccione una categoría").notEmpty(),
     body("subcategory","Seleccione una subcategoría").notEmpty(),
@@ -22,4 +22,4 @@ const productCreatevalidations = [
 
 ]
 
-module.exports = productCreatevalidations;
+module.exports = productCreateValidation;
