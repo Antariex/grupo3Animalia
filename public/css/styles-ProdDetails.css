@@ -36,6 +36,15 @@
     max-width: 460px;
     max-height: 460px;
     padding: 15px 0;
+    transition: all 300ms;
+    position: relative;
+    cursor: -webkit-zoom-in;
+   cursor: zoom-in;
+}
+
+.detail_prod__imag:hover{
+transform: scale(1.25);
+cursor: zoom;
 }
 
 .precio {
