@@ -64,7 +64,7 @@
             <% products.forEach(product => { %>
             <article>
                 <div class="card">
-                    <a href="/products/productDetail/<%=product.id %>">
+                    <a href="/products/productDetail/<%= product.id %>">
                     <img src="<%=product.image%>" title="<%=product.name%>"></a>
                     <div class="card-body">
                         <a href="/products/productDetail/<%=product.id %>">
