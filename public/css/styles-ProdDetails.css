@@ -127,14 +127,19 @@ select {
 }
 
 button a {
-    text-decoration: none;
-    color: var(--blanco);
+    text-decoration: none !important;
+    color: var(--blanco) !important;
     font-size: 18px;
     text-align: center;
     font-weight: 550;
     line-height: 40px;
 }
 
+.button:hover {
+    background-color: var(--celeste);
+    border: 1px solid var(--celeste);
+    cursor: pointer;
+}
 
 
 /* Estilos para diseño adaptativo */
