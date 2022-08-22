@@ -64,18 +64,21 @@
             <% products.forEach(product => { %>
             <article>
                 <div class="card">
-                    <a href="/products/productDetail/<%= product.id %>">
-                    <img src="<%=product.image%>" title="<%=product.name%>"></a>
+
+                    <a href="/products/productDetail/<%=product.id %>">
+                        <img src="<%=product.image%>" title="<%=product.name%>"></a>
+
                     <div class="card-body">
                         <a href="/products/productDetail/<%=product.id %>">
-                            <p class="nombres"><%=product.name%></p></a>
+                            <p class="nombres"><%=product.name%></p>
+                        </a>
                         <p class="precios">ANTES: $<%=product.price%></p>
                         <p class="descuentos">¡AHORA: $<%=product.discount%>!</p>
                         <button>Agregar al carrito</button>
                     </div>
                 </div>
             </article>
-            <% }) %> 
+            <% }) %>
 
         </section>
         <br>
@@ -95,11 +98,32 @@
         <br>
 
         <div class="consejo">
-            <h3>EL CONSEJO DEL DR. ROMERO</h3>
+            <h3>CONSEJOS DEL DR. ROMERO</h3>
             <img src="/images/drromero.jpg">
-            <p> ¨Respetar e incentivar su descanso de la misma manera que uno tiene su propia rutina, los animales
-                también tienen sus tiempos de descanso. Es importante respetarlos en el espacio de convivencia, y que
-                puedan relajarse y recargar energías para poder seguir jugando.¨</p>
+            <p>
+                <script language=javascript>
+                    texto_aleatorio()
+
+                    function texto_aleatorio() {
+                        var textos = new Array()
+                        textos[0] =
+                            "Respetar e incentivar su descanso de la misma manera que uno tiene su propia rutina, los animales también tienen sus tiempos de descanso.Es importante respetarlos en el espacio de convivencia, y que puedan relajarse y recargar energías para poder seguir jugando."
+                        textos[1] =
+                            "Nunca le cortes el pelo a tu perro, ni siquiera en verano, porque el pelo del perro produce un microclima que permite que el animal pueda soportar mejor las temperaturas del ambiente."
+                        textos[2] =
+                            "Un animal feliz, es un animal bien alimentado. Siempre dale alimentos balanceados adquiridos en tu veterinaria de confianza. El mejor alimento no es ni el más barato ni el más caro, sino el que mejor cubre las necesidades de tus mascotas."
+                        textos[3] =
+                            "Mito: La castración engorda. No es así, pero una vez que nuestra mascota haya sido castrada, debemos disminuir su carga calórica, porque hay una mayor tendencia a disminuir su actividad"
+                        textos[4] =
+                            "Los animales establecen con nosotros vínculos afectivos diferenciales, si los dejamos mucho tiempo sólos eso les puede generar ansiedad (que van a expresar a través de conductas que nos llamarán la atención)"
+
+                        aleat = Math.random() * (textos.length)
+                        aleat = Math.floor(aleat)
+
+                        document.write(textos[aleat])
+                    }
+                </script>
+                </p>
         </div>
         <br>
         <br>
