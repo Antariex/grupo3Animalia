@@ -18,6 +18,7 @@ app.listen(process.env.PORT || 3000, function() {
 
 //Middlewares - Disponibilidad de la carpeta public
 app.use(express.static(path.resolve(__dirname, 'public')))
+//app.use('/products/images/', express.static(path.resolve(__dirname, '../public/images/products')))
 
 //Procesamiento de formularios
 app.use(express.urlencoded( {extended: false} ));

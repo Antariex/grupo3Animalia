@@ -1,7 +1,7 @@
 const { validationResult } = require('express-validator');
 const { Op } = require('sequelize');
 const db = require('../database/models');
-
+const { sequelize } = require('../database/models/index');
 
 
 const DBProductsController = {
@@ -37,11 +37,11 @@ const DBProductsController = {
 
     list: function (req, res) {
         db.Product.findAll()
-            .then(function (producto) {
+            .then(function (products) {
 
-                res.render("/", {
+                res.render("products/products", {
 
-                    producto: producto
+                    products: products
                 });
             })
     },
@@ -49,10 +49,14 @@ const DBProductsController = {
     
     detail: function (req, res) {
         db.Product.findByPk(req.params.id, {
-                
+            include: [{
+                association: "category"
+            }, {
+                association: "subcategory"
+            }] 
             })
             .then(function (products) {
-console.log (products);
+            console.log (products);
 
                 res.render("./products/productDetail", {
 

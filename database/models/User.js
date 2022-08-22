@@ -13,34 +13,36 @@ module.exports = (sequelize, dataTypes) =>  {
             allowNull: false
         },
         name: {
-            type: dataTypes.STRING,
+            type: dataTypes.STRING(100),
             allowNull: false
         },
         user: {
-            type: dataTypes.STRING,
+            type: dataTypes.STRING(100),
             allowNull: false
         },
         email: {
-            type: dataTypes.STRING,
+            type: dataTypes.STRING(100),
             allowNull: false
         },
         address: {
-            type: dataTypes.STRING,
+            type: dataTypes.STRING(100),
             allowNull: false
         },
         password: {
-            type: dataTypes.STRING,
+            type: dataTypes.STRING(100),
             allowNull: false
         },
         thumbnail: {
-            type: dataTypes.BLOB,
+            type: dataTypes.STRING(100),
             allowNull: true
         }
     }
     let config = {
         tableName: "users",
-        timestamps: false
-        
+        timestamps: false,
+        createdAt: 'created_at',
+        updatedAt: 'updated_at',
+        deletedAt: false
     }
         const User = sequelize.define(alias, cols, config);
 
