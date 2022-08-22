@@ -3,7 +3,7 @@ const User = require('../models/User')
 function userLoggedMiddleware (req, res, next) {
   res.locals.isLogged = false
 
-  let remember_meCookie = req.cookies.userKey
+  let remember_meCookie = req.cookies.userKey //porque no levanta el home por unready userKey
   let userFromCookie = User.findByField('email', remember_meCookie)
 
 

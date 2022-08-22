@@ -1,6 +1,6 @@
 const fs = require('fs')
 const path = require('path')
-const { validationResult, body } = require('express-validator')
+const { validationResult, body } = require('express-validator') //porque no lee dec body CONSULTAR
 const bcryptjs = require('bcryptjs')
 const User = require('../models/User')
 
@@ -76,13 +76,13 @@ create: (req, res) => {
     res.redirect('/')
   },
    //########## PERFIL DE USUARIO ################
-  // profile: (req, res) => {
-  //   res.render('./users/login_success', { user: req.session.userLogged })
-  // },
+   profile: (req, res) => {
+  res.render('./users/login_success', { user: req.session.userLogged })
+  },
 
-  // profileAccess: (req, res) => {
-  //   res.render('./users/profile', { user: req.session.userLogged })
-  // },
+  profileAccess: (req, res) => {
+     res.render('./users/profile', { user: req.session.userLogged })
+   },
 
 
   //############ ACTUALIZAR PERFIL USUARIO ##############

@@ -1,6 +1,6 @@
 /* Estilos universales */
 
- * {
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -21,105 +21,150 @@
 
 .titulares {
     color: var(--rosa);
-    /*padding-bottom: 15px; Mod Maru*/
     font-size: 24px;
     text-align: center;
 }
 
-/*modif Maru*/
-
-/*div .detail__container {
-    max-width: 100%;
-}*/
-
-/*.card {
-    background-color: var(--blanco);
-    width: 100%;
-    border: 3px solid var(--verde);
-    margin: 10px 10px;
-    display: flex;
-    align-items: center;
-    text-align-last: center;
-}*/
-
-/*.tituloInfoProd {
-    color: var(--verde);
-    padding: 18px;
-    line-height: 1.5em;
-    font-size: 16px;
-    font-style: normal;
-    text-align: center;
-}*/
-
-/*.info__delprod {
-    color: #3c3c3c;
-    padding: 18px;
-    line-height: 1.5em;
-    font-size: 12px;
-    text-align: justify;
-}*/
-
-.detail_prod__imag{ /*contiene tamaño imagen*/
-    max-width: 200px;
+.container {
+    display: grid;
+    width: 98%;
+    grid-template-columns: repeat(1, 1fr)
 }
 
-.menu__cantidad{
-    color: #C9914B;
-    font-family: 'Roboto', serif;
+.detail_prod__imag {
+    /*contiene tamaño imagen*/
+    max-width: 460px;
+    max-height: 460px;
+    padding: 15px 0;
+    transition: all 300ms;
+    position: relative;
+    cursor: -webkit-zoom-in;
+   cursor: zoom-in;
+}
+
+.detail_prod__imag:hover{
+transform: scale(1.25);
+cursor: zoom;
+}
+
+.precio {
+    font-size: 25px;
     font-weight: bold;
-    font-size: 20px;
+    margin-top: 6px;
+    font-style: normal;
+    color: var(--negro);
+    text-decoration: line-through;
 }
 
-.Agregar { /*button*/
-    background-color: var(--verde);
-    color: white;
-    border: 1px solid var(--verde);
-    padding: 8px 10px;
-    margin: 0 5px;
-    border-radius: 6px;
-    font-size: 13px;
+.descuento {
+    font-size: 30px;
+    font-weight: 700;
+    color: #135191;
 }
- 
-.Agregar:hover { /*button*/
+
+.cuadro {
+    justify-content: left;
+    ;
+    background-color: #edf2f6;
+    border-radius: 12px;
+    min-width: 320px;
+    max-width: 375px;
+    padding: 11px 22px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+select {
+    width: 95px;
+    height: 37px;
+    border-color: var(--celeste);
+    outline: var(--celeste);
+    border-style: solid;
+    border-width: 1px 0 1px 0;
+    border-radius: 0;
+    margin-top: 10px;
+}
+
+.listadebeneficios {
+    font-size: 14px;
+    margin-top: 6px;
+    margin-bottom: 0;
+    color: var(--gris);
+    line-height: 18px;
+}
+
+.titulodescripcion {
+    border: solid 1px var(--gris);
+    border-top: solid 4px var(--celeste);
+    border-bottom: 0px;
+    padding: 0px 50px;
+    line-height: 60px;
+    width: max-content;
+}
+
+.descripciones {
+    padding: 50px;
+    margin: 10px;
+    text-align: justify;
+    font-size: 1.5rem;
+    color: var(--gris);
+}
+
+.titulo {
+    color: var(--rosa);
+    font-size: 28px;
+}
+
+.button {
+    padding: 8px 40px;
+    margin: -1px 0 10px 0;
+    background-color: var(--verde);
+    border: 1px solid var(--verde);
+    border-radius: 5px;
+    width: 310px;
+    height: 55px;
+    font-family: 'Roboto', serif;
+}
+
+button a {
+    text-decoration: none !important;
+    color: var(--blanco) !important;
+    font-size: 18px;
+    text-align: center;
+    font-weight: 550;
+    line-height: 40px;
+}
+
+.button:hover {
     background-color: var(--celeste);
     border: 1px solid var(--celeste);
+    cursor: pointer;
+}
+
+
+/* Estilos para diseño adaptativo */
+
+/* mobile */
+
+@media (min-width: 320px) {}
+
+/* tablet y desktop */
+@media (min-width: 768px) {
+    .container {
+        display: grid;
+        width: 98%;
+        margin: 0 auto;
+        grid-template-columns: repeat(2, 1fr)
     }
 
-.cuotas__container i {
-    padding: 5px;
-    color: #54A4CB;
-    width: 1.5em;
-    font-size: 22px;
-    display: inline-block;
 }
 
-.descripciones{
-    padding: 25px;
-    /*margin: 25px;*/
-    margin-left: 180px;
-    margin-right: 180px;
-    text-align: justify ;
+/* tablet y desktop */
+@media (min-width: 768px) {
+    .container {
+        display: grid;
+        width: 98%;
+        margin: 0 auto;
+        grid-template-columns: repeat(2, 1fr)
+    }
 }
-
-/*formulario button modifica la apariencia de Enviar y Cancelar
-.formulario button {
-    background-color: var(--verde);
-    color: white;
-    border: 1px solid var(--verde);
-    padding: 12px 14px;
-    margin: 0 5px;
-    border-radius: 6px;
-  }
-  
-  con buttons alineamos los botones Enviar y Cancelar
-  .buttons {
-    display: inline-flex
-  }
-  
-  con los hover modificamos la apariencia de los botones Enviar y Cancelar al pasarles el puntero por arriba
-  .botonCrear:hover,
-  .botonCancelar:hover {
-    background-color: var(--celeste);
-    border: 1px solid var(--celeste);
-  
-  }*/

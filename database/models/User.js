@@ -38,7 +38,7 @@ module.exports = (sequelize, dataTypes) =>  {
         }
     }
     let config = {
-        tableName: "categories",
+        tableName: "users",
         timestamps: false
         
     }

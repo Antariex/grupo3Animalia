@@ -1,14 +1,6 @@
 /*Login Maru*/
 
 /* Estilos Formularios - Register*/
-.errores{
-    text-align: left;
-    background-color: white;
-    color: red;
-    display: flex;
-    margin-left: 780px
-}
-
 .container{
     display: grid;
     width: 98%;
@@ -48,23 +40,16 @@
      line-height: 39px !important;
  }
  
- .formulario input {
-     margin-top: 7px;
-     min-width: 70vw;
-     height: 50px;
-     line-height: 24px;
+ .form-control {
+     margin-top: 7px !important;
+     height: 64px !important;
      display: flex;
      background-color: var(--blanco);
-     border: solid 1px var(--verde);
-     border-radius: 20px;
-     font: inherit;
+     border: solid 1px var(--verde) !important;
+     font: inherit !important;
      text-align: left;
-     padding: 12px 0px 12px 8px;
-     box-sizing: border-box;
- }
- 
- .formulario input:focus {
-     color: var(--celeste);
+     box-sizing: border-box !important;
+     border-radius: 12px !important;
  }
  
  .formulario button {

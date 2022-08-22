@@ -4,8 +4,8 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const methodOverride = require('method-override');
 const mainRouter = require('./routes/index');
+const productRouter = require('./routes/productRouter');
 //const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
-//const productRouter = require('./routes/productRouter');
 
 // Express
 const app = express();
@@ -47,7 +47,7 @@ app.set("view engine", "ejs");
 app.use(mainRouter);
 
 //Rutas de vinculación a BD //CHEQUEAR SI ESTO ESTA OK
-//app.use('/products', productRouter)
+app.use('/products', productRouter)
 
 // Exportar app
 module.exports = app;

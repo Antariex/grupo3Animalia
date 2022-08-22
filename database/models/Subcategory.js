@@ -14,7 +14,7 @@ module.exports = (sequelize, dataTypes) =>  {
         }
     }
     let config = {
-        tableName: "subcategories",
+        tableName: "subcategory",
         timestamps: false
     }
     
