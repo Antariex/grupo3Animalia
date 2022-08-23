@@ -3,18 +3,15 @@ const router = express.Router();
 const mainController = require('../controllers/mainController');
 const productRouter = require('./productRouter')
 const userRouter = require('./userRouter')
+const DBMainController = require('../controllers/DBMainController');
 
 //Homepage (http://localhost:3000) // otras vista del home
-router.get('/', mainController.home)
-router.get('/aboutUs', mainController.aboutUs);
-router.get('/sucursales', mainController.sucursales);
-
-//Router de productos (http://localhost:3000/products)
-router.use('/products', productRouter)
+router.get('/', DBMainController.home)
+router.get('/aboutUs', DBMainController.aboutUs);
+router.get('/sucursales', DBMainController.sucursales);
 
 
-//Router de usuarios (http://localhost:3000/user)
-router.use('/user', userRouter)
+
 
 
 //Exportamos las variables del router

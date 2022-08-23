@@ -22,6 +22,7 @@
             <% products.forEach(product => { %>
             <article>
                 <div class="card">
+                    <!-- VER PORQUE NO CARGA LAS IMAGENES EN VISTA-->
                         <a href="/products/productDetail/<%=product.id %>"><img src="<%=product.thumbnail%>" title="<%=product.name%>"></a>
                     <div class="card-body">
                         <a href="/products/productDetail/<%=product.id %>">

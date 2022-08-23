@@ -1,7 +1,6 @@
-const { validationResult } = require('express-validator');
 const { Op } = require('sequelize');
 const db = require('../database/models');
-const { sequelize } = require('../database/models/index');
+
 
 
 const DBProductsController = {
@@ -46,7 +45,7 @@ const DBProductsController = {
             })
     },
 
-    
+
     detail: function (req, res) {
         db.Product.findByPk(req.params.id, {
             include: [{
@@ -71,23 +70,30 @@ const DBProductsController = {
                     id: req.params.id,
                 }
             }),
-            res.redirect('/delete/:id');
+            res.redirect('/');
     },
 
 
     edit: function (req, res) {
-        let pedidoProducto = db.Product.findByPk(req.params.id);
+        let pedidoProducto = db.Product.findByPk(req.params.id, {
+            include: [
+                "subcategory",
+                "category"
+            ]
+        });
+;
         let pedidoCategoria = db.Category.findAll();
         let pedidoSubcategoria = db.Subcategory.findAll();
 
         Promise.all([pedidoProducto, pedidoCategoria, pedidoSubcategoria])
 
         .then(function ([producto, categoria, subcategoria]) { 
-        res.render("editProduct",{producto: producto, categoria: categoria, subcategoria: subcategoria });
+        res.render('./products/productEdit',{ product: producto, category: categoria, subcategory: subcategoria });
         })
     },
-
+    
     update: function (req, res) {
+        //<!-- ACA DEBE IR UN CONDICIONAL DE THUMBNAIL POR LAS IMAGENES -->
         db.Product.update({
             name: req.body.name,
             price: req.body.price,
@@ -100,8 +106,7 @@ const DBProductsController = {
             id: req.params.id
             }
             });
-            res.redirect('/products/detail/' + req.params.id)
-        
+            res.redirect('/products/productDetail/' + req.params.id)
     }
 }
 
