@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const methodOverride = require('method-override');
 const mainRouter = require('./routes/index');
 const productRouter = require('./routes/productRouter');
+const userRouter = require('./routes/userRouter');
 //const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 
 // Express
@@ -49,6 +50,9 @@ app.use(mainRouter);
 
 //Rutas de vinculación a BD //CHEQUEAR SI ESTO ESTA OK
 app.use('/products', productRouter)
+
+//Router de usuarios (http://localhost:3000/user)
+app.use('/user', userRouter)
 
 // Exportar app
 module.exports = app;
