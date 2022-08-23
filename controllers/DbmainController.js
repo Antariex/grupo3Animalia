@@ -6,7 +6,7 @@ const db = require('../database/models/index');
 //const products = JSON.parse(fs.readFileSync(productFilePath, 'utf8'));
 
 
-const mainController = {
+const DBMainController = {
 
     home: (req, res) => {
         db.Product.findAll()
@@ -24,4 +24,4 @@ const mainController = {
     }
 };
 
-module.exports = mainController;
+module.exports = DBMainController;
