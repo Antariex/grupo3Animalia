@@ -29,11 +29,10 @@
     text-align: left;
     background-color: white;
     padding: 5px;
-    width: 100%;
     display: inline-block;
     background-color: var(--blanco);
-    padding:30px 10px 15px 30px;
-    margin-left: 550px;
+    padding:3px 3px 3px 3px;
+    margin-left: 730px;
 }
 
 .container{
@@ -79,7 +78,7 @@ font-size: 15px;
     display: flex;
     background-color: var(--blanco);
     border: solid 1px var(--verde);
-    border-radius: 20px;
+    border-radius: 8px;
     font: inherit;
     text-align: left;
     padding: 10px 0px 8px 8px;

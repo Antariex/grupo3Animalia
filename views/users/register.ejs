@@ -26,19 +26,15 @@
                 <picture>
                     <img src="/images/perroRegister.jpg" alt="" data-testid="hero-image" class="foto">
                 </picture>
-                <br><br><br><br><br>
+                <br><br><br>
 
             <p class="tenesCuenta">¿Ya tenés cuenta cuenta con nosotros?  </p>
                 <a href="./login" class="irALogin">Iniciar sesión</a>
                 
-            
-                </div>
-
-
+            </div>
 
         <div class="formulario">
             
-             
             <form class="register" action="/user/register/confirm" method="POST" enctype="multipart/form-data">
             <br>
                 <label for="nombreyapellido">Nombre y apellido</label>
@@ -46,7 +42,7 @@
                     </input></p>
                
                 <label for="user">Nombre de usuari@</label>
-                <p><input type="text" name="user" placeholder="Ingrese su usuario" minlength="4" maxlength="12" required>
+                <p><input type="text" class="user" name="user" placeholder="Ingrese su usuario" minlength="4" maxlength="12" required>
                     </input></p>
                 
                 <label for="email">E-mail</label>
@@ -66,10 +62,10 @@
                 
                 <label for="confirmPassword">Reingresá la contraseña elegida</label>
                 <p><input type="password" class="confirmPassword" name="confirmPassword" placeholder="Confirmá tu contraseña"required></input></p>
-                <p>(*) La contraseña debe tener mínimo 6 caracteres.</p>
+               
                 
                 <br>
-                <button type="submit" value="Crear cuenta"><a href="/">Crear cuenta</a></button>
+                <button type="submit" class="submit" value="Crear cuenta">Crear cuenta</></button>
             <br>
             <br>
             </form>
