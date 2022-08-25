@@ -29,10 +29,10 @@
             </div>
             <% } %>
             <!-- ERRORS END -->
-            <form action="/user/register/confirm" method="POST" enctype="multipart/form-data">
+            <form action="./register/confirm" method="POST" enctype="multipart/form-data">
 
                 <label for="nombreyapellido">Nombre y apellido</label>
-                <p><input type="text" name="nombreyapellido" placeholder="Ingrese su nombre" required>
+                <p><input type="text" name="name" placeholder="Ingrese su nombre" required>
                     </input></p>
                 <br>
                 <label for="user">Nombre de usuari@</label>
@@ -43,22 +43,28 @@
                 <p><input type="email" name="email" placeholder="Ingrese su correo electronico" required>
                     </input></p>
                 <br>
-                <label for="birth">Fecha de nacimiento</label>
+                <!--
                 <p><input type="date" name="fecha" value="2020-03-19" required>
+                    <label for="birth">Fecha de nacimiento</label>
+                        <br>
+                    </input></p> -->
+                    <label for="address">Dirección</label>
+                    <p><input type="text" name="address" placeholder="Ingrese su dirección">
                     </input></p>
-                <br>
-                <label for="images" class="form__label">Foto de Perfil *</label><br>
-                <p><input type="file" name="avatar" class="form__input" accept=".jpg" multiple></p><br>
-                <label for="password"> Elige una contraseña </label>
-                <p><input type="password" name="password" placeholder="Al menos 6 caracteres alfanuméricos"required></input></p>
+                    <br>
+                    <label for="password"> Elige una contraseña </label>
+                    <p><input type="password" name="password" placeholder="Al menos 6 caracteres alfanuméricos"required></input></p>
                     <!-- Pendiente boton para mostrar contraseña -->
-                <br>
-                <label for="confirmPassword">Reingresá la contraseña elegida</label>
-                <p><input type="password" name="confirmPassword" placeholder="Confirmá tu contraseña"required></input></p>
-                <p>(*) La contraseña debe tener mínimo 6 caracteres.</p>
-                <br>
-                <br>
-                <button type="submit" value="Crear cuenta"><a href="/">Crear cuenta</a></button>
+                    <br>
+                    <label for="confirmPassword">Reingresá la contraseña elegida</label>
+                    <p><input type="password" name="confirmPassword" placeholder="Confirmá tu contraseña"required></input></p>
+                    <p>(*) La contraseña debe tener mínimo 6 caracteres.</p>
+                    <br>
+                    <label for="images" class="form__label">Foto de Perfil *</label><br>
+                    <p><input type="file" name="avatar" class="form__input" accept=".jpg" multiple></p><br>
+                    <br>
+                    <br>
+                    <button type="submit" value="Crear cuenta"><a href="/">Crear cuenta</a></button>
             </form>
             <br>
             <br>

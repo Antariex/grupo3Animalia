@@ -1,4 +1,4 @@
-const fs = require('fs')
+/*const fs = require('fs')
 const path = require('path')
 const { validationResult, body } = require('express-validator') //porque no lee dec body CONSULTAR
 const bcryptjs = require('bcryptjs')
@@ -114,4 +114,4 @@ create: (req, res) => {
 
 
 
-module.exports = userController;
+module.exports = userController;*/
