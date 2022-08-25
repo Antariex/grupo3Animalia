@@ -1,4 +1,3 @@
-const { validationResult } = require('express-validator');
 const { Op } = require('sequelize');
 const db = require('../database/models');
 
@@ -37,22 +36,26 @@ const DBProductsController = {
 
     list: function (req, res) {
         db.Product.findAll()
-            .then(function (producto) {
+            .then(function (products) {
 
-                res.render("/", {
+                res.render("products/products", {
 
-                    producto: producto
+                    products: products
                 });
             })
     },
 
-    
+
     detail: function (req, res) {
         db.Product.findByPk(req.params.id, {
-                
+            include: [{
+                association: "category"
+            }, {
+                association: "subcategory"
+            }] 
             })
             .then(function (products) {
-console.log (products);
+            console.log (products);
 
                 res.render("./products/productDetail", {
 
@@ -67,23 +70,30 @@ console.log (products);
                     id: req.params.id,
                 }
             }),
-            res.redirect('/delete/:id');
+            res.redirect('/');
     },
 
 
     edit: function (req, res) {
-        let pedidoProducto = db.Product.findByPk(req.params.id);
+        let pedidoProducto = db.Product.findByPk(req.params.id, {
+            include: [
+                "subcategory",
+                "category"
+            ]
+        });
+;
         let pedidoCategoria = db.Category.findAll();
         let pedidoSubcategoria = db.Subcategory.findAll();
 
         Promise.all([pedidoProducto, pedidoCategoria, pedidoSubcategoria])
 
         .then(function ([producto, categoria, subcategoria]) { 
-        res.render("editProduct",{producto: producto, categoria: categoria, subcategoria: subcategoria });
+        res.render('./products/productEdit',{ product: producto, category: categoria, subcategory: subcategoria });
         })
     },
-
+    
     update: function (req, res) {
+        //<!-- ACA DEBE IR UN CONDICIONAL DE THUMBNAIL POR LAS IMAGENES -->
         db.Product.update({
             name: req.body.name,
             price: req.body.price,
@@ -96,8 +106,7 @@ console.log (products);
             id: req.params.id
             }
             });
-            res.redirect('/products/detail/' + req.params.id)
-        
+            res.redirect('/products/productDetail/' + req.params.id)
     }
 }
 

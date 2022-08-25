@@ -19,7 +19,7 @@ const storage = multer.diskStorage({
 
 
 //Cargamos las variables de entorno
-const upload = multer({storage})
+const upload = multer({ storage: storage })
 
 //Rutas MVC
 
@@ -32,12 +32,12 @@ router.put('/edit/:id/succed/',upload.single('thumbnail'),productController.actu
 router.delete('/delete/:id', productController.borrado);*/
 
 //CRUD BD:
-router.get('/', DBProductsController.list); 
+router.get('/', DBProductsController.list);
 router.get('/productCreate', DBProductsController.create);
 router.post('/create/confirm', upload.single('thumbnail'), DBProductsController.save);
 router.get('/productDetail/:id', DBProductsController.detail);
-router.get('/edit/:id', DBProductsController.edit);
-router.put('/edit/:id/succed/', DBProductsController.update);
+router.get('/productEdit/:id', DBProductsController.edit);
+router.put('/productEdit/:id/succed/',upload.single('thumbnail'), DBProductsController.update);
 router.delete('/delete/:id', DBProductsController.delete);
 
 

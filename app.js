@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const methodOverride = require('method-override');
 const mainRouter = require('./routes/index');
 const productRouter = require('./routes/productRouter');
+const userRouter = require('./routes/userRouter');
 //const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 
 // Express
@@ -18,6 +19,7 @@ app.listen(process.env.PORT || 3000, function() {
 
 //Middlewares - Disponibilidad de la carpeta public
 app.use(express.static(path.resolve(__dirname, 'public')))
+//app.use('/products/images/', express.static(path.resolve(__dirname, '../public/images/products')))
 
 //Procesamiento de formularios
 app.use(express.urlencoded( {extended: false} ));
@@ -48,6 +50,9 @@ app.use(mainRouter);
 
 //Rutas de vinculación a BD //CHEQUEAR SI ESTO ESTA OK
 app.use('/products', productRouter)
+
+//Router de usuarios (http://localhost:3000/user)
+app.use('/user', userRouter)
 
 // Exportar app
 module.exports = app;

@@ -19,12 +19,12 @@
                 <article>
                     <div class="detail__container">
                         <div class="card__detail">
-                            <img class="detail_prod__imag" src="<%= producto.image%>" title="<%= producto.name%>"></a>
+                            <img class="detail_prod__imag" src="<%= products.thumbnail%>" title="<%= products.name%>"></a>
                             <p class="descripciones"><%= producto.name%> </p>
                             </a>
-                            <p class="precios">ANTES: $<%= producto.price%></p>
+                            <p class="precios">ANTES: $<%= products.price%></p>
                             <br>
-                            <p class="descuentos">¡AHORA: $<%= producto.discount%>!</p>
+                            <p class="descuentos">¡AHORA: $<%= products.discount%>!</p>
                             <br>
                             <label for="Cantidad" class="menu__cantidad">Cantidad:</label>
                             <br>
@@ -44,7 +44,7 @@
                                 <i class="fa-brands fa-cc-amex"></i>
                                 <i class="fa-brands fa-cc-apple-pay"></i>
                                 <i class="fa-brands fa-cc-paypal"></i>
-                                <p class="descripciones"><%= producto.description%></p>
+                                <p class="descripciones"><%= products.description%></p>
                             </div>
                         </div>
                 </article>

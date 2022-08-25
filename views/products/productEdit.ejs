@@ -18,7 +18,7 @@
                 <h3 class="titulares">Formulario para edición y modificación de productos en stock</h3>
                 <p>Las caracteristicas ingresadas pueden ser modificadas en cualquier momento</p>
                 </div>
-                <form action="/products/edit/<%= product.id %>/succed?_method=PUT" method="POST" enctype="multipart/form-data" class="create__product-form">
+                <form action="/products/productEdit/<%= product.id %>/succed?_method=PUT" method="POST" enctype="multipart/form-data" class="create__product-form">
                   <!-- Nombre del producto -->
                   <br>
                 <div>
@@ -32,7 +32,7 @@
                 <div>
                   <label for="category" class="form__label" placeholder="Seleccione una categoria">Categoria:</label>
                   <select name="category" id="productCategory" class="form__input">
-                    <option value="" selected disabled>Seleccione una categoria</option>
+                    <option value="<%= product.category %> " selected disabled><%= product.category.category%> </option>
                     <option value="1">Perros</option>
                     <option value="2">Gatos</option>
                     <option value="3">Aves</option>
@@ -42,14 +42,18 @@
                   </select>
                 </div>
                 <br>
-                  <!-- Peso de producto -->
-                    <div>
-                  <label for="weight" class="form__label">Medidas del producto</label>
-                  <br>
-                  <input type="text" name="weight" value="<%= product.weight %>"class ="form__input" value="<%= locals.oldData? oldData.weight : null%>"><br>
+                <div>
+                  <label for="subcategory" class="form__label" placeholder="Seleccione una subcategoria">SubCategoria:</label>
+                  <select name="subcategory" id="productsubcategory" class="form__input">
+                    <option value="<%= product.subcategory %> " selected disabled><%= product.subcategory.subcategory%> </option>
+                    <option value="1">Alimentos</option>
+                    <option value="2">Farmacia</option>
+                    <option value="3">Cuidados y belleza</option>
+                    <option value="4">Juguetes</option>
+                    <option value="5">Otros artículos</option>
+                  </select>
                 </div>
                 <br>
-                  <!-- Img del producto //comprobar  img del producto y ruta//--> 
                   <div>
                   <label for="productImg" class="form__label">Elige una imagen</label>
                   <br>
@@ -78,11 +82,13 @@
                 <br>
                   <div>
                   <button type="submit" value="Modificar">Modificar producto </button>
-                  <button type="submit" value="Modificar">Baja de producto </button>
-                  <a href="/products"> Cancelar </a>
-                  </div>
-                </form>
-             </article>
+                </div>
+              </article>
+            </form>
+            <form action="/products/delete/<%= product.id %>?_method=DELETE" method="POST" enctype="multipart/form-data">
+              <button type="submit" value="Modificar">Baja de producto </button>
+            </form>
+            <a href="/products"> Cancelar </a>
           </section>
         </main>
 
