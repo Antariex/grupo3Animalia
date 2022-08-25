@@ -1,31 +1,35 @@
 //const fs = require('fs')
 //const path = require('path')
-const { validationResult, body } = require('express-validator') //porque no lee dec body CONSULTAR
+const { validationResult } = require('express-validator') //porque no lee dec body CONSULTAR
+const { response } = require('express');
 const bcryptjs = require('bcryptjs')
-const User = require('../models/User')
-const db = require('../database/models/index');
+const {Op} = require('sequelize');
+const db = require('../database/models');
+//const User = require('../models/User')
 //let usersFilePath = path.join(__dirname, '../data/users.json')
 //let users = JSON.parse(fs.readFileSync(usersFilePath , 'utf-8'));
 
 
-const userController = {
+const DBUserController = {
 
     login: (req, res) => {
         res.render('./users/login');
-    },
+      },
     registro: (req, res) => {
         res.render('./users/register');
-    },
+      },
     carrito: (req, res) => {
         res.render('./users/cart');
       },
       //############# REGISTRO EXITOSO ##############
-      registerSuccessful: (req, res) => {
+    registerSuccessful: (req, res) => {
         res.render('./users/register_success')
       },
-      // Logueo
+
       
-      loginValidation: (req, res) => {
+      //###### VALIDACION DE USUARIO ################
+      
+    loginValidation: (req, res) => {
         let userToLogin = db.User.findByField('email', req.body.email)
         if (userToLogin) {
           let passwordCheck = bcryptjs.compareSync(req.body.password, userToLogin.password)
@@ -45,17 +49,19 @@ const userController = {
             }
           }
         })
+        console.log("req", req.body)
       },
-      /*
-      ///// CREACION DE USUARIO ////////////
-      create: (req, res) => {
+
+     
+      //###### CREACION DE USUARIO ##########
+    create: (req, res) => {
         const resultValidation = validationResult(req)
         if (resultValidation.errors.length > 0) {
       return res.render('./users/register', {
         errors: resultValidation.mapped()
       })
     }
-    let emailInUse = User.findByField('email', req.body.email);
+    let emailInUse = db.User.findByField('email', req.body.email);
     if (emailInUse) {
       return res.render('./users/register', {
         errors: {
@@ -75,7 +81,9 @@ const userController = {
 
     User.create(userToCreate);
     res.redirect('/')
+  
   },
+  /*
    //########## PERFIL DE USUARIO ################
    profile: (req, res) => {
   res.render('./users/login_success', { user: req.session.userLogged })
@@ -88,10 +96,11 @@ const userController = {
 
   //############ ACTUALIZAR PERFIL USUARIO ##############
   profileUpdate: (req, res) => {
-    let user = users.findIndex((element => {
+    let user = db.User.findIndex((element => {
       return element.id === parseInt(req.params.id)
     }))
 
+    /* #### iteración en el JSon#####
     users[user].firstName = req.body.firstName === "" ? users[user].productName : req.body.firstName;
     users[user].lastName = req.body.lastName === "" ? users[user].lastName : req.body.lastName;
     users[user].email = req.body.email === "" ? users[user].email : req.body.email;
@@ -101,7 +110,9 @@ const userController = {
 
     fs.writeFileSync(usersFilePath, JSON.stringify(users, null, '\t'));
     res.redirect('/users/profile/' + req.params.id)
-  },
+  },*/
+
+/*
   logout : (req,res) => {
     res.clearCookie('userKey');
     req.session.destroy();
@@ -111,8 +122,4 @@ const userController = {
 
 
 
-
-
-
-
-module.exports = userController;
+module.exports = DBUserController;

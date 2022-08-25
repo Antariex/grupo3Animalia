@@ -14,19 +14,22 @@
 
     <!-- Aquí comienza el main FORMULARIO REGISTRO-->
     <main>
-        
-        <h2 class="titulo">Ingresá tus datos para crear tu cuenta en Animalia</h2>
        
-        <!-- Errores en carga formulario -->
-        <div class="errores"> <ul></ul></></div>
-    
-        <div class="container">
-               <div class="izquierda">
-                <br><br><br>
-                <picture>
-                    <img src="/images/perroRegister.jpg" alt="" data-testid="hero-image" class="foto">
-                </picture>
-                <br><br><br>
+        <div class="formulario">
+            <h3>¡Completá los siguientes datos para crear tu cuenta y disfruta de los beneficios de ser parte de Animalia!</h3>
+            <br>
+             <!-- ERRORS -->
+           <% if (locals.errors) { %>
+            <div class="errors__container">
+              <ul>
+                <% for (let error in errors) {%>
+                  <li class="error-msg__text"><%= errors[error].msg%></li>
+                <% } %>
+              </ul>
+            </div>
+            <% } %>
+            <!-- ERRORS END -->
+            <form action="./register/confirm" method="POST" enctype="multipart/form-data">
 
             <p class="tenesCuenta">¿Ya tenés cuenta cuenta con nosotros?  </p>
                 <a href="./login" class="irALogin">Iniciar sesión</a>
@@ -38,7 +41,9 @@
             <form class="register" action="/user/register/confirm" method="POST" enctype="multipart/form-data">
             <br>
                 <label for="nombreyapellido">Nombre y apellido</label>
-                <p><input type="text" class="nombreyapellido" name="nombreyapellido" placeholder="Ingrese su nombre" required>
+
+                <p><input type="text" name="name" placeholder="Ingrese su nombre" required>
+
                     </input></p>
                
                 <label for="user">Nombre de usuari@</label>
@@ -48,26 +53,30 @@
                 <label for="email">E-mail</label>
                 <p><input type="email" class="email" name="email" placeholder="Ingrese su correo electrónico" required>
                     </input></p>
-                    
-                <label for="birth">Fecha de nacimiento</label>
-                <p><input type="date" class="fecha" name="fecha" value="2020-03-19" required>
-                    </input></p>
-               
-                <label for="images" class="form__label">Foto de Perfil *</label><br>
-                <p><input type="file" name="avatar" class="form__input" accept=".jpg" multiple></p>
-                
-                <label for="password"> Elige una contraseña </label>
-                <p><input type="password" class="password" name="password" placeholder="Al menos 6 caracteres alfanuméricos"required></input></p>
-                    <!-- Pendiente boton para mostrar contraseña -->
-                
-                <label for="confirmPassword">Reingresá la contraseña elegida</label>
-                <p><input type="password" class="confirmPassword" name="confirmPassword" placeholder="Confirmá tu contraseña"required></input></p>
-               
-                
                 <br>
-                <button type="submit" class="submit" value="Crear cuenta">Crear cuenta</></button>
-            <br>
-            <br>
+                <!--
+                <p><input type="date" name="fecha" value="2020-03-19" required>
+                    <label for="birth">Fecha de nacimiento</label>
+                        <br>
+                    </input></p> -->
+                    <label for="address">Dirección</label>
+                    <p><input type="text" name="address" placeholder="Ingrese su dirección">
+                    </input></p>
+                    <br>
+                    <label for="password"> Elige una contraseña </label>
+                    <p><input type="password" name="password" placeholder="Al menos 6 caracteres alfanuméricos"required></input></p>
+                    <!-- Pendiente boton para mostrar contraseña -->
+                    <br>
+                    <label for="confirmPassword">Reingresá la contraseña elegida</label>
+                    <p><input type="password" name="confirmPassword" placeholder="Confirmá tu contraseña"required></input></p>
+                    <p>(*) La contraseña debe tener mínimo 6 caracteres.</p>
+                    <br>
+                    <label for="images" class="form__label">Foto de Perfil *</label><br>
+                    <p><input type="file" name="avatar" class="form__input" accept=".jpg" multiple></p><br>
+                    <br>
+                    <br>
+                    <button type="submit" value="Crear cuenta"><a href="/">Crear cuenta</a></button>
+>>>>>>> 06c0dc71baa368a74442be061b2d9c1de75cfcb5
             </form>
             
         </div>
