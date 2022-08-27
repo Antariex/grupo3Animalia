@@ -1,10 +1,12 @@
-/*const path = require('path')
+const path = require('path')
 const {body} = require('express-validator');
 
 const productCreateValidation = [
-    body("nombre", "El campo nombre debe estar completo").notEmpty().isLength({min:5, max:15}),
-    body("category","Seleccione una categoría").notEmpty(),
-    body("subcategory","Seleccione una subcategoría").notEmpty(),
+    //body("category","Seleccione una categoría").notEmpty(),
+    //body("subcategory","Seleccione una subcategoría").notEmpty(),
+    body("name", "Debe ingresar el Nombre del producto").notEmpty().isLength({min:5, max:15}),
+    body("price", "Ingrese el precio del producto").notEmpty(),
+    body("discount","En caso de no tener descuento, ingrese cero (0)"),
     body("thumbnail").custom((value, { req }) => {
         let file = req.file
         let acceptedExtentions = ['.jpg','.png','.gif'];
@@ -15,11 +17,9 @@ const productCreateValidation = [
         }
         return true;
         }).bail(),
-    body("price", "Ingrese el precio del producto").notEmpty(),
-    body("discount","En caso de no tener descuento, ingrese cero (0)"),
-    body("stock","Debe ingresar el stock del producto").notEmpty(),
     body("productDescription", "Ingrese la descripción del producto, mínimo requerido 20 caracteres").notEmpty().isLength({min:20, max:30}),
-
+    body("stock","Debe ingresar el stock del producto").notEmpty(),
+    
 ]
 
-module.exports = productCreateValidation;*/
+module.exports = productCreateValidation;
