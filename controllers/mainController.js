@@ -1,4 +1,4 @@
-const { json } = require('express');
+/*const { json } = require('express');
 const path = require('path');
 const fs = require('fs');
 const productFilePath = path.join(__dirname, '../data/products.json');
@@ -20,4 +20,4 @@ const mainController = {
     }
 };
 
-module.exports = mainController;
+module.exports = mainController;*/

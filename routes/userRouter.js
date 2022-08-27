@@ -13,6 +13,7 @@ const loginValidationsMiddleware = require('../middlewares/loginValidationsMiddl
 const registerValidationsMiddleware = require('../middlewares/registerValidationsMiddleware');
 const userLoggedMiddleware = require('../middlewares/userLoggedMiddleware');
 
+
 /* Config del Multer */
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -25,11 +26,13 @@ const storage = multer.diskStorage({
 
   /* Multer SEND */
   const upload = multer({ storage: storage });
-
+  
   // #####CRUD Users##############
-
+  
   /*Ruta del Login*/
-router.get('/login', /*guestMiddleware,*/ DBUserController.login);
+  router.get('/login', /*guestMiddleware,*/ DBUserController.login);
+  router.get('/admin', DBUserController.admin);
+  
 //router.post('./users/login', /*upload.single('avatar'), registerValidationsMiddleware,*/ DBUserController.loginValidation);
 
 /*authMiddleware, falla
@@ -45,7 +48,8 @@ userLoggedMiddleware, sin falla */
 
 /* Register */
 router.get('/register', DBUserController.registro);
-router.post('/register/confirm', upload.single('avatar'), registerValidationsMiddleware, DBUserController.create);
+router.post('/register', upload.single('avatar'), /*registerValidationsMiddleware,*/ DBUserController.create);
+
 /*hay que crear vista de profile a futuro*/
 
 

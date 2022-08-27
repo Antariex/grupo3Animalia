@@ -1,8 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const mainController = require('../controllers/mainController');
-const productRouter = require('./productRouter')
-const userRouter = require('./userRouter')
 const DBMainController = require('../controllers/DBMainController');
 
 //Homepage (http://localhost:3000) // otras vista del home
