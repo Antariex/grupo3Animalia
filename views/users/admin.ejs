@@ -1,0 +1,77 @@
+<head>
+    <!-- Metadatos: idiomas, adaptabilidad, estilos, tipografías, iconos y título -->
+    <link href="/css/styles-login.css" rel="stylesheet">
+    <title>Ingreso - Animalia</title>
+    <%- include ('../partials/head') %>
+</head>
+
+<body>
+    <!-- Aquí comienza el header: logo, navbars y campo de búsqueda -->
+    <%- include('../partials/header.ejs') %>
+
+    <!-- Aquí comienza el main -->
+    <main>
+
+        <div class="container">
+            <div class="izquierda">
+                <h2 class="titulo">¡Bienvenido Admin de Animalia!</h2>
+                <picture>
+                    <img src="/images/admindog.jpg" alt="" data-testid="hero-image" class="foto">
+                </picture>
+                <br>
+                <br>
+                <p><a href="/users/register" class="crearPerfil">Formulario creación user</a></p>
+                <p><a href="/products/productCreate" class="crearPerfil">Formulario creación de producto</a></p>
+                
+            </div>
+
+            <div class="formula>rio login">
+                <div class="form-floating mb-3 formulario login">
+                    <form action="./users/login" method="POST"></form>
+                    <input type="email" class="form-control" id="floatingInput" placeholder="Ej: usuario@animalia.com.ar" required>
+                    <label for="floatingInput">Correo electrónico</label>
+                  </div>
+                  <div class="form-floating formulario login">
+                    <input type="password" class="form-control formulario login" id="floatingPassword" placeholder="Tu clave personal" required minlength="8">
+                    <label for="floatingPassword">Contraseña</label>
+                  </div>
+
+                    <p class="emergente">
+                        <span
+                            data-tooltip="Tu contraseña debe tener un mínimo de 8 caracteres. Evitá usar palabras o secuencias muy comunes."><svg
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" fill="currentColor" role="img"
+                                aria-hidden="false" class="icono">
+                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="10">
+                                    <path d="M5 70a65 65 0 10130 0A65 65 0 105 70zm65 0v35"></path>
+                                    <path d="M65 45a5 5 0 1010 0 5 5 0 10-10 0z"></path>
+                                </g>
+                            </svg></span>
+                            <br>
+                            <br>
+                    <button class="sendButton" type="submit"><a href="/">Iniciar sesión</a></button>
+                </form>
+                <br>
+                <br>
+                <span class="texto">
+                    <p>¿Olvidaste tu contraseña?</p>
+                    <a href="#" class="links">Recuperar contraseña ADMIN</a>
+                </span>
+                <br>
+                <span>
+
+                </span>
+                <br>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Aquí comienza el footer: lista de correo, links de información y redes sociales -->
+    <%- include('../partials/footer.ejs') %>
+
+</body>
+
+</html>

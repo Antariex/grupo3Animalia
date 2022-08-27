@@ -1,10 +1,10 @@
-//const fs = require('fs')
-//const path = require('path')
-const { validationResult } = require('express-validator') //porque no lee dec body CONSULTAR
+const { validationResult } = require('express-validator')
 const { response } = require('express');
 const bcryptjs = require('bcryptjs')
 const {Op} = require('sequelize');
 const db = require('../database/models');
+//const fs = require('fs')
+//const path = require('path')
 //const User = require('../models/User')
 //let usersFilePath = path.join(__dirname, '../data/users.json')
 //let users = JSON.parse(fs.readFileSync(usersFilePath , 'utf-8'));
@@ -17,6 +17,11 @@ const DBUserController = {
       },
     registro: (req, res) => {
         res.render('./users/register');
+        console.log("create")
+      },
+    admin: (req, res) => {
+        res.render('./users/admin')
+        console.log("create")
       },
     carrito: (req, res) => {
         res.render('./users/cart');
@@ -56,31 +61,41 @@ const DBUserController = {
       //###### CREACION DE USUARIO ##########
     create: (req, res) => {
         const resultValidation = validationResult(req)
+        console.log("create")
         if (resultValidation.errors.length > 0) {
       return res.render('./users/register', {
         errors: resultValidation.mapped()
       })
     }
-    let emailInUse = db.User.findByField('email', req.body.email);
-    if (emailInUse) {
-      return res.render('./users/register', {
-        errors: {
-          email: {
-            msg: 'Este email tiene una cuenta activa en Animalia.'
+    db.User.findOne({ where: { email:  req.body.email }})
+  
+    .then ( emailInUse => {
+      console.log(emailInUse)
+      if (emailInUse) {
+        return res.render('./users/register', {
+        
+          errors: {
+            email: {
+              msg: 'Este email tiene una cuenta activa en Animalia.'
+            }
           }
-        }
-      })
-    }
-    delete req.body.confirmPassword
-
-    let userToCreate = {
-      ...req.body,
-      password: bcryptjs.hashSync(req.body.password, 10),
-      avatar: req.file ? req.file.filename : 'default.png'
-    }
-
-    User.create(userToCreate);
-    res.redirect('/')
+        })
+      }
+      //delete req.body.confirmPassword
+  
+      let userToCreate = {
+        ...req.body,
+        permission_id: 1, //esto lo asignamos para definir si es usuario o admin pero hay que hacerlo desde la vista ejs
+        password: bcryptjs.hashSync(req.body.password, 10),
+        avatar: req.file ? req.file.filename : 'default.png'
+      }
+  
+    db.User.create(userToCreate);
+  
+      res.redirect('/')
+    })
+  
+    
   
   },
   /*
