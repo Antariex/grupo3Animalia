@@ -2,10 +2,8 @@ const path = require('path');
 const fs = require('fs');
 const productsFilePath = path.join(__dirname, '../data/products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf8'));
-const { validationResult } = require('express-validator') 
 
 const productController = {
-    
     catalogo: (req, res) => {
         res.render('./products/products', {
             products
@@ -23,8 +21,6 @@ const productController = {
 
     creacion: (req, res) => {
         res.render('./products/productCreate');
-
-        
     },
 
     almacenar: (req, res) => {

@@ -14,7 +14,7 @@
 
     <!-- Aquí comienza el main FORMULARIO REGISTRO-->
     <main>
-       
+        <div class="barraSeparacion"></div>
         <div class="formulario">
             <h3>¡Completá los siguientes datos para crear tu cuenta y disfruta de los beneficios de ser parte de Animalia!</h3>
             <br>
@@ -31,27 +31,16 @@
             <!-- ERRORS END -->
             <form action="/users/register" method="POST" enctype="multipart/form-data">
 
-            <p class="tenesCuenta">¿Ya tenés cuenta con nosotros?  </p>
-                <a href="./login" class="irALogin">Iniciar sesión</a>
-                
-            </div>
-
-        <div class="formulario">
-            
-            <form class="register" action="/user/register/confirm" method="POST" enctype="multipart/form-data">
-            <br>
                 <label for="nombreyapellido">Nombre y apellido</label>
-
                 <p><input type="text" name="name" placeholder="Ingrese su nombre" required>
-
                     </input></p>
-               
+                <br>
                 <label for="user">Nombre de usuari@</label>
-                <p><input type="text" class="user" name="user" placeholder="Ingrese su usuario" minlength="4" maxlength="12" required>
+                <p><input type="text" name="user" placeholder="Ingrese su usuario" minlength="4" maxlength="12" required>
                     </input></p>
-                
+                <br>
                 <label for="email">E-mail</label>
-                <p><input type="email" class="email" name="email" placeholder="Ingrese su correo electrónico" required>
+                <p><input type="email" name="email" placeholder="Ingrese su correo electronico" required>
                     </input></p>
                 <br>
                 <!--
@@ -75,28 +64,16 @@
                     <p><input type="file" name="avatar" class="form__input" accept=".jpg" multiple></p><br>
                     <br>
                     <br>
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    <button type="submit" value="Crear cuenta"><a href="/">Crear cuenta</a></button>
-
-=======
                     <button type="submit" value="Crear cuenta">Crear cuenta</button>
->>>>>>> 6ff1c15fb1cfede5d00074d025e57823992bd875
-=======
-
-                    <button type="submit" value="Crear cuenta">Crear cuenta</button>
-
->>>>>>> 8d339956eca796ea6d77b404eae3aef2a068974a
             </form>
-            
+            <br>
+            <br>
+            <p>¿Ya tenés cuenta cuenta con nosotros? <a href="./login" class="irALogin">Iniciar sesión</a>
+            </p>
+            <br>
         </div>
         <!--Aqui termina el formulario de registro MARIANO-->
     </main>
-
-<!-- Validaciones-->
-<script src="/js/js_register.js"> 
-</script>
-
 
     <!-- Aquí comienza el footer: lista de correo, links de información y redes sociales -->
     <%- include('../partials/footer.ejs') %>

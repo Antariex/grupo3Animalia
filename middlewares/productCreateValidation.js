@@ -1,4 +1,4 @@
-const path = require('path')
+/*const path = require('path')
 const {body} = require('express-validator');
 
 const productCreateValidation = [
@@ -22,4 +22,4 @@ const productCreateValidation = [
 
 ]
 
-module.exports = productCreateValidation;
+module.exports = productCreateValidation;*/

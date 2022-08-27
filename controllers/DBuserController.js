@@ -114,7 +114,7 @@ const DBUserController = {
     let user = db.User.findIndex((element => {
       return element.id === parseInt(req.params.id)
     }))
-
+    
     /* #### iteración en el JSon#####
     users[user].firstName = req.body.firstName === "" ? users[user].productName : req.body.firstName;
     users[user].lastName = req.body.lastName === "" ? users[user].lastName : req.body.lastName;
@@ -122,7 +122,7 @@ const DBUserController = {
     users[user].password = bcryptjs.hashSync(req.body.password, 10);
     users[user].avatar = req.file.filename ? req.file.filename : users[user].avatar;
 // revisar el campo de ingresar imagen, si esta vacio da error
-
+   
     fs.writeFileSync(usersFilePath, JSON.stringify(users, null, '\t'));
     res.redirect('/users/profile/' + req.params.id)
   },*/
