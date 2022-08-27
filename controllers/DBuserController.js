@@ -1,10 +1,10 @@
-//const fs = require('fs')
-//const path = require('path')
-const { validationResult } = require('express-validator') //porque no lee dec body CONSULTAR
+const { validationResult } = require('express-validator')
 const { response } = require('express');
 const bcryptjs = require('bcryptjs')
 const {Op} = require('sequelize');
 const db = require('../database/models');
+//const fs = require('fs')
+//const path = require('path')
 //const User = require('../models/User')
 //let usersFilePath = path.join(__dirname, '../data/users.json')
 //let users = JSON.parse(fs.readFileSync(usersFilePath , 'utf-8'));
@@ -17,6 +17,10 @@ const DBUserController = {
       },
     registro: (req, res) => {
         res.render('./users/register');
+        console.log("create")
+      },
+    admin: (req, res) => {
+        res.render('./users/admin')
         console.log("create")
       },
     carrito: (req, res) => {
