@@ -3,9 +3,9 @@ const { response } = require('express');
 const bcryptjs = require('bcryptjs')
 const {Op} = require('sequelize');
 const db = require('../database/models');
+//const User = require('../models/User')
 //const fs = require('fs')
 //const path = require('path')
-//const User = require('../models/User')
 //let usersFilePath = path.join(__dirname, '../data/users.json')
 //let users = JSON.parse(fs.readFileSync(usersFilePath , 'utf-8'));
 
@@ -28,7 +28,7 @@ const DBUserController = {
       },
       //############# REGISTRO EXITOSO ##############
     registerSuccessful: (req, res) => {
-        res.render('./users/register_success')
+        res.render('./users/profile')
       },
 
       
@@ -88,11 +88,12 @@ const DBUserController = {
         permission_id: 1, //esto lo asignamos para definir si es usuario o admin pero hay que hacerlo desde la vista ejs
         password: bcryptjs.hashSync(req.body.password, 10),
         avatar: req.file ? req.file.filename : 'default.png'
-      }
+      };
+      
   
     db.User.create(userToCreate);
   
-      res.redirect('/')
+      res.render('/')
     })
   
     
