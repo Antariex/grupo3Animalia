@@ -45,11 +45,12 @@ app.set("view engine", "ejs");
 //Enrutador principal (http://localhost:3000/)
 app.use(mainRouter);
 
-//Rutas de vinculación a BD //CHEQUEAR SI ESTO ESTA OK
+//Ruoter de BD
 app.use('/products', productRouter)
 
 //Router de usuarios (http://localhost:3000/user)
 app.use('/users', userRouter)
+
 
 // Exportar app
 module.exports = app;

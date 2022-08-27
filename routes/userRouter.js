@@ -13,7 +13,7 @@ const loginValidationsMiddleware = require('../middlewares/loginValidationsMiddl
 const registerValidationsMiddleware = require('../middlewares/registerValidationsMiddleware');
 const userLoggedMiddleware = require('../middlewares/userLoggedMiddleware');
 
-console.log("register")
+
 /* Config del Multer */
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -31,6 +31,8 @@ const storage = multer.diskStorage({
   
   /*Ruta del Login*/
   router.get('/login', /*guestMiddleware,*/ DBUserController.login);
+  router.get('/admin', DBUserController.admin);
+  
 //router.post('./users/login', /*upload.single('avatar'), registerValidationsMiddleware,*/ DBUserController.loginValidation);
 
 /*authMiddleware, falla
