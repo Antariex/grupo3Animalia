@@ -1,0 +1,70 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', serif;
+  }
+  
+  :root {
+    --celeste: #54A4CB;
+    --verde: #674E3E;
+    --rosa: #C9914B;
+    --amarillo: #FFF159;
+    --blanco: #fff;
+    --gris: #3c3c3c;
+    --negro: #000;
+  }
+
+.titulares_Edit {
+    font-size: 24px;
+    color: var(--rosa);
+}
+
+label { /*modifica tipogrefia de las label*/
+    font-size: 16px;
+}
+
+input {
+    display: inline;
+    background-color: var(--blanco);
+    padding: 8px 60px 8px 60px;
+    margin: 9px 9px;
+    border: solid 1.5px var(--verde);
+    border-radius: 10px;
+    text-align: center;  
+}
+
+select.form__input
+ {
+    display: inline;
+    background-color: var(--blanco);
+    padding: 8px 60px 8px 60px;
+    margin: 9px 9px;
+    border: solid 1.5px var(--verde);
+    border-radius: 10px;
+    text-align: center;  
+} 
+
+.botonModificar,
+.botonEliminar,
+.botonCancelar {
+    background-color: var(--verde);
+    color: white;
+    border: 1px solid var(--verde);
+    padding: 12px 14px;
+    margin: 0 5px;
+    border-radius: 6px;
+  }
+  
+  /*con buttons alineamos los botones Enviar y Cancelar*/
+  .buttons {
+    display: inline-flex
+  }
+  
+  /*con los hover modificamos la apariencia de los botones Enviar y Cancelar al pasarles el puntero por arriba*/
+  .botonModificar:hover,
+  .botonEliminar:hover, 
+  .botonCancelar:hover {
+    background-color: var(--celeste);
+    border: 1px solid var(--celeste);
+  }

@@ -1,22 +1,22 @@
 [
-    {
-      "id": 1,
-      "name": "Administrador",
-      "user": "admin",
-      "email": "admin@animalia.com",
-      "address": "Domicilio de admin",
-      "password": "cheat123",
-      "category_  user": "Administrador",
-      "image": "/public/images/logo.png"
-    },
-    {
-      "id": 2,
-      "name": "Usuario",
-      "user": "user",
-      "email": "user@gmail.com",
-      "address": "Domicilio del usuario",
-      "password": "cheat1234",
-      "category_user": "Usuario",
-      "image": "/public/images/logo.png"
-    }
-  ]
+  {
+    "id": 1,
+    "name": "Administrador",
+    "user": "admin",
+    "email": "admin@animalia.com",
+    "address": "Domicilio de admin",
+    "password": "cheat123",
+    "category_  user": "Administrador",
+    "image": "/public/images/logo.png"
+  },
+  {
+    "id": 2,
+    "name": "Usuario",
+    "user": "user",
+    "email": "user@gmail.com",
+    "address": "Domicilio del usuario",
+    "password": "cheat1234",
+    "category_user": "Usuario",
+    "image": "/public/images/logo.png"
+  }
+]
