@@ -15,16 +15,21 @@
     --negro: #000;
   }
 
-.titulares_Edit {
+  .section__container  {
+  text-align: left;
+ }
+
+
+/*.titulares_Edit {
     font-size: 24px;
     color: var(--rosa);
-}
-
-label { /*modifica tipogrefia de las label*/
+}*/
+/*modifica tipogrefia de las label*/
+/*label { 
     font-size: 16px;
-}
+}*/
 
-input {
+/*input {
     display: inline;
     background-color: var(--blanco);
     padding: 8px 60px 8px 60px;
@@ -43,7 +48,51 @@ select.form__input
     border: solid 1.5px var(--verde);
     border-radius: 10px;
     text-align: center;  
-} 
+} */
+.formulario label {
+  display: inline-flex;
+  background-color: var(--blanco);
+  padding: 0px 0px 0px 0px;
+  margin: 9px 9px;
+  text-align: left;
+}
+
+.formulario select  {
+  
+    font-size: 10px;
+    margin-top: 4px;
+    min-width: 25vw;
+    height: 40px;
+    line-height: 15px;
+    display: flex;
+    background-color: var(--blanco);
+    border: solid 1px var(--verde);
+    border-radius: 8px;
+    font: inherit;
+    text-align: left;
+    padding: 5px 0px 5px 5px;
+    box-sizing: border-box;
+
+}
+
+.formulario input{
+  
+    font-size: 10px;
+    margin-top: 4px;
+    min-width: 25vw;
+    height: 40px;
+    line-height: 15px;
+    display: flex;
+    background-color: var(--blanco);
+    border: solid 1px var(--verde);
+    border-radius: 8px;
+    font: inherit;
+    text-align: left;
+    padding: 10px 0px 8px 8px;
+    box-sizing: border-box;
+}
+
+
 
 .botonModificar,
 .botonEliminar,
