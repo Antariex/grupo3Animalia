@@ -17,11 +17,11 @@ const DBUserController = {
       },
     registro: (req, res) => {
         res.render('./users/register');
-        console.log("create")
+        
       },
     admin: (req, res) => {
         res.render('./users/admin')
-        console.log("create")
+        
       },
     carrito: (req, res) => {
         res.render('./users/cart');
