@@ -25,7 +25,7 @@
 
               <!-- Categoria del producto -->
               <div>
-                <label for="category" class="form__label" placeholder="Seleccione una categoria">Categoria:</label><br>
+                <label for="category" class="form__label" placeholder="Seleccione una categoria">Categoría:</label><br>
                 <select name="category" id="productCategory" class="form__input">
                   <option value="" selected disabled>Seleccione una categoria</option>
                   <option value="1">Perros</option>
@@ -41,8 +41,8 @@
               <div>
                 <label for="subcategory" class="form__label"
                   placeholder="Seleccione una subcategoria">Subcategoria:</label><br>
-                
-                  <select name="subcategory" id="productSubcategory" class="form__input">
+
+                <select name="subcategory" id="productSubcategory" class="form__input">
                   <option value="" selected disabled>Seleccione una subcategoria</option>
                   <option value="1">Alimentos</option>
                   <option value="2">Farmacia</option>
@@ -55,8 +55,8 @@
               <br>
               <div>
                 <label for="nombre" class="form__label">Nombre del producto:</label><br>
-                <input type="text" name="name" placeholder="Complete este campo" class="form__input"></input>
-                
+                <input type="text" name="name" placeholder="Ingrese el nombre del producto" class="form__input"></input>
+
               </div>
               <br>
               <!-- Precio del producto -->
@@ -64,7 +64,7 @@
                 <label for="price" class="form__label">Precio:</label><br>
                 <input type="text" name="price" id="productPrice" class="form__input" placeholder="$"></input> <br>
               </div>
-              
+
               <!--Precio del producto con descuento-->
               <div>
                 <label for="discount" class="form__label">Precio con descuento:</label><br>
@@ -77,17 +77,18 @@
                 <input type="file" name="thumbnail" id="productImg" class="form__input" accept="image/*"
                   value="<%= locals.oldData? oldData.productImg : null%>"><br>
               </div>
-             
+
               <!-- Descripción del producto -->
               <div>
                 <label for="productDescription" class="form__label">Descripción del producto:</label><br>
-                <input type="text" name="productDescription" class="form__input" placeholder="Escriba aqui los detalles del producto."></input> <br>
-                
+                <input type="text" name="productDescription" class="form__input"
+                  placeholder="Escriba aquí la descripción del producto."></input> <br>
+
               </div>
               <!-- Stock del producto -->
               <div>
                 <label for="stock" class="form__label">Stock:</label><br>
-                <input type="text" name="stock" id="stock" class="form__input" placeholder="Cantidad"></input> <br>
+                <input type="text" name="stock" id="stock" class="form__input" placeholder="Cantidad disponible en stock"></input> <br>
               </div>
               <br>
               <!--<input type="submit" value="Crear>-->
