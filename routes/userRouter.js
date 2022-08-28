@@ -52,7 +52,6 @@ router.post('/register', upload.single('avatar'), /*registerValidationsMiddlewar
 
 /*hay que crear vista de profile a futuro*/
 
-
 router.get('/cart', DBUserController.carrito);
 
 module.exports = router;
