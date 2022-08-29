@@ -28,6 +28,8 @@ const storage = multer.diskStorage({
   
   // #####CRUD Users##############
   
+  /*Ruta del Login y Login Admin*/
+router.get('/admin', DBUserController.admin);  
   /*Ruta del Login*/
   
 router.get('/login', guestMiddleware, DBUserController.login);

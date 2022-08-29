@@ -11,7 +11,6 @@
 
     <!-- Aquí comienza el main -->
     <main>
-
         <div class="container">
             <div class="izquierda">
                 <h2 class="titulo">¡Bienvenido Admin de Animalia!</h2>
@@ -22,15 +21,12 @@
                 <br>
                 <p><a href="/users/register" class="crearPerfil">Formulario creación user</a></p>
                 <p><a href="/products/productCreate" class="crearPerfil">Formulario creación de producto</a></p>
-                
             </div>
-
             <div class="formula>rio login">
+                <p class="leyenda">Ingresá tus datos de Admin para ingresar</p>
                 <div class="form-floating mb-3 formulario login">
 
                     <form action="./users/login" method="POST"></form>
-
-                    <% if (userLogged.permission_Id == 1) { %>
 
                     <input type="email" class="form-control" id="floatingInput" placeholder="Ej: usuario@animalia.com.ar" required>
                     <label for="floatingInput">Correo electrónico</label>
@@ -74,6 +70,8 @@
 
     <!-- Aquí comienza el footer: lista de correo, links de información y redes sociales -->
     <%- include('../partials/footer.ejs') %>
+    <!-- Validaciones-->
+
 
 </body>
 

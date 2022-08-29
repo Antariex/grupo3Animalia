@@ -13,8 +13,30 @@ const db = require('../database/models');
 
 const DBUserController = {
 
-  login: (req, res) => {
+    login: (req, res) => {
+        res.render('./users/login');
+      },
+    registro: (req, res) => {
+        res.render('./users/register');
+
+      },
+    admin: (req, res) => {
+        res.render('./users/admin')
+
+      },
+    carrito: (req, res) => {
+        res.render('./users/cart');
+      },
+      
+      //############# REGISTRO EXITOSO ##############
+    registerSuccessful: (req, res) => {
+        res.render('./users/profile')
+      },
+    login: (req, res) => {
     res.render('./users/login');
+  },
+  admin: (req, res) => {
+    res.render('./users/admin');
   },
   registro: (req, res) => {
     res.render('./users/register');
@@ -27,10 +49,12 @@ const DBUserController = {
   registerSuccessful: (req, res) => {
     res.render('./users/register_success')
   },
-  
+
 
   //###### VALIDACION DE USUARIO ################
   //Modifico lo que teníamos
+
+  loginValidation: (req, res) => {
 
   loginValidation: (req, res) => {
        db.User.findOne({
