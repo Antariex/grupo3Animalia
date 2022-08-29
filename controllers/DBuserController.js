@@ -13,7 +13,6 @@ const db = require('../database/models');
 
 const DBUserController = {
 
-<<<<<<< HEAD
     login: (req, res) => {
         res.render('./users/login');
       },
@@ -28,6 +27,7 @@ const DBUserController = {
     carrito: (req, res) => {
         res.render('./users/cart');
       },
+      
       //############# REGISTRO EXITOSO ##############
     registerSuccessful: (req, res) => {
         res.render('./users/profile')
@@ -38,11 +38,6 @@ const DBUserController = {
   admin: (req, res) => {
     res.render('./users/admin');
   },
-=======
-  login: (req, res) => {
-    res.render('./users/login');
-  },
->>>>>>> 4b117aeb97274897ec41b62dcf9eaef50781b2b6
   registro: (req, res) => {
     res.render('./users/register');
     console.log("create")
@@ -54,20 +49,14 @@ const DBUserController = {
   registerSuccessful: (req, res) => {
     res.render('./users/register_success')
   },
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> 4b117aeb97274897ec41b62dcf9eaef50781b2b6
 
   //###### VALIDACION DE USUARIO ################
   //Modifico lo que teníamos
 
-<<<<<<< HEAD
-  /*loginValidation: (req, res) => {
-=======
   loginValidation: (req, res) => {
->>>>>>> 4b117aeb97274897ec41b62dcf9eaef50781b2b6
+
+  loginValidation: (req, res) => {
        db.User.findOne({
         where: {
           email: req.body.email}
