@@ -33,7 +33,6 @@ app.use(session({
     saveUninitialized: false
   }));
 
-  
 //Gestion de session && almacenamiento cookies
 app.use(cookieParser());
 
@@ -50,6 +49,9 @@ app.use('/products', productRouter)
 app.use('/users', userRouter)
 // User logged middleware
 //app.use(userLoggedMiddleware);
+
+//Api Router
+//app.use(mainApiRouter)
 
 
 // Exportar app
