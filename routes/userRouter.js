@@ -13,7 +13,6 @@ const loginValidationsMiddleware = require('../middlewares/loginValidationsMiddl
 const registerValidationsMiddleware = require('../middlewares/registerValidationsMiddleware');
 const userLoggedMiddleware = require('../middlewares/userLoggedMiddleware');
 
-console.log("register")
 /* Config del Multer */
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -30,26 +29,20 @@ const storage = multer.diskStorage({
   // #####CRUD Users##############
   
   /*Ruta del Login*/
-  router.get('/login', /*guestMiddleware,*/ DBUserController.login);
-//router.post('./users/login', /*upload.single('avatar'), registerValidationsMiddleware,*/ DBUserController.loginValidation);
-
-/*authMiddleware, falla
-guestMiddleware, sin falla
-isAdminMiddleware, falla
-registerValidationsMiddleware, sin falla
-userLoggedMiddleware, sin falla */
+router.get('/login', guestMiddleware, DBUserController.login);
+router.post('/login', upload.single('avatar'), registerValidationsMiddleware, DBUserController.login);
 
 //router.post('./users/login',loginValidationsMiddleware, DBuserController.loginValidation);
 
 /*Ruta del Logout */ //HAY QUE AGREGAR COMO 2DO PARAMETRO EL GUESTMIDDLEWARE
-//router.get('/logout', DBuserController.logout)
+router.get('/logout', DBUserController.logout)
 
 /* Register */
 router.get('/register', DBUserController.registro);
 router.post('/register', upload.single('avatar'), /*registerValidationsMiddleware,*/ DBUserController.create);
 
 /*hay que crear vista de profile a futuro*/
-
+//router.get("/userProfile", userController.profile)
 
 router.get('/cart', DBUserController.carrito);
 

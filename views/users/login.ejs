@@ -21,23 +21,24 @@
                 </picture>
                 <br>
                 <br>
-                
                 <p>¿Primera vez en Animalia?</p>
-                <p><a href="/register" class="crearPerfil">Creá tu cuenta</a></p>
+                <p><a href="/users/register" class="crearPerfil">Quiero crear mi cuenta</a></p>
+                <p><a href="/users/admin" class="crearPerfil">Soy Admin</a></p>
             </div>
-
             <div class="formulario login">
-                <p class="leyenda">Ingresá tus datos para acceder a nuestra comunidad mascotera</p>
-                <div class="form-floating mb-3 formulario login">
-                    <form action="./users/login" method="POST"></form>
-                    <input type="email" class="form-control" id="floatingInput" placeholder="Ej: usuario@animalia.com.ar" required>
+                <p class="leyenda">Ingresá tus datos para acceder a nuestra comunidad</p>
+                 <div class="form-floating mb-3 formulario login">
+
+                    <form action="./login" method="POST">
+                        
+                    <input type="email" name="email" class="form-control" id="floatingInput" placeholder="Ej: usuario@animalia.com.ar" required>
                     <label for="floatingInput">Correo electrónico</label>
                   </div>
                   <div class="form-floating formulario login">
-                    <input type="password" class="form-control formulario login" id="floatingPassword" placeholder="Tu clave personal" required minlength="8">
+                    <input type="password" name="password" class="form-control formulario login" id="floatingPassword" placeholder="Tu clave personal">
+                    <!--<input type="password" name="password" class="form-control formulario login" id="floatingPassword" placeholder="Tu clave personal"  required minlength="8"> -->
                     <label for="floatingPassword">Contraseña</label>
                   </div>
-
                     <p class="emergente">
                         <span
                             data-tooltip="Tu contraseña debe tener un mínimo de 8 caracteres. Evitá usar palabras o secuencias muy comunes."><svg
@@ -51,18 +52,15 @@
                             </svg></span>
                             <br>
                             <br>
-                    <button class="sendButton" type="submit"><a href="/">Iniciar sesión</a></button>
+                            <button class="sendButton" type="submit" value="Iniciar sesión">Iniciar sesión</button>
                 </form>
                 <br>
-                <br
+                <br>
                 <span class="texto">
                     <p>¿Olvidaste tu contraseña?</p>
-                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#" class="links"> Recuperar contraseña</a>
+                    <a href="#" class="links">Recuperar contraseña</a>
                 </span>
                 <br>
-                <span>
-
-                </span>
                 <br>
 
             </div>
@@ -73,6 +71,10 @@
 
     <!-- Aquí comienza el footer: lista de correo, links de información y redes sociales -->
     <%- include('../partials/footer.ejs') %>
+
+<!-- Validaciones-->
+<script src="/js/js_register.js"> 
+</script>
 
 </body>
 
