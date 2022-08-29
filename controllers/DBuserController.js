@@ -13,34 +13,17 @@ const db = require('../database/models');
 
 const DBUserController = {
 
-    login: (req, res) => {
-        res.render('./users/login');
-      },
-    registro: (req, res) => {
-        res.render('./users/register');
-
-      },
-    admin: (req, res) => {
-        res.render('./users/admin')
-
-      },
-    carrito: (req, res) => {
-        res.render('./users/cart');
-      },
-      
-      //############# REGISTRO EXITOSO ##############
-    registerSuccessful: (req, res) => {
-        res.render('./users/profile')
-      },
-    login: (req, res) => {
+  login: (req, res) => {
     res.render('./users/login');
   },
+
   admin: (req, res) => {
     res.render('./users/admin');
   },
+
   registro: (req, res) => {
     res.render('./users/register');
-    console.log("create")
+
   },
   carrito: (req, res) => {
     res.render('./users/cart');
@@ -49,12 +32,10 @@ const DBUserController = {
   registerSuccessful: (req, res) => {
     res.render('./users/register_success')
   },
-
+  
 
   //###### VALIDACION DE USUARIO ################
   //Modifico lo que teníamos
-
-  loginValidation: (req, res) => {
 
   loginValidation: (req, res) => {
        db.User.findOne({
@@ -83,33 +64,7 @@ const DBUserController = {
               })
              },
 
-  /*
-         //esto teníamos
-      loginValidation: (req, res) => {
-          let userToLogin = db.User.findByField('email', req.body.email)
-          if (userToLogin) {
-            let passwordCheck = bcrypt.compareSync(req.body.password, userToLogin.password)
-            if (passwordCheck) {
-              delete userToLogin.password;
-              req.session.userLogged = userToLogin;
-              if(req.body.remember_me) {
-                res.cookie('userKey',req.body.email, {maxAge: (1000 * 60) * 60})
-              }
-              return res.redirect('/users/profile')
-
-            }
-          }
-          return res.render('./users/login', {
-            errors: {
-              email: {
-                msg: 'Los datos ingresados no son correctos, por favor intente nuevamente.'
-              }
-            }
-          })
-          console.log("req", req.body)
-        },
-
-       */
+ 
   //###### CREACION DE USUARIO ##########
   create: (req, res) => {
     const resultValidation = validationResult(req)
@@ -162,21 +117,10 @@ const DBUserController = {
     })
   },
 
-
-  profile: (req, res) => {
-      res.render('./users/login_success', { user: req.session.userLogged })
-    },
-  /*
-   //########## PERFIL DE USUARIO ################
-  profileAccess: (req, res) => {
-     res.render('./users/profile', { user: req.session.userLogged })
-   },
-
-
-//teníamos esto:
    profile: (req, res) => {
   res.render('./users/login_success', { user: req.session.userLogged })
   },
+
   profileAccess: (req, res) => {
      res.render('./users/profile', { user: req.session.userLogged })
    },
@@ -187,6 +131,66 @@ const DBUserController = {
     let user = db.User.findIndex((element => {
       return element.id === parseInt(req.params.id)
     }))
+  },
+
+   edit: (req, res) => {
+    db.User.findOne({
+        where: {
+            email: {
+                [Op.like]: req.session.userLogged.email
+            }
+        }
+    }).then(user => {
+        res.render("edit-profile", {
+            user
+        })
+    })
+},
+
+
+  logout: (req, res) => {
+    res.clearCookie('userKey');
+    req.session.destroy();
+    return res.redirect('/')
+  },
+  }
+
+
+   /*
+   //########## PERFIL DE USUARIO ################
+  profileAccess: (req, res) => {
+     res.render('./users/profile', { user: req.session.userLogged })
+   },
+
+
+
+ /*
+         //esto teníamos
+      loginValidation: (req, res) => {
+          let userToLogin = db.User.findByField('email', req.body.email)
+          if (userToLogin) {
+            let passwordCheck = bcrypt.compareSync(req.body.password, userToLogin.password)
+            if (passwordCheck) {
+              delete userToLogin.password;
+              req.session.userLogged = userToLogin;
+              if(req.body.remember_me) {
+                res.cookie('userKey',req.body.email, {maxAge: (1000 * 60) * 60})
+              }
+              return res.redirect('/users/profile')
+
+            }
+          }
+          return res.render('./users/login', {
+            errors: {
+              email: {
+                msg: 'Los datos ingresados no son correctos, por favor intente nuevamente.'
+              }
+            }
+          })
+          console.log("req", req.body)
+        },
+
+       */
 
     /* #### iteración en el JSon#####
     users[user].firstName = req.body.firstName === "" ? users[user].productName : req.body.firstName;
@@ -200,12 +204,6 @@ const DBUserController = {
     res.redirect('/users/profile/' + req.params.id)
   },*/
 
-  logout: (req, res) => {
-    res.clearCookie('userKey');
-    req.session.destroy();
-    return res.redirect('/')
-  },
-}
 
 
 module.exports = DBUserController;
