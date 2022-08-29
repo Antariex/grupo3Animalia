@@ -19,19 +19,18 @@ const storage = multer.diskStorage({
       cb(null, './public/images/avatars');
     },
     filename: (req, file, cb) => {
-      cb(null, Date.now() + '-userImg' + path.extname(file.originalname));
-    },
+      const ext = path.extname(file.originalname)
+      cb(null, Date.now() + '-userAvatar' + ext);
+  },
   });
 
   /* Multer SEND */
   const upload = multer({ storage: storage });
-  
-  // #####CRUD Users##############
-  
+
+
   /*Ruta del Login y Login Admin*/
-router.get('/admin', DBUserController.admin);  
-  /*Ruta del Login*/
-  
+router.get('/admin', DBUserController.admin);
+
 router.get('/login', guestMiddleware, DBUserController.login);
 router.post('/login', upload.single('avatar'), registerValidationsMiddleware, DBUserController.login);
 
