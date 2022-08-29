@@ -62,7 +62,7 @@
      font-family: 'Roboto', serif;
  }
  
- .formulario button a {
+ .formulario button {
      text-decoration: none;
      color: var(--blanco);
  }
