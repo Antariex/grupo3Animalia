@@ -3,7 +3,7 @@ const { body } = require('express-validator');
 
 
 const validations = [
-    body("nombreyapellido", "Por favor completa este campo").notEmpty(),
+    body("name", "Por favor completa este campo").notEmpty(),
     body("user","Por favor elige un nombre de usuario").notEmpty(),
     body("email", "Ingresa un email válido").toLowerCase().isEmail().normalizeEmail(), //validar el email no registrado en DB
     body("password", "Password invalida").isLength({min:6, max:16}),
@@ -25,5 +25,3 @@ const validations = [
 ]
 
 module.exports = validations;
-
-

@@ -29,6 +29,7 @@ const storage = multer.diskStorage({
   // #####CRUD Users##############
   
   /*Ruta del Login*/
+  
 router.get('/login', guestMiddleware, DBUserController.login);
 router.post('/login', upload.single('avatar'), registerValidationsMiddleware, DBUserController.login);
 
@@ -42,7 +43,9 @@ router.get('/register', DBUserController.registro);
 router.post('/register', upload.single('avatar'), /*registerValidationsMiddleware,*/ DBUserController.create);
 
 /*hay que crear vista de profile a futuro*/
+
 //router.get("/userProfile", userController.profile)
+
 
 router.get('/cart', DBUserController.carrito);
 

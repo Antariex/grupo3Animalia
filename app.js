@@ -33,9 +33,7 @@ app.use(session({
     saveUninitialized: false
   }));
 
-// User logged middleware
-//app.use(userLoggedMiddleware);
-
+  
 //Gestion de session && almacenamiento cookies
 app.use(cookieParser());
 
@@ -45,11 +43,14 @@ app.set("view engine", "ejs");
 //Enrutador principal (http://localhost:3000/)
 app.use(mainRouter);
 
-//Rutas de vinculación a BD //CHEQUEAR SI ESTO ESTA OK
+//Ruoter de BD
 app.use('/products', productRouter)
 
 //Router de usuarios (http://localhost:3000/user)
 app.use('/users', userRouter)
+// User logged middleware
+//app.use(userLoggedMiddleware);
+
 
 // Exportar app
 module.exports = app;

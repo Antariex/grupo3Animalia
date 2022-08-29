@@ -13,7 +13,7 @@ const mainController = {
     },
     aboutUs: (req, res) => {
         res.render('./aboutUs'); 
-
+    
     },
     sucursales: (req, res) => {
         res.render('./sucursales');

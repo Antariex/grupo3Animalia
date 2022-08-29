@@ -1,6 +1,6 @@
 /*const fs = require('fs')
 const path = require('path')
-const { validationResult, body } = require('express-validator') //porque no lee dec body CONSULTAR
+const { validationResult, body } = require('express-validator')
 const bcryptjs = require('bcryptjs')
 const User = require('../models/User')
 
@@ -65,13 +65,13 @@ create: (req, res) => {
       })
     }
     delete req.body.confirmPassword
-
+    
     let userToCreate = {
       ...req.body,
       password: bcryptjs.hashSync(req.body.password, 10),
       avatar: req.file ? req.file.filename : 'default.png'
     }
-
+    
     User.create(userToCreate);
     res.redirect('/')
   },
@@ -83,22 +83,22 @@ create: (req, res) => {
   profileAccess: (req, res) => {
      res.render('./users/profile', { user: req.session.userLogged })
    },
-
-
-  //############ ACTUALIZAR PERFIL USUARIO ##############
+  
+  
+   //############ ACTUALIZAR PERFIL USUARIO ##############
   profileUpdate: (req, res) => {
     let user = users.findIndex((element => {
       return element.id === parseInt(req.params.id)
     }))
-
+    
     users[user].firstName = req.body.firstName === "" ? users[user].productName : req.body.firstName;
     users[user].lastName = req.body.lastName === "" ? users[user].lastName : req.body.lastName;
     users[user].email = req.body.email === "" ? users[user].email : req.body.email;
     users[user].password = bcryptjs.hashSync(req.body.password, 10);
     users[user].avatar = req.file.filename ? req.file.filename : users[user].avatar;
 // revisar el campo de ingresar imagen, si esta vacio da error
-
-    fs.writeFileSync(usersFilePath, JSON.stringify(users, null, '\t'));
+    
+fs.writeFileSync(usersFilePath, JSON.stringify(users, null, '\t'));
     res.redirect('/users/profile/' + req.params.id)
   },
   logout : (req,res) => {

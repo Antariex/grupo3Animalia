@@ -6,6 +6,8 @@ const bcrypt = require('bcryptjs')
 const {Op} = require('sequelize');
 const db = require('../database/models');
 //const User = require('../models/User')
+//const fs = require('fs')
+//const path = require('path')
 //let usersFilePath = path.join(__dirname, '../data/users.json')
 //let users = JSON.parse(fs.readFileSync(usersFilePath , 'utf-8'));
 
@@ -70,6 +72,7 @@ const DBUserController = {
                 res.cookie('userKey',req.body.email, {maxAge: (1000 * 60) * 60})
               }
               return res.redirect('/users/profile')
+
             }
           }
           return res.render('./users/login', {
@@ -161,10 +164,6 @@ const DBUserController = {
       return element.id === parseInt(req.params.id)
     }))
 
-
-
-
-
     /* #### iteración en el JSon#####
     users[user].firstName = req.body.firstName === "" ? users[user].productName : req.body.firstName;
     users[user].lastName = req.body.lastName === "" ? users[user].lastName : req.body.lastName;
@@ -172,6 +171,7 @@ const DBUserController = {
     users[user].password = bcryptjs.hashSync(req.body.password, 10);
     users[user].avatar = req.file.filename ? req.file.filename : users[user].avatar;
 // revisar el campo de ingresar imagen, si esta vacio da error
+
     fs.writeFileSync(usersFilePath, JSON.stringify(users, null, '\t'));
     res.redirect('/users/profile/' + req.params.id)
   },*/

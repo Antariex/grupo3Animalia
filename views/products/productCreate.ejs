@@ -11,108 +11,102 @@
 
 <body>
   <%- include('../partials/header.ejs') %>
-  <main>
-    <div class="formulario">
+    <main>
+      <div class="formulario">
 
-      <section class="section_container create_product-section">
-        <article class="article_container product_article">
-        
-          <div>
-            <h2 class="titulares">Formulario para creación de productos en stock</h2>
-          </div>
-          <form action="/products/create/confirm" method="POST" enctype="multipart/form-data"
-            class="create__product-form">
-            <!-- Nombre del producto -->
-            <br>
-            <div>
-              <label for="nombre" class="form__label">Nombre del producto:</label>
-              <input type="text" name="name" placeholder="Complete este campo" class="form__input"></input>
-              <br>
-            </div>
-            <br>
+        <section class="section_container create_product-section">
+          <article class="article_container product_article">
 
-            <!-- Categoria del producto -->
             <div>
-              <label for="category" class="form__label" placeholder="Seleccione una categoria">Categoria:</label>
-              <select name="category" id="productCategory" class="form__input">
-                <option value="" selected disabled>Seleccione una categoria</option>
-                <option value="1">Perros</option>
-                <option value="2">Gatos</option>
-                <option value="3">Aves</option>
-                <option value="4">Roedores</option>
-                <option value="5">Peces</option>
-                <option value="6">Ofertas</option>
-              </select>
+              <h3 class="titulares">Formulario para creación de productos en stock</h3>
             </div>
-            <br>
-  <!-- Subcategorías del producto -->
-            <div>
-              <label for="subcategory" class="form__label" placeholder="Seleccione una subcategoria">Subcategoria:</label>
-              <select name="subcategory" id="productSubcategory" class="form__input">
-                <option value="" selected disabled>Seleccione una subcategoria</option>
-                <option value="1">Alimentos</option>
-                <option value="2">Farmacia</option>
-                <option value="3">Cuuidados y belleza</option>
-                <option value="4">Juguetes</option>
-                <option value="5">Otros artículos</option>
+            <form action="/products/create/confirm" method="POST" enctype="multipart/form-data"
+              class="create__product-form">
 
-              </select>
-            </div>
-            <br>
-            <!-- Img del producto -->
-            <div>
-              <label for="thumbnail" class="form__label">Elige una imagen</label>
+              <!-- Categoria del producto -->
+              <div>
+                <label for="category" class="form__label" placeholder="Seleccione una categoria">Categoría:</label><br>
+                <select name="category" id="productCategory" class="form__input">
+                  <option value="" selected disabled>Seleccione una categoria</option>
+                  <option value="1">Perros</option>
+                  <option value="2">Gatos</option>
+                  <option value="3">Aves</option>
+                  <option value="4">Roedores</option>
+                  <option value="5">Peces</option>
+                  <option value="6">Ofertas</option>
+                </select>
+              </div>
+              <!-- Subcategorías del producto -->
               <br>
-              <input type="file" name="thumbnail" id="productImg" class="form__input" accept="image/*"
-                value="<%= locals.oldData? oldData.productImg : null%>"><br>
-            </div>
-            <br>
-            <!-- Precio del producto -->
-            <div>
-              <label for="price" class="form__label">Precio:</label>
-              <input type="text" name="price" id="productPrice" class="form__input" placeholder="$"></input> <br>
-            </div>
-            <br>
-            <!--Precio del producto con descuento-->
-            <div>
-              <label for="discount" class="form__label">Precio con descuento:</label>
-              <input type="text" name="discount" id="Priced" class="form__input" placeholder="$"></input>
+              <div>
+                <label for="subcategory" class="form__label"
+                  placeholder="Seleccione una subcategoria">Subcategoria:</label><br>
+
+                <select name="subcategory" id="productSubcategory" class="form__input">
+                  <option value="" selected disabled>Seleccione una subcategoria</option>
+                  <option value="1">Alimentos</option>
+                  <option value="2">Farmacia</option>
+                  <option value="3">Cuuidados y belleza</option>
+                  <option value="4">Juguetes</option>
+                  <option value="5">Otros artículos</option>
+                </select>
+              </div>
+              <!-- Nombre del producto -->
               <br>
-            </div>
-            <!-- Stock del producto -->
-            <div>
-              <label for="stock" class="form__label">Stock:</label>
-              <input type="text" name="stock" id="stock" class="form__input" placeholder="cantidad"></input> <br>
+              <div>
+                <label for="nombre" class="form__label">Nombre del producto:</label><br>
+                <input type="text" name="name" placeholder="Ingrese el nombre del producto" class="form__input"></input>
+
               </div>
               <br>
-            <!-- Descripción del producto -->
-            <div>
-              <br>
-              <br>
-              <label for="productDescription" class="form__label">Escriba una descripción del producto</label>
-              <br>
-              <br>
-              <textarea cols="65" rows="5" type="text" name="productDescription"
-                placeholder="Escriba aqui los detalles del producto."><%= locals.oldData? oldData.productDescription : null%></textarea>
-            </div>
-            <br>
+              <!-- Precio del producto -->
+              <div>
+                <label for="price" class="form__label">Precio:</label><br>
+                <input type="text" name="price" id="productPrice" class="form__input" placeholder="$"></input> <br>
+              </div>
 
-            <!--<input type="submit" value="Crear>-->
-            <div class="buttons">
-              <form action="/productCreate/%=product.id %>" method="GET" style="display: inline-flex">
-                <button class="botonCrear" type="Submit">Crear producto</button>
-              </form>
+              <!--Precio del producto con descuento-->
+              <div>
+                <label for="discount" class="form__label">Precio con descuento:</label><br>
+                <input type="text" name="discount" id="Priced" class="form__input" placeholder="$"></input>
+              </div>
               <br>
-              <form action="/products/" style="display: inline-flex">
-                <button class="botonCancelar" type="Submit">Cancelar</button>
-              </form>
-            </div>
-          </form>
-        </article>
-      </section>
-    </div>
-  </main>
-  <%- include('../partials/footer.ejs') %>
+              <!-- Img del producto -->
+              <div>
+                <label for="thumbnail" class="form__label">Imagen del producto:</label><br>
+                <input type="file" name="thumbnail" id="productImg" class="form__input" accept="image/*"
+                  value="<%= locals.oldData? oldData.productImg : null%>"><br>
+              </div>
+
+              <!-- Descripción del producto -->
+              <div>
+                <label for="productDescription" class="form__label">Descripción del producto:</label><br>
+                <input type="text" name="productDescription" class="form__input"
+                  placeholder="Escriba aquí la descripción del producto."></input> <br>
+
+              </div>
+              <!-- Stock del producto -->
+              <div>
+                <label for="stock" class="form__label">Stock:</label><br>
+                <input type="text" name="stock" id="stock" class="form__input" placeholder="Cantidad disponible en stock"></input> <br>
+              </div>
+              <br>
+              <!--<input type="submit" value="Crear>-->
+              <div class="buttons">
+                <form action="/productCreate/%=product.id %>" method="GET" style="display: inline-flex">
+                  <button class="botonCrear" type="Submit">Crear producto</button>
+                </form>
+                <br>
+                <form action="/products/" style="display: inline-flex">
+                  <button class="botonCancelar" type="Submit">Cancelar</button>
+                </form>
+              </div>
+            </form>
+          </article>
+        </section>
+      </div>
+    </main>
+    <%- include('../partials/footer.ejs') %>
 </body>
 
 </html>

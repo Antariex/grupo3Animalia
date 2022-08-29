@@ -2,96 +2,127 @@
 <!DOCTYPE html>
 <html lang="es">
 
-    <head>
-        <!-- Metadatos: idiomas, adaptabilidad, estilos, tipografías, iconos y título -->
-        <link href="/public/css/productCreate.css" rel="stylesheet">
-        <title>Edición de producto - Animalia</title>
-        <%- include ('../partials/head') %>
-    </head>
+<head>
+  <!-- Metadatos: idiomas, adaptabilidad, estilos, tipografías, iconos y título -->
+  <link href="/public/css/productEdit.css" rel="stylesheet">
+  <title>Edición de producto - Animalia</title>
+  <%- include ('../partials/head') %>
+</head>
 
-    <body>
-        <%- include('../partials/header.ejs') %>
-        <main>
-          <section class="section__container crate__product-section">
-             <article class="article__container product__article">
-              <div>
-                <h3 class="titulares">Formulario para edición y modificación de productos en stock</h3>
-                <p>Las caracteristicas ingresadas pueden ser modificadas en cualquier momento</p>
-                </div>
-                <form action="/products/productEdit/<%= product.id %>/succed?_method=PUT" method="POST" enctype="multipart/form-data" class="create__product-form">
-                  <!-- Nombre del producto -->
-                  <br>
-                <div>
-                  <label for="name" class="form__label">Nombre del producto:</label>
-                  <input type="text" name="name" value="<%= product.name%>" placeholder="Complete este campo" class ="form__input"></input>
-                  <br>
-                </div>
-                <br>
+<body>
+  <%- include('../partials/header.ejs') %>
+    <main>
+      <section class="section__container edit__product-section">
+        <article class="article__container product__article">
+          <div>
+            <h3 class="titulares">Formulario para edición y modificación de productos en stock</h3>
+            <p>Las caracteristicas ingresadas pueden ser modificadas en cualquier momento</p>
+          </div>
+          <form action="/products/productEdit/<%= product.id %>/succed?_method=PUT" method="POST"
+            enctype="multipart/form-data" class="edit__product-form">
 
-                <!-- Categoria del producto -->
-                <div>
-                  <label for="category" class="form__label" placeholder="Seleccione una categoria">Categoria:</label>
-                  <select name="category" id="productCategory" class="form__input">
-                    <option value="<%= product.category %> " selected disabled><%= product.category.category%> </option>
-                    <option value="1">Perros</option>
-                    <option value="2">Gatos</option>
-                    <option value="3">Aves</option>
-                    <option value="4">Roedores</option>
-                    <option value="5">Peces</option>
-                    <option value="6">Ofertas</option>
-                  </select>
-                </div>
-                <br>
-                <div>
-                  <label for="subcategory" class="form__label" placeholder="Seleccione una subcategoria">SubCategoria:</label>
-                  <select name="subcategory" id="productsubcategory" class="form__input">
-                    <option value="<%= product.subcategory %> " selected disabled><%= product.subcategory.subcategory%> </option>
-                    <option value="1">Alimentos</option>
-                    <option value="2">Farmacia</option>
-                    <option value="3">Cuidados y belleza</option>
-                    <option value="4">Juguetes</option>
-                    <option value="5">Otros artículos</option>
-                  </select>
-                </div>
-                <br>
-                  <div>
-                  <label for="productImg" class="form__label">Elige una imagen</label>
-                  <br>
-                  <input type="file" name="thumbnail" id="productImg" class ="form__input" accept="image/*"><br>
-                </div>
-                <br>
-                  <!-- Precio del producto -->
-                <div>
-                  <label for="price" class="form__label">Precio:</label>
-                  <input type="text" name="price" value="<%= product.price %>" id="price" class ="form__input" placeholder="$"></input> <br>
-                </div>
-                <br>
-                <!--Precio del producto con descuento-->
-                <div>
-                  <label for="discount" class="form__label">Precio con descuento:</label>
-                  <input type="text" name="discount" value="<%= product.discount %>" id="discount" class ="form__input" placeholder="$"></input>
-                  <br>
-                </div>
-                  <!-- Descripción del producto -->
-                  <div>
-                  <label for="productDescription" class="form__label">Escriba una descripción del producto</label>
-                  <br>
-                  <br>
-                  <textarea  maxlength="600" type="text" name="description" value="<%= product.description %>"><%= product.description ? product.description : null%></textarea>
-                </div>
-                <br>
-                  <div>
-                  <button type="submit" value="Modificar">Modificar producto </button>
-                </div>
-              </article>
-            </form>
-            <form action="/products/delete/<%= product.id %>?_method=DELETE" method="POST" enctype="multipart/form-data">
-              <button type="submit" value="Modificar">Baja de producto </button>
-            </form>
-            <a href="/products"> Cancelar </a>
-          </section>
-        </main>
-        <%- include('../partials/footer.ejs') %>
-      </body>
+            <!-- Categoria del producto -->
+            <div>
+              <label for="category" class="form__label" placeholder="Seleccione una categoria">Categoría:</label>
+              <br>
+              <select name="category" id="productCategory" class="form__input">
+                <option value="<%= product.category %> " selected disabled>
+                  <%= product.category.category%>
+                </option>
+                <option value="1">Perros</option>
+                <option value="2">Gatos</option>
+                <option value="3">Aves</option>
+                <option value="4">Roedores</option>
+                <option value="5">Peces</option>
+                <option value="6">Ofertas</option>
+              </select>
+            </div>
+            <br>
+            <!-- Subcategorías del producto -->
+            <div>
+              <label for="subcategory" class="form__label"
+                placeholder="Seleccione una subcategoria">SubCategoria:</label>
+              <br>
+              <select name="subcategory" id="productsubcategory" class="form__input">
+                <option value="<%= product.subcategory %> " selected disabled>
+                  <%= product.subcategory.subcategory%>
+                </option>
+                <option value="1">Alimentos</option>
+                <option value="2">Farmacia</option>
+                <option value="3">Cuidados y belleza</option>
+                <option value="4">Juguetes</option>
+                <option value="5">Otros artículos</option>
+              </select>
+            </div>
+            <br>
+            <!-- Nombre del producto -->
+            <div>
+              <label for="name" class="form__label">Nombre del producto:</label>
+              <br>
+              <input type="text" name="name" value="<%= product.name%>" placeholder="Complete este campo"
+                class="form__input"></input>
+              <br>
+            </div>
+            <br>
+            <!-- Precio del producto -->
+            <div>
+              <label for="price" class="form__label">Precio:</label>
+              <br>
+              <input type="text" name="price" value="<%= product.price %>" id="price" class="form__input"
+                placeholder="$"></input> <br>
+            </div>
+            <br>
+            <!--Precio del producto con descuento-->
+            <div>
+              <label for="discount" class="form__label">Precio con descuento:</label>
+              <br>
+              <input type="text" name="discount" value="<%= product.discount %>" id="discount" class="form__input"
+                placeholder="$"></input>
+              <br>
+            </div>
+            <br>
+            <!-- Img del producto -->
+            <div>
+              <label for="productImg" class="form__label">Imagen del producto:</label>
+              <br>
+              <input type="file" name="thumbnail" id="productImg" class="form__input" accept="image/*"><br>
+            </div>
+            <br>
+
+            <!-- Descripción del producto -->
+            <div>
+              <label for="productDescription" class="form__label">Descripción del producto:</label>
+              <br>
+              <textarea maxlength="600" type="text" name="description"
+                value="<%= product.description %>"><%= product.description ? product.description : null%></textarea>
+            </div>
+            <br>
+            <!-- Stock del producto -->
+            <div>
+              <label for="stock" class="form__label">Stock:</label><br>
+              <input type="text" name="stock" value="<%= product.stock %>" id="stock" class="form__input" placeholder="cantidad"></input> <br>
+            
+              <br>
+            </div>
+            <br>
+
+            <div>
+              <button type="submit" value="Modificar">Modificar producto </button>
+            </div>
+        </article>
+        <!--<input type="submit" value="Crear>-->
+        </form>
+        <form action="/products/delete/<%= product.id %>?_method=DELETE" method="POST" enctype="multipart/form-data">
+          <button type="submit" value="Modificar">Baja de producto </button>
+        </form>
+        <a href="/products"> Cancelar </a>
+      </section>
+    </main>
+    <%- include('../partials/footer.ejs') %>
+
+      <script src="/js/js_productEdit.js">
+      </script>
+
+</body>
 
 </html>
