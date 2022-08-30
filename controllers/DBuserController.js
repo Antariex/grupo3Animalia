@@ -81,51 +81,43 @@ const DBUserController = {
     const resultValidation = validationResult(req)
     console.log("create")
     if (resultValidation.errors.length > 0) {
-      return res.render('./users/register', {
-        errors: resultValidation.mapped(),
-        oldData: req.body
-      })
-    }
-    db.User.findOne({
-        where: {
-          email: req.body.email
-        }
-      })
-
-      .then(emailInUse => {
-        if (emailInUse) {
           return res.render('./users/register', {
-
-            errors: {
-              email: {
-                msg: 'Este email ya tiene una cuenta en Animalia.'
+                errors: resultValidation.mapped(),
+                oldData: req.body
+              })
+      }
+    db.User.findOne({
+        where:{
+                email: req.body.email
               }
-            },
-            oldData: req.body
           })
-        } else if (emailInUse == null) {
-          let image
-
-          if (req.file != undefined) {
-            image = req.file.filename
-
-          } else {
-            image = 'avatar.png'
-          }
-          let hashPassword = bcryptjs.hashSync(req.body.password, 10)
-          console.log(hashPassword);
-          let userToCreate = ({
-            ...req.body,
-            permission_id: 2, //esto lo asignamos para definir si es usuario o admin pero hay que hacerlo desde la vista ejs
-            password: hashPassword,
-            avatar: req.file ? req.file.filename : 'default.png'
-          })
-
-          db.User.create(userToCreate);
-
-          res.redirect('/')
-        }
-      })
+        .then(emailInUse => {
+            if (emailInUse) {
+                return res.render('./users/register', {
+                errors: {
+                email: {msg: 'Este email ya tiene una cuenta en Animalia.'}
+                        },
+                oldData: req.body
+                        })
+                  } else if (emailInUse == null) {
+                      let image
+                            if (req.file != undefined) {
+                                image = req.file.filename
+                                  }else{
+                                      image = 'avatar.png'
+                                        }
+                                let hashPassword = bcryptjs.hashSync(req.body.password, 10)
+                                console.log(hashPassword);
+                                let userToCreate = ({
+                                ...req.body,
+                                permission_id: 2, //esto lo asignamos para definir si es usuario o admin pero hay que hacerlo desde la vista ejs
+                                password: hashPassword,
+                                avatar: req.file ? req.file.filename : 'default.png'
+                                })
+                          db.User.create(userToCreate);
+                          res.redirect('/')
+                  }
+              })
   },
 
   //###### VISUALIZACION DE LA CREDENCIAL (PROFILE) DEL USUARIO ##########
