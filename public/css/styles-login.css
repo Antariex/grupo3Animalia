@@ -53,18 +53,18 @@
  }
  
  .formulario button {
-     padding: 8px 10px;
-     margin: 8px;
+     padding: 8px 10px !important;
+     margin: 8px !important;
      background-color: var(--verde);
      border: 1px solid var(--verde);
-     border-radius: 6px;
-     width: 128px;
-     font-family: 'Roboto', serif;
+     border-radius: 6px !important;
+     width: 128px !important;
+     font-family: 'Roboto', serif !important;
  }
  
  .formulario button {
-     text-decoration: none;
-     color: var(--blanco);
+     text-decoration: none !important;
+     color: var(--blanco) !important;
  }
  
  .formulario h3{
@@ -74,8 +74,7 @@
      font-weight: lighter;
  }
  
- .resetButton:hover,
- .sendButton:hover {
+ .formulario button:hover {
      background-color: var(--celeste);
      border: 1px solid var(--celeste);
  }
