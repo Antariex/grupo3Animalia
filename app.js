@@ -6,7 +6,11 @@ const methodOverride = require('method-override');
 const mainRouter = require('./routes/index');
 const productRouter = require('./routes/productRouter');
 const userRouter = require('./routes/userRouter');
+const { application } = require('express');
 //const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
+const apiProductsRouter= require('./routes/api/productsApiRoutes');
+const apiCategoriesRouter= require('./routes/api/categoriesApiRoutes');
+const apiUsersRouter= require('./routes/api/usersApiRoutes');
 
 // Express
 const app = express();
@@ -33,7 +37,6 @@ app.use(session({
     saveUninitialized: false
   }));
 
-  
 //Gestion de session && almacenamiento cookies
 app.use(cookieParser());
 
@@ -50,6 +53,12 @@ app.use('/products', productRouter)
 app.use('/users', userRouter)
 // User logged middleware
 //app.use(userLoggedMiddleware);
+
+//Router de API
+app.use('/api/products',apiProductsRouter);
+app.use('api/users',apiUsersRouter);
+app.use('/api/categories',apiCategoriesRouter);
+
 
 
 // Exportar app
