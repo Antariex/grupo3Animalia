@@ -25,26 +25,34 @@ const storage = multer.diskStorage({
 
   /* Multer SEND */
   const upload = multer({ storage: storage });
-  
+
   // #####CRUD Users##############
-  
-  /*Ruta del Login*/
-  
-router.get('/login', guestMiddleware, DBUserController.login);
-router.post('/login', upload.single('avatar'), registerValidationsMiddleware, DBUserController.login);
+  //Ruta Login form //
+  router.get('/login', DBUserController.login);
+  router.post('/login', DBUserController.loginValidation);
+  //router.get('/login', guestMiddleware, DBUserController.login);
+  //router.post('/login', registerValidationsMiddleware, DBUserController.loginValidation);
+  router.get('/admin', DBUserController.admin);
 
-//router.post('./users/login',loginValidationsMiddleware, DBuserController.loginValidation);
+  //Ruta del Register form
+  router.post('/register', upload.single('avatar'), registerValidationsMiddleware, DBUserController.create);
 
-/*Ruta del Logout */ //HAY QUE AGREGAR COMO 2DO PARAMETRO EL GUESTMIDDLEWARE
+  //router.post('./login',loginValidationsMiddleware, DBUserController.loginValidation);
+  /* Register */
+  router.get('/register', DBUserController.registro);
+
+  /* Editar usuario */
+  router.get("/userEdit", DBUserController.edit);
+  //router.get("/edit", authMiddleware, isAdminMiddleware, DBUserController.edit);
+
+  /*Ruta del Logout */
 router.get('/logout', DBUserController.logout)
 
-/* Register */
-router.get('/register', DBUserController.registro);
-router.post('/register', upload.single('avatar'), /*registerValidationsMiddleware,*/ DBUserController.create);
-
-/*hay que crear vista de profile a futuro*/
-
-//router.get("/userProfile", userController.profile)
+// User profile ///*hay que crear vista de profile a futuro*/
+router.get("/profile", DBUserController.profileAcces);
+//router.get("/profile", authMiddleware, isAdminMiddleware, DBUserController.profileAcces);
+//guardar un usuario  // hay que crear vista
+//router.put("/edit", authMiddleware, isAdminMiddleware, DBUserController.profileUpdate);
 
 
 router.get('/cart', DBUserController.carrito);

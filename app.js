@@ -26,6 +26,12 @@ app.use(express.urlencoded( {extended: false} ));
 app.use(methodOverride('_method'));
 app.use(express.json());
 
+//visto con Ana
+//app.set("views", path.resolve(__dirname, "views"));
+//app.set("view engine", "ejs");
+
+
+
 //Session Middleware
 app.use(session({
     secret: "shhh, it's a secret",
