@@ -31,16 +31,23 @@
                  <div class="form-floating mb-3 formulario login">
 
                     <form action="./login" method="POST">
-                        
+                        <div class="form-floating formulario login">
                     <input type="email" name="email" class="form-control" id="floatingInput" placeholder="Ej: usuario@animalia.com.ar" required>
                     <label for="floatingInput">Correo electrónico</label>
+                    <% if (locals.errors && errors.email) { %>
+                        <div class="error">
+                            <%= errors.email.msg %>
+                        </div>
+                    <% } %>
                   </div>
                   <div class="form-floating formulario login">
-
                     <input type="password" name="password" class="form-control formulario login" id="floatingPassword" placeholder="Tu clave personal">
-                    <!--<input type="password" name="password" class="form-control formulario login" id="floatingPassword" placeholder="Tu clave personal"  required minlength="8"> -->
-
                     <label for="floatingPassword">Contraseña</label>
+                    <% if (locals.errors && errors.password) { %>
+                        <div class="error">
+                            <%= errors.password.msg %>
+                        </div>
+                    <% } %>
                   </div>
                     <p class="emergente">
                         <span

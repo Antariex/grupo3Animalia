@@ -35,8 +35,9 @@ const DBUserController = {
 
 
   //###### VALIDACION DE USUARIO ################
-  //Modifico lo que teníamos
-
+  /* Método loginValidation: ingresamos a la página de login, cargamos mail y contraseña y si el usuario
+  existe en la BD accedemos al home, en caso contrario nos arroja msj en pág login*/
+ 
   loginValidation: (req, res) => {
     db.User.findOne({
         where: {
@@ -45,31 +46,37 @@ const DBUserController = {
       })
       .then(function (userDB) {
         console.log(userDB)
-        if (userDB) {
-          console.log("userDB.password", typeof userDB.password, userDB.password)
-          let passwordCheck = bcryptjs.compareSync(req.body.password, userDB.password)
-          console.log("contraseña",passwordCheck)
-          if (passwordCheck) {
-            delete userDB.password;
-            req.session.userLogged = userDB;
-            if (req.body.remember) {
-              res.cookie('userKey', req.body.email, {
-                maxAge: (1000 * 60) * 60
-              })
-            }
-            return res.redirect("/")
-          }
-        }
-        return res.render('./users/login', {
-          errors: {
-            msg: 'Los datos ingresados no son correctos, por favor intente nuevamente.'
-          }
-        });
-      })
-  },
+            if (userDB) {
+                console.log("userDB.password", typeof userDB.password, userDB.password)
+                let passwordCheck = bcryptjs.compareSync(req.body.password, userDB.password)
+                console.log("contraseña",passwordCheck)
+                    if (passwordCheck) {
+                        delete userDB.password;
+                        req.session.userLogged = userDB;
+                            if (req.body.remember) {
+                                  res.cookie('userKey', req.body.email, {
+                                  maxAge: (1000 * 60) * 60})
+                                      }
+                            return res.redirect("/")
+                    } else { //error de contraseña no coincide
+                          res.render('users/login', { errors: { password: { msg: 'Contraseña incorrecta' } }, oldData: req.body });
+                            }
+            } else { //error de usuario no encontrado
+                   res.render('users/login', { errors: { email: { msg: '*Email incorrecto' } }, oldData: req.body });
+      }
+  });
+},
+
+
+
+
+
 
 
   //###### CREACION DE USUARIO ##########
+  /* Método create, desde la página del form register cargamso por primera vez los datos
+  de un nuevo usuario para ingresarlos en la BD*/
+
   create: (req, res) => {
     const resultValidation = validationResult(req)
     console.log("create")
@@ -105,12 +112,11 @@ const DBUserController = {
           } else {
             image = 'avatar.png'
           }
-          //delete req.body.confirmPassword
           let hashPassword = bcryptjs.hashSync(req.body.password, 10)
           console.log(hashPassword);
           let userToCreate = ({
             ...req.body,
-            permission_id: 1, //esto lo asignamos para definir si es usuario o admin pero hay que hacerlo desde la vista ejs
+            permission_id: 2, //esto lo asignamos para definir si es usuario o admin pero hay que hacerlo desde la vista ejs
             password: hashPassword,
             avatar: req.file ? req.file.filename : 'default.png'
           })
@@ -122,9 +128,12 @@ const DBUserController = {
       })
   },
 
-
+  //###### VISUALIZACION DE LA CREDENCIAL (PROFILE) DEL USUARIO ##########
+  /* Método ProfileAcces, ingresando el mail del usuario accedemos a su credencial*/
+/*
   profileAcces: (req, res) => {
-    db.User.findAll({
+    res.render('./users/profile')
+    /*db.User.findAll({
       where: {
         email: {
           [Op.like]: req.session.userLogged.email
@@ -133,35 +142,94 @@ const DBUserController = {
     }).then(user => {
       console.log(user)
       res.render('./users/profile', {
-        user
       })
     })
-
   },
+    
+*/
 
   // Editar un user profile
-  edit: (req, res) => {
-    db.User.findAll({
+ /*edit: (req, res) => {
+    //res.render('./users/userEdit');
+  //},
+    db.User.findOne({
       where: {
         email: {
-          [Op.like]: req.session.userLogged.email
+          //[Op.like]: req.session.userLogged.email
+          [Op.like]: req.body.email
         }
       }
     }).then(user => {
-      res.render('userEdit', {
-        user
+      res.render('./users/userEdit', {user: user
       })
     })
-  },
+  },*/
 
+  edit:function (req,res) {
+    let user = req.session.user
+    db.User.findAll()
+    .then(function(users){
+        res.render('./users/userEdit',{users:users}) 
+    })
+}, 
 
+logout: (req, res) => {
+  if (req.session) {
+      req.session.destroy(err => {
+          if (err) {
+              res.status(400).send('Unable to log out')
+          } else {
+              if(req.cookies.recordame){
+                  res.clearCookie("userkey");
+              }
+              res.redirect('/')
+          }
+      });
+  } else {
+      res.end()
+  }
+},
+  }
+  
+  module.exports = DBUserController;
 
-  logout: (req, res) => {
-    res.clearCookie('userKey');
-    req.session.destroy();
-    return res.redirect('/')
-  },
-}
+  
+/*
+    // Actualizar un user profile
+    profileUpdate: (req, res) => {
+      //res.render('./users/userEdit');
+    //},
+
+db.User.findOne({
+  .then(function (userDB) {
+      db.User.profileUpdate({
+        name: req.body.name,
+        price: req.body.price,
+        discount: req.body.discount,
+        thumbnail: req.file.filename,
+        description: req.body.productDescription,
+        stock: req.body.stock
+        
+
+        where: {
+          email: req.body.email
+        }
+      })
+        
+        where: {
+          email: {
+            //[Op.like]: req.session.userLogged.email
+            [Op.like]: req.body.email
+          }
+        }
+      }).then(user => {
+        res.render('./users/userEdit', {user: user
+        })
+      })
+    },
+
+*/
+
 
 
 /*
@@ -207,5 +275,3 @@ const DBUserController = {
   },*/
 
 
-
-module.exports = DBUserController;

@@ -28,10 +28,10 @@ const storage = multer.diskStorage({
 
   // #####CRUD Users##############
   //Ruta Login form //
-  router.get('/login', DBUserController.login);
-  router.post('/login', DBUserController.loginValidation);
-  //router.get('/login', guestMiddleware, DBUserController.login);
-  //router.post('/login', registerValidationsMiddleware, DBUserController.loginValidation);
+  //router.get('/login', DBUserController.login);
+  //router.post('/login', DBUserController.loginValidation);
+  router.get('/login', guestMiddleware, DBUserController.login);
+  router.post('/login', registerValidationsMiddleware, loginValidationsMiddleware, DBUserController.loginValidation);
   router.get('/admin', DBUserController.admin);
 
   //Ruta del Register form
@@ -43,17 +43,17 @@ const storage = multer.diskStorage({
 
   /* Editar usuario */
   router.get("/userEdit", DBUserController.edit);
-  //router.get("/edit", authMiddleware, isAdminMiddleware, DBUserController.edit);
+  // router.get("/userEdit", authMiddleware, isAdminMiddleware, DBUserController.edit);
 
   /*Ruta del Logout */
 router.get('/logout', DBUserController.logout)
 
 // User profile ///*hay que crear vista de profile a futuro*/
-router.get("/profile", DBUserController.profileAcces);
+//router.get("/profile", DBUserController.profileAcces);
 //router.get("/profile", authMiddleware, isAdminMiddleware, DBUserController.profileAcces);
 //guardar un usuario  // hay que crear vista
+//router.put("/edit", DBUserController.profileUpdate);
 //router.put("/edit", authMiddleware, isAdminMiddleware, DBUserController.profileUpdate);
-
 
 router.get('/cart', DBUserController.carrito);
 
