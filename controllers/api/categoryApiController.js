@@ -52,7 +52,7 @@ const categoriesApiController = {
             }
             res.json(respuesta);
         });
-    }
+    },
 }
 
 module.exports = categoriesApiController;
