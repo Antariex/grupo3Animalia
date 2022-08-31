@@ -15,37 +15,156 @@
   --negro: #000;
 }
 
-/*section {
-  padding: 5px;
-  margin: 5px;
-  text-align: left;
-}*/
-
-/*agregado por FC*/
-.create__product-form {
- text-align: left;
+.pregunta{
+  font-size: 18px;
+  margin-bottom:2px;
+  color: var(--rosa);
 }
 
-/*.formulario {
-  text-align: center;
+.titulo {
+    color: var(--rosa);
+     font-size: 28px;
+     text-align: center;
+}
+
+.errores {
+  font-size: 15px;
+  color: red;
+  text-align: left;
   background-color: white;
-  padding: 20px;
-  width: 98%;
-   display: inline-block;
+  padding: 5px;
+  display: inline-block;
   background-color: var(--blanco);
-  padding: 15px 60px 15px 30px;
-  margin: 9px 9px;
+  padding:3px 3px 3px 3px;
+  margin-left: 730px;
+}
+
+.container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap:20px;
+}
+
+.foto{
+   max-width: 350px;
+   margin-left: 70px ;
+} 
+
+
+.izquierda{
+  background-color: #fff;
+  text-align: center;
+  
+}
+
+.formulario__label{
+display: block;
+font-weight: 700;
+padding: 10px; 
+cursor:pointer;
+}
+
+.formulario__grupo-input {
+  position: relative;
+}
+
+.formulario__input {
+  width: 100%;
+  background: #fff;
+  border:1px solid ;
+  border-radius: 8px;
+  height: 45px;
+  line-height: 45px;
+  padding: 0 80px 0 10px;
+  transition: .3s ease all;
+}
+
+.formulario__input:focus {
+  border: 3px solid #54A4CB;
+  outline: none;
+  box-shadow: 3px 0px 30px rgba(163,163,163,0.4);
+}
+
+.formulario__input-error {
+  font-size: 12px;
+  margin-bottom: 0;
+  display: none;
+}
+
+.formulario__input-error-activo {
+display: block;
+}
+
+.formulario__validacion-estado{
+  position: absolute;
+  right: 10px;
+  bottom: 15px;
+  z-index: 100;
+  font-size: 16px;
+  opacity: 0;
+}
+
+/*estilos para validacion*/
+.formulario__grupo-correcto .formulario__validacion-estado {
+color: #1ed12d;
+opacity: 1;
+}
+
+.formulario__grupo-incorrecto .formulario__label {
+  color:#bb2929;
+
+}
+
+.formulario__grupo-incorrecto .formulario__validacion-estado {
+  color:#bb2929;
+  opacity: 1;
+
+}
+
+.formulario__grupo-incorrecto .formulario__input {
+  border: 3px solid #bb2929;
+}
+
+
+.formulario button {
+  background-color: var(--verde);
+  color: white;
+  border: 1px solid var(--verde);
+  padding: 12px 14px;
+  margin: 0 5px;
+  border-radius: 6px;
+}
+
+button  {
+  text-decoration: none;
+  color: white;
+}
+
+
+button:hover {
+  background-color: var(--celeste);
+  border: 1px solid var(--celeste);
+}
+
+
+/*.irALogin {
+  text-decoration: none;
+  color:var(--rosa);
+  font-size: 16px;
+  font-weight: bold;
 }*/
 
-/* el .formulario form lo hice con las div para poder alinear dentro  del mismo los campos desde "Nombre del producto" hasta "Precio con descuento" pero no encontré aún como (hay que ampliar el ancho de la "caja" contenedora del mismo para que por ej el texto "Mediddas del ..." que de alineado a la izquierda del campo a completar"*/
-/*.formulario form {
-  display: ;
-}*/
+@media screen and (max-width: 800px){
+  .container {
+      grid-template-columns: 1fr;
+  }
+}
 
-/* input modifica la apariencia de los campos
-label modifica los extos de los nombres de los campos
-select modifica la apariencia de los desplegables
-*/
+
+/*.create__product-form {
+ text-align: left;
+ 
+}
 
 .formulario label {
   display: inline-flex;
@@ -56,7 +175,6 @@ select modifica la apariencia de los desplegables
 }
 
 .formulario select  {
-  
     font-size: 10px;
     margin-top: 4px;
     min-width: 25vw;
@@ -70,11 +188,9 @@ select modifica la apariencia de los desplegables
     text-align: left;
     padding: 5px 0px 5px 5px;
     box-sizing: border-box;
-
 }
 
 .formulario input{
-  
     font-size: 10px;
     margin-top: 4px;
     min-width: 25vw;
@@ -88,22 +204,12 @@ select modifica la apariencia de los desplegables
     text-align: left;
     padding: 10px 0px 8px 8px;
     box-sizing: border-box;
-}
+}*/
 
-/* formulario p y h1 modifican la apariencia del texto encabezado de "Formulario..." y "Las caracterísitcas..."
-*/
-.formulario p {
+/*.formulario p {
 font-size: 1px;
 }
 
-/*.formulario h1 {
-  text-align: center;
-  font-size: 24px ;
-  color: var(--rosa);
-  margin: 2px;
-}*/
-
-/*formulario button modifica la apariencia de Enviar y Cancelar*/
 .formulario button {
   background-color: var(--verde);
   color: white;
@@ -123,5 +229,4 @@ font-size: 1px;
 .botonCancelar:hover {
   background-color: var(--celeste);
   border: 1px solid var(--celeste);
-
 }

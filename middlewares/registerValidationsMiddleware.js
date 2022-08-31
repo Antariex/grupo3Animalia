@@ -12,7 +12,7 @@ const validations = [
             throw new Error("El password debe coincidir");
         } return true;
     }),
-    body("avatar").custom((value, { req }) => {
+    body("thumbnail").custom((value, { req }) => {
         let file = req.file
         let acceptedExtentions = ['.jpg','.png','.gif'];
         let fileExtentions = path.extname(file.originalname);

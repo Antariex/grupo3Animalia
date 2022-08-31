@@ -11,23 +11,40 @@
 
 <body>
   <%- include('../partials/header.ejs') %>
+
+    <!-- Aquí comienza el main FORMULARIO REGISTRO-->
     <main>
-      <div class="formulario">
 
-        <section class="section_container create_product-section">
-          <article class="article_container product_article">
+      <h2 class="titulo">Formulario para creación de productos en stock</h2>
 
-            <div>
-              <h3 class="titulares">Formulario para creación de productos en stock</h3>
-            </div>
-            <form action="/products/create/confirm" method="POST" enctype="multipart/form-data"
-              class="create__product-form">
+      <div class="container">
+        <div class="izquierda">
+          <br><br><br><br>
+          <picture>
+            <img src="/images/hamsterProdCreate.jpg" alt="" data-testid="hero-image" class="foto">
+          </picture>
+          <br><br><br>
+          <br> <br>
+          <div class="pregunta">
+            <p>¿Te arrepentiste del cambio? </p>
+            <p>Presioná CANCELAR para volver al listado de productos</p>
+          </div>
+          <br>
+          <br>
+         
+        </div>
 
-              <!-- Categoria del producto -->
-              <div>
-                <label for="category" class="form__label" placeholder="Seleccione una categoria">Categoría:</label><br>
-                <select name="category" id="productCategory" class="form__input">
-                  <option value="" selected disabled>Seleccione una categoria</option>
+        <div class="formulario">
+
+          <form action="/products/create/confirm" method="POST" enctype="multipart/form-data" class="form.prodCreate"
+            id="form.prodCreate">
+
+            <!-- Categoria del producto -->
+            <div class="formulario__grupo" id="grupo__category">
+              <label for="category" class="formulario__label" placeholder="Seleccione una categoría" required></label><br>
+              <div class="formulario__grupo-input">
+                <select name="category" id="category" class="formulario__input">
+                  <option value="" selected disabled>Seleccione una categoría</option>
                   <option value="1">Perros</option>
                   <option value="2">Gatos</option>
                   <option value="3">Aves</option>
@@ -36,13 +53,15 @@
                   <option value="6">Ofertas</option>
                 </select>
               </div>
-              <!-- Subcategorías del producto -->
-              <br>
-              <div>
-                <label for="subcategory" class="form__label"
-                  placeholder="Seleccione una subcategoria">Subcategoria:</label><br>
+              <p class="formulario__input-error">Debes seleccionar la categoría del producto</p>
+            </div>
 
-                <select name="subcategory" id="productSubcategory" class="form__input">
+
+            <!-- Subcategorías del producto -->
+            <div class="formulario__grupo" id="grupo__subcategory">
+              <label for="subcategory" class="formulario__label" placeholder="Seleccione una subcategoría"></label>
+              <div class="formulario__grupo-input">
+                <select name="subcategory" id="subcategory" class="formulario__input">
                   <option value="" selected disabled>Seleccione una subcategoria</option>
                   <option value="1">Alimentos</option>
                   <option value="2">Farmacia</option>
@@ -51,62 +70,105 @@
                   <option value="5">Otros artículos</option>
                 </select>
               </div>
-              <!-- Nombre del producto -->
-              <br>
-              <div>
-                <label for="nombre" class="form__label">Nombre del producto:</label><br>
-                <input type="text" name="name" placeholder="Ingrese el nombre del producto" class="form__input"></input>
+              <p class="formulario__input-error">Debes seleccionar la subcategoría del producto</p>
+            </div>
 
-              </div>
-              <br>
-              <!-- Precio del producto -->
-              <div>
-                <label for="price" class="form__label">Precio:</label><br>
-                <input type="text" name="price" id="productPrice" class="form__input" placeholder="$"></input> <br>
-              </div>
 
-              <!--Precio del producto con descuento-->
-              <div>
-                <label for="discount" class="form__label">Precio con descuento:</label><br>
-                <input type="text" name="discount" id="Priced" class="form__input" placeholder="$"></input>
+            <!-- Nombre del producto -->
+            <div class="formulario__grupo" id="grupo__name">
+              <label for="name" class="formulario__label"></label>
+              <div class="formulario__grupo-input">
+                <input type="text" class="formulario__input" name="name" id="name"
+                  placeholder="Ingrese el nombre del producto">
+                <!--<i class="formulario__validacion-estado fa-regular fa-circle-xmark"></i>-->
               </div>
-              <br>
-              <!-- Img del producto -->
-              <div>
-                <label for="thumbnail" class="form__label">Imagen del producto:</label><br>
-                <input type="file" name="thumbnail" id="productImg" class="form__input" accept="image/*"
-                  value="<%= locals.oldData? oldData.productImg : null%>"><br>
-              </div>
+              <p class="formulario__input-error">El nombre del producto debe tener mínimo 10 caracteres.</p>
+            </div>
 
-              <!-- Descripción del producto -->
-              <div>
-                <label for="productDescription" class="form__label">Descripción del producto:</label><br>
-                <input type="text" name="productDescription" class="form__input"
-                  placeholder="Escriba aquí la descripción del producto."></input> <br>
+            <!-- Precio del producto -->
+            <div class="formulario__grupo" id="grupo__price">
+              <label for="price" class="formulario__label"></label>
+              <div class="formulario__grupo-input">
+                <input type="text" class="formulario__input" name="price" id="price"
+                  placeholder="Ingrese el precio del producto">
+                <!--<i class="formulario__validacion-estado fa-regular fa-circle-xmark"></i>-->
+              </div>
+              <p class="formulario__input-error">Debes ingresar el precio del producto con al menos 3 dígitos sin puntos ni comas.</p>
+            </div>
 
+
+            <!--Precio del producto con descuento-->
+            <div class="formulario__grupo" id="grupo__discount">
+              <label for="discount" class="formulario__label"></label>
+              <div class="formulario__grupo-input">
+                <input type="text" class="formulario__input" name="discount" id="discount"
+                  placeholder="Ingrese el precio del producto">
+                <!--<i class="formulario__validacion-estado fa-regular fa-circle-xmark"></i>-->
               </div>
-              <!-- Stock del producto -->
-              <div>
-                <label for="stock" class="form__label">Stock:</label><br>
-                <input type="text" name="stock" id="stock" class="form__input" placeholder="Cantidad disponible en stock"></input> <br>
+              <p class="formulario__input-error">Debes ingresar el precio con descuento con al menos 3 dígitos sin puntos ni comas.</p>
+            </div>
+
+
+            <!-- Img del producto -->
+            <div class="formulario__grupo" id="grupo__thumbnail">
+              <label for="thumbnail" class="formulario__label"></label>
+              <div class="formulario__grupo-input">
+                <input type="file" class="formulario__input" name="thumbnail" id="thumbnail"
+                  placeholder="Imagen del producto" accept="image/*"
+                  value="<%= locals.oldData? oldData.productImg : null%>">
+                <!-- 
+                        <input type="file" name="thumbnail" id="productImg" class="form__input" accept="image/*"
+                        value="el value que quedo arriba va también acá">
+                      -->
+                <!--<i class="formulario__validacion-estado fa-regular fa-circle-xmark"></i>-->
               </div>
+              <p class="formulario__input-error">Selecciona una imagen para mostrar del producto</p>
+            </div>
+
+
+            <!-- Descripción del producto -->
+            <div class="formulario__grupo" id="grupo__productDescription">
+              <label for="productDescription" class="formulario__label"></label>
+              <div class="formulario__grupo-input">
+                <input type="text" class="formulario__input" name="productDescription" id="productDescription"
+                  placeholder="Escribí acá la descripción del producto.">
+                <!--<i class="formulario__validacion-estado fa-regular fa-circle-xmark"></i>-->
+              </div>
+              <p class="formulario__input-error">Ingresa la descripción del producto de forma detallada, sin caracteres especiales.</p>
+            </div>
+
+
+            <!-- Stock del producto -->
+            <div class="formulario__grupo" id="grupo__stock">
+              <label for="stock" class="formulario__label"></label>
+              <div class="formulario__grupo-input">
+                <input type="text" class="formulario__input" name="stock" id="stock"
+                  placeholder="Indicá la cantidad disponible en stock.">
+                <!--<i class="formulario__validacion-estado fa-regular fa-circle-xmark"></i>-->
+              </div>
+              <p class="formulario__input-error">Indicar la cantidad disponible del producto a vender.</p>
+            </div>
+
+
+            <!--<input type="submit" value="Crear>-->
+            <br>
+            <div class="buttons">
+              <form action="/productCreate/%=product.id %>" method="GET">
+                <button class="botonCrear" type="Submit">Crear producto</button>
+              </form>
               <br>
-              <!--<input type="submit" value="Crear>-->
-              <div class="buttons">
-                <form action="/productCreate/%=product.id %>" method="GET" style="display: inline-flex">
-                  <button class="botonCrear" type="Submit">Crear producto</button>
-                </form>
-                <br>
-                <form action="/products/" style="display: inline-flex">
-                  <button class="botonCancelar" type="Submit">Cancelar</button>
-                </form>
-              </div>
-            </form>
-          </article>
-        </section>
-      </div>
+              <form action="/products/" style="display: inline-flex">
+                <button class="botonCancelar" type="Submit">Cancelar</button>
+              </form>
+            </div>
+          </form>
+          <br>
+          
+        </div>
     </main>
     <%- include('../partials/footer.ejs') %>
+
+      <script src="/js/js_productCreate.js"></script>
 </body>
 
 </html>

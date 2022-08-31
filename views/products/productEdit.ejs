@@ -4,7 +4,7 @@
 
 <head>
   <!-- Metadatos: idiomas, adaptabilidad, estilos, tipografías, iconos y título -->
-  <link href="/public/css/productEdit.css" rel="stylesheet">
+  <link href="/css/productEdit.css" rel="stylesheet">
   <title>Edición de producto - Animalia</title>
   <%- include ('../partials/head') %>
 </head>
@@ -63,7 +63,6 @@
                 class="form__input"></input>
               <br>
             </div>
-            <br>
             <!-- Precio del producto -->
             <div>
               <label for="price" class="form__label">Precio:</label>
@@ -71,7 +70,6 @@
               <input type="text" name="price" value="<%= product.price %>" id="price" class="form__input"
                 placeholder="$"></input> <br>
             </div>
-            <br>
             <!--Precio del producto con descuento-->
             <div>
               <label for="discount" class="form__label">Precio con descuento:</label>
@@ -80,42 +78,38 @@
                 placeholder="$"></input>
               <br>
             </div>
-            <br>
             <!-- Img del producto -->
             <div>
               <label for="productImg" class="form__label">Imagen del producto:</label>
               <br>
               <input type="file" name="thumbnail" id="productImg" class="form__input" accept="image/*"><br>
             </div>
-            <br>
-
             <!-- Descripción del producto -->
             <div>
               <label for="productDescription" class="form__label">Descripción del producto:</label>
               <br>
-              <textarea maxlength="600" type="text" name="description"
-                value="<%= product.description %>"><%= product.description ? product.description : null%></textarea>
-            </div>
-            <br>
+              <input type="text" name="productDescription"  value="<%= product.description %>"<%= product.description ? product.description : null%>  class="form__input"
+                placeholder="Escriba aquí la descripción del producto."></input> <br>
+              </div>
             <!-- Stock del producto -->
             <div>
-              <label for="stock" class="form__label">Stock:</label><br>
+              <label for="stock" class="form__label">Cantidad disponible en Stock:</label><br>
               <input type="text" name="stock" value="<%= product.stock %>" id="stock" class="form__input" placeholder="cantidad"></input> <br>
-            
               <br>
             </div>
-            <br>
-
-            <div>
-              <button type="submit" value="Modificar">Modificar producto </button>
+            <!-- button Modificar -->
+            <div class="buttons">
+              <button type="submit" class="Modificar" value="Modificar">Modificar Producto</button>
             </div>
         </article>
         <!--<input type="submit" value="Crear>-->
         </form>
-        <form action="/products/delete/<%= product.id %>?_method=DELETE" method="POST" enctype="multipart/form-data">
-          <button type="submit" value="Modificar">Baja de producto </button>
+        <form class="buttons" action="/products/delete/<%= product.id %>?_method=DELETE" method="POST" enctype="multipart/form-data">
+          <button type="submit" class="Eliminar" value="Eliminar">Baja de producto </button>
         </form>
-        <a href="/products"> Cancelar </a>
+        <div class="buttons">
+        <button class="Cancelar" href="/products"> Cancelar </button>
+      </div>
       </section>
     </main>
     <%- include('../partials/footer.ejs') %>

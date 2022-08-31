@@ -38,8 +38,7 @@
 .container{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    width: 98%;
-    margin-left: 20px;
+    gap:20px;
  }
  
  .foto{
@@ -56,42 +55,77 @@ p.tenesCuenta {
  .izquierda{
     background-color: #fff;
     text-align: center;
+    
 }
 
-.formulario {
-    text-align: left;
-    background-color: white;
-    display: flex-block;
+.formulario__label{
+display: block;
+font-weight: 700;
+padding: 10px; 
+cursor:pointer;
 }
 
-.formulario p {
-font-size: 15px;
+.formulario__grupo-input {
+    position: relative;
 }
 
-
-.formulario input {
-    font-size: 10px;
-    margin-top: 4px;
-    min-width: 25vw;
-    height: 30px;
-    line-height: 15px;
-    display: flex;
-    background-color: var(--blanco);
-    border: solid 1px var(--verde);
+.formulario__input {
+    width: 100%;
+    background: #fff;
+    border:1px solid ;
     border-radius: 8px;
-    font: inherit;
-    text-align: left;
-    padding: 10px 0px 8px 8px;
-    box-sizing: border-box;
+    height: 45px;
+    line-height: 45px;
+    padding: 0 40px 0 10px;
+    transition: .3s ease all;
 }
 
-label {
-    font-size: 14px;
+.formulario__input:focus {
+    border: 3px solid #54A4CB;
+    outline: none;
+    box-shadow: 3px 0px 30px rgba(163,163,163,0.4);
 }
 
-.formulario input:focus {
-    color: var(--verde);
+.formulario__input-error {
+    font-size: 12px;
+    margin-bottom: 0;
+    display: none;
 }
+
+.formulario__input-error-activo {
+display: block;
+}
+
+.formulario__validacion-estado{
+    position: absolute;
+    right: 10px;
+    bottom: 15px;
+    z-index: 100;
+    font-size: 16px;
+    opacity: 0;
+}
+
+/*estilos para validacion*/
+.formulario__grupo-correcto .formulario__validacion-estado {
+color: #1ed12d;
+opacity: 1;
+}
+
+.formulario__grupo-incorrecto .formulario__label {
+    color:#bb2929;
+
+}
+
+.formulario__grupo-incorrecto .formulario__validacion-estado {
+    color:#bb2929;
+    opacity: 1;
+
+}
+
+.formulario__grupo-incorrecto .formulario__input {
+    border: 3px solid #bb2929;
+}
+
 
 .formulario button {
     background-color: var(--verde);
@@ -102,17 +136,17 @@ label {
     border-radius: 6px;
 }
 
-.formulario button a {
+button  {
     text-decoration: none;
     color: white;
 }
 
-.login {
+/*.login {
     text-align: center;
-}
+}*/
 
-.resetButton:hover,
-.sendButton:hover {
+
+button:hover {
     background-color: var(--celeste);
     border: 1px solid var(--celeste);
 }
@@ -123,4 +157,10 @@ label {
     color:var(--rosa);
     font-size: 16px;
     font-weight: bold;
+}
+
+@media screen and (max-width: 800px){
+    .container {
+        grid-template-columns: 1fr;
+    }
 }

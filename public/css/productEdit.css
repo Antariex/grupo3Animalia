@@ -15,40 +15,11 @@
     --negro: #000;
   }
 
-  .section__container  {
+ form.edit__product-form  {
   text-align: left;
+    
  }
 
-
-/*.titulares_Edit {
-    font-size: 24px;
-    color: var(--rosa);
-}*/
-/*modifica tipogrefia de las label*/
-/*label { 
-    font-size: 16px;
-}*/
-
-/*input {
-    display: inline;
-    background-color: var(--blanco);
-    padding: 8px 60px 8px 60px;
-    margin: 9px 9px;
-    border: solid 1.5px var(--verde);
-    border-radius: 10px;
-    text-align: center;  
-}
-
-select.form__input
- {
-    display: inline;
-    background-color: var(--blanco);
-    padding: 8px 60px 8px 60px;
-    margin: 9px 9px;
-    border: solid 1.5px var(--verde);
-    border-radius: 10px;
-    text-align: center;  
-} */
 .formulario label {
   display: inline-flex;
   background-color: var(--blanco);
@@ -57,7 +28,7 @@ select.form__input
   text-align: left;
 }
 
-.formulario select  {
+select  {
   
     font-size: 10px;
     margin-top: 4px;
@@ -75,34 +46,28 @@ select.form__input
 
 }
 
-.formulario input{
+input.text,
+input.form__input{
+  min-width: 25vw;
+  background-color: var(--blanco);
+  border: solid 1px var(--verde);
+  border-radius: 5px;
+  font: inherit;
+  text-align: left;
+  padding: 14px 0px 14px 12px;
   
-    font-size: 10px;
-    margin-top: 4px;
-    min-width: 25vw;
-    height: 40px;
-    line-height: 15px;
-    display: flex;
-    background-color: var(--blanco);
-    border: solid 1px var(--verde);
-    border-radius: 8px;
-    font: inherit;
-    text-align: left;
-    padding: 10px 0px 8px 8px;
-    box-sizing: border-box;
 }
 
 
 
-.botonModificar,
-.botonEliminar,
-.botonCancelar {
+.buttons {
     background-color: var(--verde);
     color: white;
     border: 1px solid var(--verde);
     padding: 12px 14px;
     margin: 0 5px;
     border-radius: 6px;
+    display:inline-flex;
   }
   
   /*con buttons alineamos los botones Enviar y Cancelar*/
@@ -111,9 +76,7 @@ select.form__input
   }
   
   /*con los hover modificamos la apariencia de los botones Enviar y Cancelar al pasarles el puntero por arriba*/
-  .botonModificar:hover,
-  .botonEliminar:hover, 
-  .botonCancelar:hover {
+  .buttons:hover   {
     background-color: var(--celeste);
     border: 1px solid var(--celeste);
   }
