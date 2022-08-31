@@ -56,7 +56,7 @@ app.use('/users', userRouter)
 
 //Router de API
 app.use('/api/products',apiProductsRouter);
-app.use('api/users',apiUsersRouter);
+app.use('/api/users',apiUsersRouter);
 app.use('/api/categories',apiCategoriesRouter);
 
 
