@@ -15,6 +15,10 @@ const apiUsersRouter= require('./routes/api/usersApiRoutes');
 // Express
 const app = express();
 
+//Cors
+const cors = require('cors');
+app.use(cors())
+
 //Servidor escuchando en el puerto 3000 && Compatibilidad para Heroku
 app.listen(process.env.PORT || 3000, function() {
     console.log('Servidor corriendo en el puerto 3000');
