@@ -40,7 +40,7 @@ const productsApiController = {
                 let respuesta = {
                     meta: {
                         status: 200,
-                        total: movie.length,
+                        total: products.length,
                         url: '/api/products/:id'
                     },
                     data: products
@@ -62,8 +62,8 @@ const productsApiController = {
             let respuesta = {
                 meta: {
                     status : 200,
-                    total: movies.length,
-                    url: 'api/movies/recomended/:discount'
+                    total: products.length,
+                    url: 'api/products/recomended/:discount'
             },
             data: products
         }
@@ -75,11 +75,11 @@ const productsApiController = {
         Products
         .create(
             {
-                name: products.name,
-                category: products.category,
-                price: products.price,
-                discount: products.discount,
-                description: products.description,
+                name: req.body.name,
+                category: req.body.category,
+                price: req.body.price,
+                discount: req.body.discount,
+                description: req.body.description,
             }
         )
         .then(confirm => {
@@ -112,11 +112,11 @@ const productsApiController = {
         let productId = req.params.id;
         Products.update(
             {
-                name: products.name,
-                category: products.category,
-                price: products.price,
-                discount: products.discount,
-                description: products.description,
+                name: req.body.name,
+                category: req.body.category,
+                price: req.body.price,
+                discount: req.body.discount,
+                description: req.body.description,
             },
             {
                 where: {id: productId}
