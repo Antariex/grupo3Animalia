@@ -23,6 +23,7 @@ const productsApiController = {
                         price: products.price,
                         discount: products.discount,
                         description: products.description,
+                        stock: products.stock,
                     }
                 })
             }
