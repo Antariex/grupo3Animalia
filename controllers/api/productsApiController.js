@@ -18,6 +18,7 @@ const productsApiController = {
                 },
                 data: products.map(products => {
                     return {
+                        id: products.id,
                         name: products.name,
                         category: products.category,
                         price: products.price,
