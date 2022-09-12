@@ -32,7 +32,7 @@ const usersApiController = {
                     total: user.length,
                     url: 'api/user/:id'
                 },
-                data: actor
+                data: user
             }
             res.json(respuesta);
         });
