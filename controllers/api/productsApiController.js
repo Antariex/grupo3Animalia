@@ -22,7 +22,7 @@ const productsApiController = {
                         id: products.id,
                         name: products.name,
                         category: products.category,
-                        subcategory: products.subcategory,
+                        subcategory: products.subcategory_id,
                         price: products.price,
                         discount: products.discount,
                         thumbnail: "http://localhost:3000/" + products.thumbnail,
