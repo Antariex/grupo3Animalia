@@ -6,6 +6,7 @@ const methodOverride = require('method-override');
 const mainRouter = require('./routes/index');
 const productRouter = require('./routes/productRouter');
 const userRouter = require('./routes/userRouter');
+//const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 const { application } = require('express');
 //const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 const apiProductsRouter= require('./routes/api/productsApiRoutes');
@@ -15,9 +16,12 @@ const apiUsersRouter= require('./routes/api/usersApiRoutes');
 // Express
 const app = express();
 
-//Cors
+
+//esto agregué de cors
 const cors = require('cors');
 app.use(cors())
+
+
 
 //Servidor escuchando en el puerto 3000 && Compatibilidad para Heroku
 app.listen(process.env.PORT || 3000, function() {

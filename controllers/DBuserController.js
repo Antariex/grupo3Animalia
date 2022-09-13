@@ -17,8 +17,13 @@ const DBUserController = {
     res.render('./users/login');
   },
 
+ 
   admin: (req, res) => {
     res.render('./users/admin');
+  },
+
+  edit: (req, res) => {
+    res.render('./users/userEdit');
   },
 
   registro: (req, res) => {
@@ -41,8 +46,7 @@ const DBUserController = {
   loginValidation: (req, res) => {
     db.User.findOne({
         where: {
-          email: req.body.email
-        }
+          email: req.body.email}
       })
       .then(function (userDB) {
         console.log(userDB)
@@ -87,9 +91,7 @@ const DBUserController = {
               })
       }
     db.User.findOne({
-        where:{
-                email: req.body.email
-              }
+        where:{email: req.body.email}
           })
         .then(emailInUse => {
             if (emailInUse) {
@@ -98,7 +100,7 @@ const DBUserController = {
                 email: {msg: 'Este email ya tiene una cuenta en Animalia.'}
                         },
                 oldData: req.body
-                        })
+                  })
                   } else if (emailInUse == null) {
                       let image
                             if (req.file != undefined) {
@@ -110,7 +112,7 @@ const DBUserController = {
                                 console.log(hashPassword);
                                 let userToCreate = ({
                                 ...req.body,
-                                permission_id: 2, //esto lo asignamos para definir si es usuario o admin pero hay que hacerlo desde la vista ejs
+                                permission_id: 2, //esto lo asignamos para definir si es usuario o admin 
                                 password: hashPassword,
                                 avatar: req.file ? req.file.filename : 'default.png'
                                 })
@@ -120,13 +122,94 @@ const DBUserController = {
               })
   },
 
-<<<<<<< HEAD
+
+logout: (req, res) => {
+  res.clearCookie('userEmail');
+  req.session.destroy();
+  return res.redirect('/');
+},
+
+  /*profile: (req,res) => {
+    let user = req.session.user
+    db.User.findAll()
+    .then(function(users){
+        res.render('users/profile',{users:users}) 
+    })*/
+
+// ver el profile del user
+    profile: (req, res) => {
+      db.User.findOne({
+          where: {
+              email: {
+                  [Op.like]: req.session.userLogged.email
+              }
+          }
+      }).then(user => {
+          console.log(user)
+          res.render("./users/profile", {
+              user
+          })
+      })
+
+  },
+  
+  
+
+  //editar el profile del user
+ 
+ 
+  edit: (req, res) => {
+      db.User.findOne({
+          where:{email: req.body.email} // pruebo con traer el mail de form
+                      })
+      .then(user => {
+            console.log(user);
+          res.render('./users/register', {user})
+        })
+        //pruebas que hice que no funcionaron
+      //Usando el op sequelize de comparación:
+        // where:{email:[Op.like]: req.session.userLogged.email};
+        //probé trayendo de la url y tampoco 
+        //let name = req.params.name
+        //db.User.findOne({where: {name: name}
+      },
+    
+  
+
+
+
+//actualizar el profile del user
+  update: (req, res) => {
+		let name = req.params.name
+		db.user.findOne({
+				where: {
+			  name: name
+		   }            
+	  })
+		.then(user => {
+			const resultValidation = validationResult(req);
+			let userId = user.id
+			if(resultValidation.errors.length > 0){
+				return res.render('./users/userEdit', {
+					errors: resultValidation.mapped(),
+					oldData: req.body
+				})
+      }
+    })
+  }
+}
+module.exports = DBUserController;
+
+
+
+
+  //TODO ESTO HAY QUE HACER
   //###### VISUALIZACION DE LA CREDENCIAL (PROFILE) DEL USUARIO ##########
   /* Método ProfileAcces, ingresando el mail del usuario accedemos a su credencial*/
 /*
   profileAcces: (req, res) => {
     res.render('./users/profile')
-    /*db.User.findAll({
+    db.User.findAll({
       where: {
         email: {
           [Op.like]: req.session.userLogged.email
@@ -139,208 +222,55 @@ const DBUserController = {
     })
   },
     
-*/
 
-  // Editar un user profile
- /*edit: (req, res) => {
-    //res.render('./users/userEdit');
-  //},
-    db.User.findOne({
-      where: {
-        email: {
-          //[Op.like]: req.session.userLogged.email
-          [Op.like]: req.body.email
-        }
-      }
-    }).then(user => {
-      res.render('./users/userEdit', {user: user
-      })
-    })
-  },*/
 
-  edit:function (req,res) {
-    let user = req.session.user
-    db.User.findAll()
-    .then(function(users){
-        res.render('./users/userEdit',{users:users}) 
-    })
-}, 
-
-logout: (req, res) => {
-  if (req.session) {
-      req.session.destroy(err => {
-          if (err) {
-              res.status(400).send('Unable to log out')
-          } else {
-              if(req.cookies.recordame){
-                  res.clearCookie("userkey");
-              }
-              res.redirect('/')
-          }
-      });
-  } else {
-      res.end()
-  }
-},
-  }
-  
-  module.exports = DBUserController;
-
-  
-/*
-    // Actualizar un user profile
-    profileUpdate: (req, res) => {
+     // Actualizar un user profile
+    /*profileUpdate: (req, res) => {
       //res.render('./users/userEdit');
     //},
+        db.User.findOne({
+          .then(function (userDB) {
+              db.User.profileUpdate({
+                name: req.body.name,
+                price: req.body.price,
+                discount: req.body.discount,
+                thumbnail: req.file.filename,
+                description: req.body.productDescription,
+                stock: req.body.stock
 
-db.User.findOne({
-  .then(function (userDB) {
-      db.User.profileUpdate({
-        name: req.body.name,
-        price: req.body.price,
-        discount: req.body.discount,
-        thumbnail: req.file.filename,
-        description: req.body.productDescription,
-        stock: req.body.stock
-        
+                where: {
+                  email: req.body.email
+                }
+              })
+                
+                where: {
+                  email: {
+                    //[Op.like]: req.session.userLogged.email
+                    [Op.like]: req.body.email
+                  }
+                }
+              }).then(user => {
+                res.render('./users/userEdit', {user: user
+                })
+              })
+            },
+          },*/
 
-=======
- 
-  //###### CREACION DE USUARIO ##########
-  create: (req, res) => {
-    const resultValidation = validationResult(req)
-    console.log("create")
-    if (resultValidation.errors.length > 0) {
-      return res.render('./users/register', {
-        errors: resultValidation.mapped(),
-        oldData: req.body
-      })
-    }
-    db.User.findOne({
->>>>>>> 461d167c8de32e107ba70b975f6930bcdbc7d91a
-        where: {
-          email: req.body.email
-        }
-      })
-<<<<<<< HEAD
-        
-        where: {
-          email: {
-            //[Op.like]: req.session.userLogged.email
-            [Op.like]: req.body.email
-          }
-        }
-      }).then(user => {
-        res.render('./users/userEdit', {user: user
-        })
-      })
-    },
-
-*/
-
+   
 
 
 /*
-=======
-
-      .then(emailInUse => {
-        if (emailInUse) {
-          return res.render('./users/register', {
-
-            errors: {
-              email: {
-                msg: 'Este email ya tiene una cuenta en Animalia.'
-              }
-            },
-            oldData: req.body
-          })
-        } else if (emailInUse == null) {
-          let image
-
-          if (req.file != undefined) {
-              image = req.file.filename
-
-          } else {
-              image = 'avatar.png'
-          }
-        //delete req.body.confirmPassword
-
-        let userToCreate = ({
-          ...req.body,
-          permission_id: 1, //esto lo asignamos para definir si es usuario o admin pero hay que hacerlo desde la vista ejs
-          password: bcrypt.hashSync(req.body.password, 10),
-          avatar: req.file ? req.file.filename : 'default.png'
-        })
-
-        db.User.create(userToCreate);
-
-        res.redirect('/')
-      } 
-    })
-  },
-
-   profile: (req, res) => {
-  res.render('./users/login_success', { user: req.session.userLogged })
-  },
-
-  profileAccess: (req, res) => {
-     res.render('./users/profile', { user: req.session.userLogged })
-   },
-
-   
-  //############ ACTUALIZAR PERFIL USUARIO ##############
-  profileUpdate: (req, res) => {
-    let user = db.User.findIndex((element => {
-      return element.id === parseInt(req.params.id)
-    }))
-  },
-
-   edit: (req, res) => {
-    db.User.findOne({
-        where: {
-            email: {
-                [Op.like]: req.session.userLogged.email
-            }
-        }
-    }).then(user => {
-        res.render("edit-profile", {
-            user
-        })
-    })
-},
-
-
-  logout: (req, res) => {
-    res.clearCookie('userKey');
-    req.session.destroy();
-    return res.redirect('/')
-  },
-  }
-
-
-   /*
->>>>>>> 461d167c8de32e107ba70b975f6930bcdbc7d91a
    //########## PERFIL DE USUARIO ################
   profileAccess: (req, res) => {
      res.render('./users/profile', { user: req.session.userLogged })
    },
 
 
-<<<<<<< HEAD
  /*esto teníamos
       loginValidation: (req, res) => {
           let userToLogin = db.User.findByField('email', req.body.email)
           if (userToLogin) {
             let passwordCheck = bcryptjs.compareSync(req.body.password, userToLogin.password)
-=======
-
- /*
-         //esto teníamos
-      loginValidation: (req, res) => {
-          let userToLogin = db.User.findByField('email', req.body.email)
-          if (userToLogin) {
-            let passwordCheck = bcrypt.compareSync(req.body.password, userToLogin.password)
->>>>>>> 461d167c8de32e107ba70b975f6930bcdbc7d91a
             if (passwordCheck) {
               delete userToLogin.password;
               req.session.userLogged = userToLogin;
@@ -348,10 +278,6 @@ db.User.findOne({
                 res.cookie('userKey',req.body.email, {maxAge: (1000 * 60) * 60})
               }
               return res.redirect('/users/profile')
-<<<<<<< HEAD
-=======
-
->>>>>>> 461d167c8de32e107ba70b975f6930bcdbc7d91a
             }
           }
           return res.render('./users/login', {
@@ -363,12 +289,6 @@ db.User.findOne({
           })
           console.log("req", req.body)
         },
-<<<<<<< HEAD
-=======
-
-       */
-
->>>>>>> 461d167c8de32e107ba70b975f6930bcdbc7d91a
     /* #### iteración en el JSon#####
     users[user].firstName = req.body.firstName === "" ? users[user].productName : req.body.firstName;
     users[user].lastName = req.body.lastName === "" ? users[user].lastName : req.body.lastName;

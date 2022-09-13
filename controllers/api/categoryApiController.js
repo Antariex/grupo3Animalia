@@ -53,6 +53,39 @@ const categoriesApiController = {
             res.json(respuesta);
         });
     },
+     countByCategory: (req,res) => {
+		let perros =  db.Product.count({
+			where: { categoryProductId: 1 }
+		});
+		let gatos =  db.Product.count({
+			where: { categoryProductId: 2 }
+		});
+		let aves =  db.Product.count({
+			where: { categoryProductId: 3 }
+		});
+        let roedores =  db.Product.count({
+			where: { categoryProductId: 4 }
+		});
+        let peces =  db.Product.count({
+			where: { categoryProductId: 5 }
+		});
+        let ofertas =  db.Product.count({
+			where: { categoryProductId: 6 }
+		});
+		Promise.all([perros,gatos,aves,roedores,peces,ofertas])
+		.then(([perros,gatos,aves,roedores,peces,ofertas]) => {
+			let respuesta = {
+                    perros: perros,
+                    gatos: gatos,
+                    aves: aves,
+                    roedores: roedores,
+                    peces: peces,
+                    ofertas: ofertas
+				}
+			return res.json(respuesta)
+			}
+		)
+	}
 }
 
 module.exports = categoriesApiController;

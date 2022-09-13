@@ -11,9 +11,8 @@ const storage = multer.diskStorage({
   destination: function(req, file, cb) {
     cb(null, './public/images/products');
   },
-  filename: (req, file, cb) => {
-    const ext = path.extname(file.originalname)
-    cb(null, Date.now() + '-productImg' + ext);
+  filename: function (req, file, cb) {
+    cb(null, `${Date.now()}-img${path.extname(file.originalname)}`);
   }
 })
 

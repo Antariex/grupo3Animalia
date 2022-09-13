@@ -112,9 +112,13 @@ label {
     text-align: center;
 }
 
-.formulario button:hover {
+.resetButton:hover,
+.sendButton:hover {
     background-color: var(--celeste);
     border: 1px solid var(--celeste);
+/*.formulario button:hover {
+    background-color: var(--celeste);
+    border: 1px solid var(--celeste);*/
 }
 
 .crearPerfil,

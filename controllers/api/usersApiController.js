@@ -23,6 +23,22 @@ const usersApiController = {
             res.json(respuesta);
         })
     },
+
+/*
+    totalUsers: async (req, res) => {
+        let User = await db.User.findAll()
+        .then((users) => {
+             res.status(200).json({
+                 totalUsers: users.length,
+             });
+         });
+               },
+
+*/
+
+
+
+
     detail: (req,res) => {
         db.User.findByPk(req.params.id)
         .then(user => {

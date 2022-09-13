@@ -5,6 +5,15 @@ const productsApiController = require('../../controllers/api/productsApiControll
 //Rutas
 router.get('/', productsApiController.list);
 
+//Contar productos por categoría
+router.get('/countlist', productsApiController.productByCategory);
+
+//Contar productos por subcategoría
+router.get('/countlistsub', productsApiController.productBySubcategory);
+
+//Contar total de productos
+//router.get('/totalproducts', productsApiController.totalProducts);
+
 //Detalle de un producto
 router.get('/:id',productsApiController.detail);
 
@@ -19,5 +28,6 @@ router.put('/update/:id', productsApiController.update);
 
 //Eliminar un producto
 router.delete('/delete/:id', productsApiController.destroy);
+
 
 module.exports = router;

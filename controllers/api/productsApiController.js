@@ -1,4 +1,5 @@
 const path = require('path');
+const { isNull } = require('util');
 const db = require('../../database/models');
 
 const Products = db.Product;
@@ -18,19 +19,113 @@ const productsApiController = {
                 },
                 data: products.map(products => {
                     return {
-                        id: products.id,
                         name: products.name,
                         category: products.category,
                         price: products.price,
                         discount: products.discount,
                         description: products.description,
-                        stock: products.stock,
                     }
                 })
             }
             res.json(respuesta);
         })
     },
+    
+
+    productByCategory:  (req, res) => {
+        let perros =  db.Product.count({
+			where: { category_id: 1 }
+		});
+		let gatos =  db.Product.count({
+			where: { category_id: 2 }
+		});
+		let aves =  db.Product.count({
+			where: { category_id: 3 }
+		});
+        let roedores =  db.Product.count({
+			where: { category_id: 4 }
+		});
+        let peces =  db.Product.count({
+			where: { category_id: 5 }
+		});
+        let ofertas =  db.Product.count({
+			where: { category_id: 6 }
+		});
+               
+		Promise.all([perros,gatos,aves,roedores,peces,ofertas])
+		.then(([perros,gatos,aves,roedores,peces,ofertas]) => {
+           
+            return res.json({
+               ProductsByCategory: {
+                    perros: perros,
+                    gatos: gatos,
+                    aves: aves,
+                    roedores: roedores,
+                    peces: peces,
+                    ofertas: ofertas,
+                },
+                meta: {
+                    status: 200,
+                    },
+                urlProductsList: "api/products/productsList"
+            })
+        })
+        },
+
+
+        productBySubcategory:  (req, res) => {
+            let alimentos =  db.Product.count({
+                where: { subcategory_id: 1 }
+            });
+            let farmacia =  db.Product.count({
+                where: { subcategory_id: 2 }
+            });
+            let cuidadosYBelleza =  db.Product.count({
+                where: { subcategory_id: 3 }
+            });
+            let juguetes =  db.Product.count({
+                where: { subcategory_id: 4 }
+            });
+            let otrosArticulos =  db.Product.count({
+                where: { subcategory_id: 5 }
+            });
+           
+                   
+            Promise.all([alimentos,farmacia,cuidadosYBelleza,juguetes,otrosArticulos])
+            .then(([alimentos,farmacia,cuidadosYBelleza,juguetes,otrosArticulos]) => {
+               
+                return res.json({
+                   ProductsByCategory: {
+                        alimentos:alimentos,
+                        farmacia: farmacia,
+                        cuidadosYBelleza: cuidadosYBelleza,
+                        juguetes: juguetes,
+                        otrosArticulos: otrosArticulos
+                    },
+                    meta: {
+                        status: 200,
+                        },
+                    urlProductsList: "api/products/countlistsub"
+                })
+            })
+            },
+
+
+
+
+/*
+        totalProducts: async (req, res) => {
+           let prod = await db.Product.findAll()
+           .then((products) => {
+                res.status(200).json({
+                    totalProducts: products.length,
+                });
+            });
+                  },
+
+
+*/
+
     detail: (req, res) => {
         db.Product.findByPk(req.params.id,
             {
@@ -63,7 +158,7 @@ const productsApiController = {
                 meta: {
                     status : 200,
                     total: products.length,
-                    url: 'api/products/recomended/:discount'
+                    url: 'api/products/recomended/:id'
             },
             data: products
         }
@@ -75,11 +170,11 @@ const productsApiController = {
         Products
         .create(
             {
-                name: req.body.name,
-                category: req.body.category,
-                price: req.body.price,
-                discount: req.body.discount,
-                description: req.body.description,
+                name: products.name,
+                category: products.category,
+                price: products.price,
+                discount: products.discount,
+                description: products.description,
             }
         )
         .then(confirm => {
@@ -112,11 +207,11 @@ const productsApiController = {
         let productId = req.params.id;
         Products.update(
             {
-                name: req.body.name,
-                category: req.body.category,
-                price: req.body.price,
-                discount: req.body.discount,
-                description: req.body.description,
+                name: products.name,
+                category: products.category,
+                price: products.price,
+                discount: products.discount,
+                description: products.description,
             },
             {
                 where: {id: productId}
@@ -179,5 +274,3 @@ const productsApiController = {
 }
 
 module.exports = productsApiController;
-
-
