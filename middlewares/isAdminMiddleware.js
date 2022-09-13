@@ -23,9 +23,9 @@ function isAdminMiddleware(req, res, next) {
                 email: req.cookies.remember
             }
         })
-        .then(function(userInDB){
-        if(userInDB){
-            var userLogged = userInDB;
+        .then(function(user){
+        if(user){
+            var userLogged = user;
                 
         }
         if(req.session && req.session.userLogged){

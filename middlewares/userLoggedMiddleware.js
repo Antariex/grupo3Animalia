@@ -4,8 +4,8 @@ function userLoggedMiddleware (req, res, next) {
   res.locals.isLogged = false
 
   let remember_meCookie = req.cookies.userKey //porque no levanta el home por unready userKey
-  let userFromCookie = User.findByField('email', remember_meCookie)
-
+  //let userFromCookie = User.findByField('email', remember_meCookie)
+  let userFromCookie = db.User.findAll('email', remember_meCookie)
 
   if (userFromCookie) {
     req.session.userLogged = userFromCookie

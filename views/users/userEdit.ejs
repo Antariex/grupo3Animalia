@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Metadatos: idiomas, adaptabilidad, estilos, tipografías, iconos y título -->
+    <link href="/css/styles-reg.css" rel="stylesheet">
+    <title>Registro - Animalia</title>
+    <%- include ('../partials/head') %>
+</head>
+
+<body>
+    <!-- Aquí comienza el header: logo, navbars y campo de búsqueda -->
+    <%- include('../partials/header.ejs') %>
+
+    <!-- Aquí comienza el main FORMULARIO REGISTRO-->
+    <main>
+        <h2 class="titulo">Editá los datos de tu cuenta en Animalia</h2>
+
+                <!-- Errores en carga formulario -->
+                <div class="errores"> <ul></ul></></div>
+                <div class="container">
+                    <div class="izquierda">
+                     <br><br><br>
+                     <picture>
+                         <img src="/images/perroRegister.jpg" alt="" data-testid="hero-image" class="foto">
+                     </picture>
+                     <br><br><br>
+                 
+                 <br>
+                    <br>
+                    </div>
+     
+        <div class="formulario">
+            
+             <!-- ERRORS 
+           <% if (locals.errors) { %>
+            <div class="errors__container">
+              <ul>
+                <% for (let error in errors) {%>
+                  <li class="error-msg__text"><%= errors[error].msg%></li>
+                <% } %>
+              </ul>
+            </div>
+            <% } %> 
+            <!-- ERRORS END -->
+            
+
+                <form action="/users/userEdit?_method=PUT" method="POST" enctype="multipart/form-data">
+              
+                <label for="nombreyapellido">Nombre y apellido</label>
+                <p><input type="text" name="name" placeholder="Ingrese su nombre" required>
+                    </input></p>
+                
+                <label for="user">Nombre de usuari@</label>
+                <p><input type="text" name="user" placeholder="Ingrese su usuario" minlength="4" maxlength="12" required>
+                    </input></p>
+                
+                <label for="email">E-mail</label>
+                <p><input type="email" name="email" placeholder="Ingrese su correo electronico" required>
+                    </input></p>
+           
+                    <label for="address">Dirección</label>
+                    <p><input type="text" name="address" placeholder="Ingrese su dirección">
+                    </input></p>
+                
+                    <label for="images" class="form__label">Foto de Perfil *</label><br>
+                    <p><input type="file" name="avatar" class="form__input" accept=".jpg" multiple></p><br>
+                    <br>
+                    <button type="submit" value="Guardar cambios">guardar cambios</button>
+                </form>
+                
+                  <button type="submit" value="Modificar">Baja de usuario </button>
+                </form>
+            </form>
+            <br>
+            <br>
+            <br>
+        </div>
+        <!--Aqui termina el formulario de registro MARIANO-->
+    </main>
+
+    <!-- Aquí comienza el footer: lista de correo, links de información y redes sociales -->
+    <%- include('../partials/footer.ejs') %>
+
+    <!-- Validaciones-->
+    <script src="/js/js_register.js"> 
+    </script>
+
+</body>
+
+</html>

@@ -6,6 +6,9 @@ const usersApiController = require('../../controllers/api/usersApiController');
 //Listado de todos los users
 router.get('/',usersApiController.list);
 
+//Contar total de usuarios
+//router.get('/totalusers', usersApiController.totalUsers);
+
 //Detalle del user
 router.get('/:id',usersApiController.detail);
 

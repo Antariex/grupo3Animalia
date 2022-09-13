@@ -19,34 +19,41 @@ const storage = multer.diskStorage({
       cb(null, './public/images/avatars');
     },
     filename: (req, file, cb) => {
-      const ext = path.extname(file.originalname)
-      cb(null, Date.now() + '-userAvatar' + ext);
-  },
+      cb(null, Date.now() + '-userImg' + path.extname(file.originalname));
+    },
   });
 
   /* Multer SEND */
   const upload = multer({ storage: storage });
 
+  // #####CRUD Users##############
+  //Ruta Login form //
+  //router.get('/login', DBUserController.login);
+  //router.post('/login', DBUserController.loginValidation);
+  router.get('/login', guestMiddleware, DBUserController.login);
+  router.post('/login', registerValidationsMiddleware, loginValidationsMiddleware, DBUserController.loginValidation);
+  router.get('/admin', DBUserController.admin);
 
-  /*Ruta del Login y Login Admin*/
-router.get('/admin', DBUserController.admin);
+  //Ruta del Register form
+  router.post('/register', upload.single('avatar'), registerValidationsMiddleware, DBUserController.create);
 
-router.get('/login', guestMiddleware, DBUserController.login);
-router.post('/login', upload.single('avatar'), registerValidationsMiddleware, DBUserController.login);
+  //router.post('./login',loginValidationsMiddleware, DBUserController.loginValidation);
+  /* Register */
+  router.get('/register', DBUserController.registro);
 
-//router.post('./users/login',loginValidationsMiddleware, DBuserController.loginValidation);
+  /* Editar usuario */
+  router.get("/userEdit", DBUserController.edit);
+  // router.get("/userEdit", authMiddleware, isAdminMiddleware, DBUserController.edit);
 
-/*Ruta del Logout */ //HAY QUE AGREGAR COMO 2DO PARAMETRO EL GUESTMIDDLEWARE
+  /*Ruta del Logout */
 router.get('/logout', DBUserController.logout)
 
-/* Register */
-router.get('/register', DBUserController.registro);
-router.post('/register', upload.single('avatar'), /*registerValidationsMiddleware,*/ DBUserController.create);
-
-/*hay que crear vista de profile a futuro*/
-
-//router.get("/userProfile", userController.profile)
-
+// User profile ///*hay que crear vista de profile a futuro*/
+//router.get("/profile", DBUserController.profileAcces);
+//router.get("/profile", authMiddleware, isAdminMiddleware, DBUserController.profileAcces);
+//guardar un usuario  // hay que crear vista
+router.put("/userEdit", DBUserController.update);
+//router.put("/edit", authMiddleware, isAdminMiddleware, DBUserController.update);
 
 router.get('/cart', DBUserController.carrito);
 

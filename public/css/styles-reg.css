@@ -73,7 +73,8 @@ font-size: 15px;
     font-size: 10px;
     margin-top: 4px;
     min-width: 25vw;
-    height: 44px;
+    max-width: 25vw;
+    height: 55px;
     line-height: 15px;
     display: flex;
     background-color: var(--blanco);
@@ -111,9 +112,13 @@ label {
     text-align: center;
 }
 
-.formulario button:hover {
+.resetButton:hover,
+.sendButton:hover {
     background-color: var(--celeste);
     border: 1px solid var(--celeste);
+/*.formulario button:hover {
+    background-color: var(--celeste);
+    border: 1px solid var(--celeste);*/
 }
 
 .crearPerfil,

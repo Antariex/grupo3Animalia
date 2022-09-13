@@ -50,36 +50,95 @@
             
             <form action="/users/register" method="POST" enctype="multipart/form-data">
 
-                <label for="nombreyapellido">Nombre y apellido</label>
-                <p><input type="text" name="name" placeholder="Ingrese su nombre" required>
-                    </input></p>
+              
+
+                    <div class="form-floating formulario register">
+                        <input type="text" name="name" class="form-control" id="floatingInput" placeholder="Ingrese su nombre" required>
+                        <label for="floatingInput">Nombre y apellido</label>
+                        <!--<% if (locals.errors && errors.email) { %>
+                            <div class="error">
+                                <%= errors.name.msg %>
+                            </div>
+                        <% } %>-->
+
+
+
+                  
+
+
+                    <div class="form-floating formulario register">
+                        <input type="text" name="user" class="form-control" id="floatingInput" placeholder="Ingrese su usuario" minlength="4" maxlength="12" required>
+                        <label for="floatingInput">usuari@</label>
+                        <% if (locals.errors && errors.user) { %>
+                            <div class="error">
+                                <%= errors.user.msg %>
+                            </div>
+                        <% } %>
+
                 
-                <label for="user">Nombre de usuari@</label>
-                <p><input type="text" name="user" placeholder="Ingrese su usuario" minlength="4" maxlength="12" required>
-                    </input></p>
-                
-                <label for="email">E-mail</label>
-                <p><input type="email" name="email" placeholder="Ingrese su correo electronico" required>
-                    </input></p>
-                
+               
+
+                    <div class="form-floating formulario login">
+                        <input type="email" name="email" class="form-control" id="floatingInput" placeholder="Ej: usuario@animalia.com.ar" required>
+                        <label for="floatingInput">Correo electrónico</label>
+                        <% if (locals.errors && errors.email) { %>
+                            <div class="error">
+                                <%= errors.email.msg %>
+                            </div>
+                        <% } %>
+
+                    
                 <!--
                 <p><input type="date" name="fecha" value="2020-03-19" required>
                     <label for="birth">Fecha de nacimiento</label>
                         <br>
                     </input></p> -->
-                    <label for="address">Dirección</label>
-                    <p><input type="text" name="address" placeholder="Ingrese su dirección">
-                    </input></p>
-                    
-                    <label for="password"> Elige una contraseña </label>
-                    <p><input type="password" name="password" placeholder="Al menos 6 caracteres alfanuméricos"required></input></p>
+                                     
+
+                    <div class="form-floating formulario login">
+                        <input type="text" name="address" class="form-control" id="floatingInput" placeholder="Ingrese su dirección" required>
+                        <label for="floatingInput">Dirección</label>
+                        <% if (locals.errors && errors.address) { %>
+                            <div class="error">
+                                <%= errors.address.msg %>
+                            </div>
+                        <% } %>
+
+
+
                     <!-- Pendiente boton para mostrar contraseña -->
+                    <div class="form-floating formulario login">
+                        <input type="password" name="password" class="form-control" id="floatingInput" placeholder="Al menos 6 caracteres alfanuméricos" required>
+                        <label for="floatingInput">Contraseña</label>
+                        <% if (locals.errors && errors.password) { %>
+                            <div class="error">
+                                <%= errors.password.msg %>
+                            </div>
+                        <% } %>
+
+
+              
+                    <div class="form-floating formulario login">
+                        <input type="password" name="confirmPassword" class="form-control" id="floatingInput" placeholder="Confirmá tu contraseña" required>
+                        <label for="floatingInput">Repetir contraseña</label>
+                        <% if (locals.errors && errors.password) { %>
+                            <div class="error">
+                                <%= errors.password.msg %>
+                            </div>
+                        <% } %>
+
+
+
+                        
+                        <div class="form-floating formulario login">
+                            <input type="file" name="avatar" class="form__input" id="floatingInput" accept=".jpg" multiple></p><br>
+                            <label for="avatar"></label>
+                            <% if (locals.errors && errors.password) { %>
+                                <div class="error">
+                                    <%= errors.password.msg %>
+                                </div>
+                            <% } %>
                     
-                    <label for="confirmPassword">Reingresá la contraseña elegida</label>
-                    <p><input type="password" name="confirmPassword" placeholder="Confirmá tu contraseña"required></input></p>
-                    
-                    <label for="images" class="form__label">Foto de Perfil *</label><br>
-                    <p><input type="file" name="avatar" class="form__input" accept=".jpg" multiple></p><br>
                     <br>
                     <button type="submit" value="Crear cuenta">Crear cuenta</button>
             </form>
