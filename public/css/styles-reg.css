@@ -73,12 +73,8 @@ font-size: 15px;
     font-size: 10px;
     margin-top: 4px;
     min-width: 25vw;
-<<<<<<< HEAD
     max-width: 25vw;
     height: 55px;
-=======
-    height: 44px;
->>>>>>> 461d167c8de32e107ba70b975f6930bcdbc7d91a
     line-height: 15px;
     display: flex;
     background-color: var(--blanco);
