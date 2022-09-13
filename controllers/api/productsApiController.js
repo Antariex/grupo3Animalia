@@ -19,11 +19,15 @@ const productsApiController = {
                 },
                 data: products.map(products => {
                     return {
+                        id: products.id,
                         name: products.name,
                         category: products.category,
+                        subcategory: products.subcategory,
                         price: products.price,
                         discount: products.discount,
+                        thumbnail: "http://localhost:3000/" + products.thumbnail,
                         description: products.description,
+                        stock: products.stock
                     }
                 })
             }
