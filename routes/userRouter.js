@@ -19,13 +19,15 @@ const storage = multer.diskStorage({
       cb(null, './public/images/avatars');
     },
     filename: (req, file, cb) => {
-      cb(null, Date.now() + '-userImg' + path.extname(file.originalname));
-    },
+      const ext = path.extname(file.originalname)
+      cb(null, Date.now() + '-userAvatar' + ext);
+  },
   });
 
   /* Multer SEND */
   const upload = multer({ storage: storage });
 
+<<<<<<< HEAD
   // #####CRUD Users##############
   //Ruta Login form //
   //router.get('/login', DBUserController.login);
@@ -33,6 +35,14 @@ const storage = multer.diskStorage({
   router.get('/login', guestMiddleware, DBUserController.login);
   router.post('/login', registerValidationsMiddleware, loginValidationsMiddleware, DBUserController.loginValidation);
   router.get('/admin', DBUserController.admin);
+=======
+
+  /*Ruta del Login y Login Admin*/
+router.get('/admin', DBUserController.admin);
+
+router.get('/login', guestMiddleware, DBUserController.login);
+router.post('/login', upload.single('avatar'), registerValidationsMiddleware, DBUserController.login);
+>>>>>>> 461d167c8de32e107ba70b975f6930bcdbc7d91a
 
   //Ruta del Register form
   router.post('/register', upload.single('avatar'), registerValidationsMiddleware, DBUserController.create);

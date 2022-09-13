@@ -107,7 +107,7 @@ const DBProductsController = {
             }
             });
             res.redirect('/products/productDetail/' + req.params.id)
-    }
+    },
 }
 
 module.exports = DBProductsController;

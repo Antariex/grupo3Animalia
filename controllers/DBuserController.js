@@ -120,6 +120,7 @@ const DBUserController = {
               })
   },
 
+<<<<<<< HEAD
   //###### VISUALIZACION DE LA CREDENCIAL (PROFILE) DEL USUARIO ##########
   /* Método ProfileAcces, ingresando el mail del usuario accedemos a su credencial*/
 /*
@@ -203,10 +204,25 @@ db.User.findOne({
         stock: req.body.stock
         
 
+=======
+ 
+  //###### CREACION DE USUARIO ##########
+  create: (req, res) => {
+    const resultValidation = validationResult(req)
+    console.log("create")
+    if (resultValidation.errors.length > 0) {
+      return res.render('./users/register', {
+        errors: resultValidation.mapped(),
+        oldData: req.body
+      })
+    }
+    db.User.findOne({
+>>>>>>> 461d167c8de32e107ba70b975f6930bcdbc7d91a
         where: {
           email: req.body.email
         }
       })
+<<<<<<< HEAD
         
         where: {
           email: {
@@ -225,17 +241,106 @@ db.User.findOne({
 
 
 /*
+=======
+
+      .then(emailInUse => {
+        if (emailInUse) {
+          return res.render('./users/register', {
+
+            errors: {
+              email: {
+                msg: 'Este email ya tiene una cuenta en Animalia.'
+              }
+            },
+            oldData: req.body
+          })
+        } else if (emailInUse == null) {
+          let image
+
+          if (req.file != undefined) {
+              image = req.file.filename
+
+          } else {
+              image = 'avatar.png'
+          }
+        //delete req.body.confirmPassword
+
+        let userToCreate = ({
+          ...req.body,
+          permission_id: 1, //esto lo asignamos para definir si es usuario o admin pero hay que hacerlo desde la vista ejs
+          password: bcrypt.hashSync(req.body.password, 10),
+          avatar: req.file ? req.file.filename : 'default.png'
+        })
+
+        db.User.create(userToCreate);
+
+        res.redirect('/')
+      } 
+    })
+  },
+
+   profile: (req, res) => {
+  res.render('./users/login_success', { user: req.session.userLogged })
+  },
+
+  profileAccess: (req, res) => {
+     res.render('./users/profile', { user: req.session.userLogged })
+   },
+
+   
+  //############ ACTUALIZAR PERFIL USUARIO ##############
+  profileUpdate: (req, res) => {
+    let user = db.User.findIndex((element => {
+      return element.id === parseInt(req.params.id)
+    }))
+  },
+
+   edit: (req, res) => {
+    db.User.findOne({
+        where: {
+            email: {
+                [Op.like]: req.session.userLogged.email
+            }
+        }
+    }).then(user => {
+        res.render("edit-profile", {
+            user
+        })
+    })
+},
+
+
+  logout: (req, res) => {
+    res.clearCookie('userKey');
+    req.session.destroy();
+    return res.redirect('/')
+  },
+  }
+
+
+   /*
+>>>>>>> 461d167c8de32e107ba70b975f6930bcdbc7d91a
    //########## PERFIL DE USUARIO ################
   profileAccess: (req, res) => {
      res.render('./users/profile', { user: req.session.userLogged })
    },
 
 
+<<<<<<< HEAD
  /*esto teníamos
       loginValidation: (req, res) => {
           let userToLogin = db.User.findByField('email', req.body.email)
           if (userToLogin) {
             let passwordCheck = bcryptjs.compareSync(req.body.password, userToLogin.password)
+=======
+
+ /*
+         //esto teníamos
+      loginValidation: (req, res) => {
+          let userToLogin = db.User.findByField('email', req.body.email)
+          if (userToLogin) {
+            let passwordCheck = bcrypt.compareSync(req.body.password, userToLogin.password)
+>>>>>>> 461d167c8de32e107ba70b975f6930bcdbc7d91a
             if (passwordCheck) {
               delete userToLogin.password;
               req.session.userLogged = userToLogin;
@@ -243,6 +348,10 @@ db.User.findOne({
                 res.cookie('userKey',req.body.email, {maxAge: (1000 * 60) * 60})
               }
               return res.redirect('/users/profile')
+<<<<<<< HEAD
+=======
+
+>>>>>>> 461d167c8de32e107ba70b975f6930bcdbc7d91a
             }
           }
           return res.render('./users/login', {
@@ -254,6 +363,12 @@ db.User.findOne({
           })
           console.log("req", req.body)
         },
+<<<<<<< HEAD
+=======
+
+       */
+
+>>>>>>> 461d167c8de32e107ba70b975f6930bcdbc7d91a
     /* #### iteración en el JSon#####
     users[user].firstName = req.body.firstName === "" ? users[user].productName : req.body.firstName;
     users[user].lastName = req.body.lastName === "" ? users[user].lastName : req.body.lastName;
