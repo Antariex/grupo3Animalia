@@ -34,7 +34,7 @@ module.exports = (sequelize, dataTypes) =>  {
         },
         thumbnail: {
             type: dataTypes.STRING(100),
-            allowNull: true
+            allowNull: false
         }
     }
     let config = {
