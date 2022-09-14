@@ -12,11 +12,13 @@ const isAdminMiddleware = require('../middlewares/isAdminMiddleware');
 const loginValidationsMiddleware = require('../middlewares/loginValidationsMiddleware');
 const registerValidationsMiddleware = require('../middlewares/registerValidationsMiddleware');
 const userLoggedMiddleware = require('../middlewares/userLoggedMiddleware');
+const imgFilePath = path.join(__dirname, "../public/images/avatars");
 
 /* Config del Multer */
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
       cb(null, './public/images/avatars');
+      //cb(null, imgFilePath);
     },
     filename: (req, file, cb) => {
       cb(null, Date.now() + '-userImg' + path.extname(file.originalname));
@@ -35,7 +37,7 @@ const storage = multer.diskStorage({
   router.get('/admin', DBUserController.admin);
 
   //Ruta del Register form
-  router.post('/register', upload.single('avatar'), registerValidationsMiddleware, DBUserController.create);
+  router.post('/register', upload.single('thumbnail'), registerValidationsMiddleware, DBUserController.create);
 
   //router.post('./login',loginValidationsMiddleware, DBUserController.loginValidation);
   /* Register */

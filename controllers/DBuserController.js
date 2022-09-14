@@ -105,8 +105,8 @@ const DBUserController = {
                       let image
                             if (req.file != undefined) {
                                 image = req.file.filename
-                                  }else{
-                                      image = 'avatar.png'
+                                  //}else{
+                                     // image = 'avatar.png'
                                         }
                                 let hashPassword = bcryptjs.hashSync(req.body.password, 10)
                                 console.log(hashPassword);
@@ -114,7 +114,7 @@ const DBUserController = {
                                 ...req.body,
                                 permission_id: 2, //esto lo asignamos para definir si es usuario o admin 
                                 password: hashPassword,
-                                avatar: req.file ? req.file.filename : 'default.png'
+                                thumbnail: req.file ? req.file.filename : 'thumbnail.png'
                                 })
                           db.User.create(userToCreate);
                           res.redirect('/')
