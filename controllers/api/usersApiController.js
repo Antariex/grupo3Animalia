@@ -9,7 +9,7 @@ const Categories = db.Category;
 const Users = db.User;
 
 const usersApiController = {
-    list: (req,res) => {
+    /*list: (req,res) => {
         db.User.findAll()
         .then(users => {
             let respuesta = {
@@ -23,7 +23,7 @@ const usersApiController = {
             res.json(respuesta);
         })
     },
-
+*/
 /*
     totalUsers: async (req, res) => {
         let User = await db.User.findAll()
@@ -35,6 +35,33 @@ const usersApiController = {
                },
 
 */
+
+
+list: (req, res) => {
+    db.User.findAll({
+      attributes: ["id", "permission_id",  "name", "user", "email", "address", "password", "thumbnail"],
+    })
+    .then((users) => {
+      for (let i = 0; i < users.length; i++) {
+        users[i].setDataValue(
+          "detail",
+          "http://localhost:3000/api/users/" + users[i].id
+        );
+
+        users[i].setDataValue(
+          "imagen",
+          "http://localhost:3000/images/avatars/" + users[i].thumbnail
+        );
+      }
+
+      res.status(200).json({
+        total: users.length,
+        data: users,
+        status: 200,
+      });
+    });
+  },
+
 
 
 
