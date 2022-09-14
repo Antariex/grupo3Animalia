@@ -128,19 +128,19 @@
                         <% } %>
 
 
-                        <div class="formulario-general-login">
+                        <!--<div class="formulario-general-login">
                             <p>Foto de perfil</p>
                             <input type="file" name="thumbnail">
                         </div>div>
-                        <!--lo que sigue teníamos - pruebo con lo de arriba
+                        lo que sigue teníamos - pruebo con lo de arriba-->
                             <div class="form-floating formulario login">
-                            <input type="file" name="avatar" class="form__input" id="floatingInput" accept=".jpg" multiple></p><br>
-                            <label for="avatar"></label>
+                            <input type="file" name="thumbnail" class="form__input" id="floatingInput" accept=".jpg" multiple></p><br>
+                            <label for="thumbnail"></label>
                             <% if (locals.errors && errors.password) { %>
                                 <div class="error">
                                     <%= errors.password.msg %>
                                 </div>
-                            <% } %>-->
+                            <% } %>
                     
                     <br>
                     <button type="submit" value="Crear cuenta">Crear cuenta</button>
