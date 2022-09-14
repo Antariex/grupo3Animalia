@@ -8,21 +8,21 @@ const Users = db.User;
 
 const productsApiController = {
     list: (req,res) => {
-        db.Product.findAll({include: ['category']})
+        db.Product.findAll({include: ['category', 'subcategory']})
 
         .then(products => {
             let respuesta = {
                 meta: {
                     status: 200,
-                    total: products.length,
+                    totalProducts: products.length,
                     url: 'api/products'
                 },
                 data: products.map(products => {
                     return {
                         id: products.id,
+                        category: products.category.category,
+                        subcategory: products.subcategory.subcategory,
                         name: products.name,
-                        category: products.category,
-                        subcategory: products.subcategory_id,
                         price: products.price,
                         discount: products.discount,
                         thumbnail: "http://localhost:3000/" + products.thumbnail,
