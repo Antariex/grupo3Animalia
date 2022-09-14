@@ -12,6 +12,7 @@ const { application } = require('express');
 const apiProductsRouter= require('./routes/api/productsApiRoutes');
 const apiCategoriesRouter= require('./routes/api/categoriesApiRoutes');
 const apiUsersRouter= require('./routes/api/usersApiRoutes');
+const apiSubcategoriesRouter= require('./routes/api/subcategoriesApiRoutes');
 
 // Express
 const app = express();
@@ -72,6 +73,7 @@ app.use('/users', userRouter)
 app.use('/api/products',apiProductsRouter);
 app.use('/api/users',apiUsersRouter);
 app.use('/api/categories',apiCategoriesRouter);
+app.use('/api/subcategories',apiSubcategoriesRouter);
 
 
 
