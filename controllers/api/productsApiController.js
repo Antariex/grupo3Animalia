@@ -25,7 +25,7 @@ const productsApiController = {
                         name: products.name,
                         price: products.price,
                         discount: products.discount,
-                        thumbnail: "http://localhost:3000/" + products.thumbnail,
+                        thumbnail: "http://localhost:3000/images/products/" + products.thumbnail,
                         description: products.description,
                         stock: products.stock
                     }
@@ -55,7 +55,7 @@ const productsApiController = {
         let ofertas =  db.Product.count({
 			where: { category_id: 6 }
 		});
-               
+             /*  
 		Promise.all([perros,gatos,aves,roedores,peces,ofertas])
 		.then(([perros,gatos,aves,roedores,peces,ofertas]) => {
            
@@ -71,10 +71,34 @@ const productsApiController = {
                 meta: {
                     status: 200,
                     },
-                urlProductsList: "api/products/productsList"
+                urlProductsList: "api/products/countCategory"
             })
         })
         },
+
+*/
+
+
+
+Promise.all([perros,gatos,aves,roedores,peces,ofertas])
+		.then(([perros,gatos,aves,roedores,peces,ofertas]) => {
+            let respuesta = {
+                perros: perros,
+                gatos: gatos,
+                aves: aves,
+                roedores: roedores,
+                peces: peces,
+                ofertas: ofertas,
+                urlProductsByCayetgory: "api/products/countCategory"
+            }
+			return res.json(respuesta)
+                
+            }
+            )
+        },
+      
+
+
 
 
         productBySubcategory:  (req, res) => {
@@ -98,21 +122,17 @@ const productsApiController = {
             Promise.all([alimentos,farmacia,cuidadosYBelleza,juguetes,otrosArticulos])
             .then(([alimentos,farmacia,cuidadosYBelleza,juguetes,otrosArticulos]) => {
                
-                return res.json({
-                   ProductsByCategory: {
+               let respuesta = {
                         alimentos:alimentos,
                         farmacia: farmacia,
                         cuidadosYBelleza: cuidadosYBelleza,
                         juguetes: juguetes,
-                        otrosArticulos: otrosArticulos
-                    },
-                    meta: {
-                        status: 200,
-                        },
-                    urlProductsList: "api/products/countlistsub"
+                        otrosArticulos: otrosArticulos,
+                        urlProductsBySubcategory: "api/products/countSubcategory"
+                    }   
+                    return res.json(respuesta)
                 })
-            })
-            },
+            },            
 
 
 
