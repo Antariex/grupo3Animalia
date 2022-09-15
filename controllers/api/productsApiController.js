@@ -55,28 +55,7 @@ const productsApiController = {
         let ofertas =  db.Product.count({
 			where: { category_id: 6 }
 		});
-             /*  
-		Promise.all([perros,gatos,aves,roedores,peces,ofertas])
-		.then(([perros,gatos,aves,roedores,peces,ofertas]) => {
-           
-            return res.json({
-               ProductsByCategory: {
-                    perros: perros,
-                    gatos: gatos,
-                    aves: aves,
-                    roedores: roedores,
-                    peces: peces,
-                    ofertas: ofertas,
-                },
-                meta: {
-                    status: 200,
-                    },
-                urlProductsList: "api/products/countCategory"
-            })
-        })
-        },
-
-*/
+             
 
 
 
@@ -89,7 +68,7 @@ Promise.all([perros,gatos,aves,roedores,peces,ofertas])
                 roedores: roedores,
                 peces: peces,
                 ofertas: ofertas,
-                urlProductsByCayetgory: "api/products/countCategory"
+                urlProductsByCategory: "api/products/countCategory"
             }
 			return res.json(respuesta)
                 
