@@ -25,7 +25,7 @@ const productsApiController = {
                         name: products.name,
                         price: products.price,
                         discount: products.discount,
-                        thumbnail: products.thumbnail,
+                        thumbnail: "http://localhost:3000/images/products/" + products.thumbnail,
                         description: products.description,
                         stock: products.stock
                     }
